@@ -1,0 +1,14 @@
+zerodur     0.0101e-6
+lf5         9.1e-6
+sfpl51     13.1e-6
+sfpl53     14.5e-6
+sbsl7      7.2e-6
+sbam4      8.4e-6
+slal10     6.1e-6
+alum5083   20.3151e-6
+silica     0.51e-6
+stim2      8.1e-6
+caf2       11.1e-6
+infrasil   -0.23e-6
+sftm16     6.748e-06
+znse       4.6e-6
