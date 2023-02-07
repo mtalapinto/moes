@@ -10,6 +10,7 @@ In the most cases the modules that describe the optical elements of the spectrog
 
 ### Dependencies
 **Python 3.8+ highly recommended!**
+
 **moes** makes use of the following python libraries: numpy, astropy, scipy, simanneal, dynesty, matplotlib
 
 ### Downloading
@@ -23,6 +24,9 @@ The function *run_instrument_model()* creates a ray tracing model of the instrum
 The function *fit_instrument_model(type)* starts an optimization algorithm to fit a ray tracing instrument model to the calibration data. There are two types of optimizers implemented: simulated annealing (*type=simulated-annealing*) and nested sampling (*type=nested-sampling*).
 Once found the best-fit instrumental parameters, one can calculate chromatic aberrations by using the function *fit_chromatic_aberrations()*.
 Finally, once one has corrected for chromatic aberrations, it is possible to estimate the amount of optical aberrations using the function *fit_optical_aberrations()*.
+
+We emphasize that these functions work as an example for running the **moes** package to create a spectrograph model and find its best fit parameters. 
+In each instrument folder there is a *data* folder that contain the instrumental and aberrations parameters for the example of the basic functions shown above, the time series of the *caracal* wavelength solutions and the time series of the **moes** instrumental and aberration parameters that best fit the *caracal* data.
 
 ## Authors
 
