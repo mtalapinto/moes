@@ -28,6 +28,25 @@ Finally, once one has corrected for chromatic aberrations, it is possible to est
 We emphasize that these functions work as an example for running the **moes** package to create a spectrograph model and find its best fit parameters. 
 In each instrument folder there is a *data* folder that contain the instrumental and aberrations parameters for the example of the basic functions shown above, the time series of the *caracal* wavelength solutions and the time series of the **moes** instrumental and aberration parameters that best fit the *caracal* data.
 
+### Additional data
+Using the results from **caracal** and **moes** it is possible to compute the temperature zero points (TZP) from the calculation of differential drifts.
+
+Differential drifts are defined by
+
+$\delta f_n = \frac{1}{N_n}\sum_{k=1}^{N_n} \delta f_{n, k}$
+
+with 
+
+$\delta f_{n, k} = (x_{{\rm A},k} - x_{{\rm B},k})_n~~$
+
+
+where $x_{{\rm A},k}$ and $x_{{\rm B},k}$ are the wavelength positions for the science and calibration spectra in pixels, respectively, $\delta f_{n, k}$ denotes the difference between the x-positions of the science and calibration spectra, and $\delta f_{n}$ is the average of $\delta f_{n, k}$ for a given night $n$. The TZP are defined as 
+
+${\rm TZP}_i = s\cdot[\delta f_{n,{\rm M}} + \delta f_{i, {\tt C}}(\Vec{T_i}) - \delta f_{n, {\tt C}}(\Vec{T_c})]~~$
+
+where $s$ is the pixel-to-rv scaling factor, and $\Vec{T_i}$ and $\Vec{T_c}$ correspond to the environmental vectors with temperatures and pressure measured at the observation and calibration times, respectively. The $i$-index refers to each single science observation.
+
+
 ## Authors
 
 Marcelo Tala Pinto 
