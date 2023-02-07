@@ -1,2 +1,33 @@
 # moes
+
 Ray tracing algorithm for echelle spectrographs
+
+## Description
+
+moes a ray tracing package written in python that calculates the path of single rays through optical surfaces based on Fermat's principle. It models the optical paths of light rays through an echelle spectrograph from the slit to the detector. It can be used to build the spectrograph's wavelength solution and to characterize the expected instrumental RV systematics arising from changes in spectrograph's environment.
+
+In the most cases the modules that describe the optical elements of the spectrograph are: slit, FN-system (FN stands for F-number, also known as focal ratio), collimator, echelle grating, transfer mirror, cross-dispersion grism, camera and detector.
+
+### Dependencies
+**Python 3.8+ highly recommended!**
+**moes** makes use of the following python libraries: numpy, astropy, scipy, simanneal, dynesty, matplotlib
+
+### Downloading
+
+The code is self-contained therefore it is not necessary to install anything. Just download the instrument folder and run the *optimization.py* script by doing *python3 optimization.py*.
+
+### Running **moes**
+
+Each instrument folder has an *optimization.py* file that contains three functions. 
+The function *run_instrument_model()* creates a ray tracing model of the instrument based on a list of spectral lines provided by the **caracal** (https://github.com/caracal-pipeline/caracal) pipeline. 
+The function *fit_instrument_model(type)* starts an optimization algorithm to fit a ray tracing instrument model to the calibration data. There are two types of optimizers implemented: simulated annealing (*type=simulated-annealing*) and nested sampling (*type=nested-sampling*).
+Once found the best-fit instrumental parameters, one can calculate chromatic aberrations by using the function *fit_chromatic_aberrations()*.
+Finally, once one has corrected for chromatic aberrations, it is possible to estimate the amount of optical aberrations using the function *fit_optical_aberrations()*.
+
+## Authors
+
+Marcelo Tala Pinto 
+
+## Version History
+
+moes v1.0
