@@ -46,7 +46,7 @@ $TZP_i = s\cdot (\delta f_{n, M} + \delta f_{i, C} (T_i) - \delta f_{n, C}(T_c))
 
 where $s$ is the pixel-to-rv scaling factor, and $T_i$ and $T_c$ correspond to the environmental vectors with temperatures and pressure measured at the observation and calibration times, respectively. The $i$-index refers to each single science observation.
 
-The time series of the differential drifts and TZPs calculated using **moes** can be found in the *data/drifts/* and in the *data/tzp/* folders.
+The time series of the CARMENES VIS differential drifts and TZPs calculated using **moes** can be found in the *data/drifts/* and in the *data/tzp/* folders.
 
 ## Authors
 
