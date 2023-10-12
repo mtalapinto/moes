@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J15598-082 autolis/J15598-082.lis -inst CARM_VIS -safemode 2 -targ gj606 -snmax 200

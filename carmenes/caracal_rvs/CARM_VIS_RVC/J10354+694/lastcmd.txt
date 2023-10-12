@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J10354+694 autolis/J10354+694.lis -inst CARM_VIS -safemode 2 -targ gj3612 -vrange 30 -rvwarn 30000

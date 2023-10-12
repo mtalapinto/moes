@@ -1,4 +1,3 @@
-import pymultinest
 import numpy as np
 import utils
 import json
@@ -17,6 +16,17 @@ import math
 import warnings
 # matplotlib.use('Qt4agg')
 SQRTEPS = math.sqrt(float(np.finfo(np.float64).eps))
+
+
+def load_coeffs(date, fib):
+    path_chromatic = 'data/aberrations_coefficients/chromatic_coefficients_timeseries/' + str(date) + '/'
+    file_chromatic_coeffs = pd.read_csv(path_chromatic + 'chrome_coeffs_' + str(fib) + '.dat', sep=',')
+    a0 = file_chromatic_coeffs['a0'].values[0]
+    a1 = file_chromatic_coeffs['a1'].values[0]
+    a2 = file_chromatic_coeffs['a2'].values[0]
+    a3 = file_chromatic_coeffs['a3'].values[0]
+
+    return a0, a1, a2, a3
 
 
 def resample_equal(samples, weights, rstate=None):
@@ -100,12 +110,13 @@ def function(x, coefs):
     return coefs[0] * x ** 2 + coefs[1] + coefs[2] * x ** -2 + coefs[3] * x ** -4  # + coefs[4]*x**-6 + coefs[5]*x**-8
 
 
-def correct_dyn(ws_data, ws_model, coord, fiber):
-    x = ws_model[:, 1]  # wavelength
+def correct_dyn(ws_data, ws_model, coord, fiber, date):
+    x = ws_model['wave'].values  # wavelength
     if coord == 'x':
-        y = ws_data[:, 3] - ws_model[:, 2]
+        y = ws_data['posm'].values - ws_model['x'].values
     else:
-        y = ws_data[:, 5] - ws_model[:, 3]  # y coordinate
+        y = ws_data['posmy'].values - ws_model['y'].values  # y coordinate
+
 
     def prior(cube):
         cube[0] = utils.transform_uniform(cube[0], -10., 10.)
@@ -128,7 +139,7 @@ def correct_dyn(ws_data, ws_model, coord, fiber):
         return loglikelihood
 
     n_params = 4
-    outdir = 'data/aberrations_coefficients/chromatic/'
+    outdir = 'data/aberrations_coefficients/chromatic_coefficients_timeseries/'+date+'/'
 
     if not os.path.exists(outdir):
         os.mkdir(outdir)
@@ -175,5 +186,5 @@ def correct_dyn(ws_data, ws_model, coord, fiber):
     outdata['lnZ_err'] = lnZerr
 
     pickle.dump(outdata, open(outdir+'best_fit_pars_'+str(fiber)+'.pkl', 'wb'))
-
+    print('Chromatic correction file written...')
     return a0_end, a1_end, a2_end, a3_end

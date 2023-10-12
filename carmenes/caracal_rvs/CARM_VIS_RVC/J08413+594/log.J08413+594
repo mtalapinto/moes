@@ -1,0 +1,938 @@
+
+SERVAL - SpEctrum Radial Velocity AnaLyser (2019-09-30)
+     by Mathias Zechmeister
+
+start time: 2019-11-06 13:32:45 Wed
+targ.py: restoring 'gj3512' from J08413+594/J08413+594.targ.cvs
+ using sa= 0.371835920189 m/s/yr ra= (8.0, 41.0, 20.1289475639) de= (59.0, 29.0, 50.444849212) pmra= -260.421 pmde= -1279.613
+autolis/J08413+594.lis
+tpl=None pmin=300 nset=slice(None, None, None) omin=10 omax=51
+getting filenames from file ( autolis/J08413+594.lis ):
+1 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-12-29/car-20161229T21h18m51s-sci-gtoc-vis_A.fits
+2 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-01-01/car-20170101T20h48m33s-sci-gtoc-vis_A.fits
+3 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-01-07/car-20170107T22h58m52s-sci-gtoc-vis_A.fits
+4 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-02-03/car-20170203T23h39m03s-sci-gtoc-vis_A.fits
+5 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-03-02/car-20170302T22h50m50s-sci-gtoc-vis_A.fits
+6 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-03-10/car-20170311T01h15m33s-sci-gtoc-vis_A.fits
+7 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-03-20/car-20170320T21h19m07s-sci-gtoc-vis_A.fits
+8 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-04-04/car-20170404T20h23m53s-sci-gtoc-vis_A.fits
+9 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-04-08/car-20170408T21h06m36s-sci-gtoc-vis_A.fits
+10 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-04-12/car-20170412T21h38m24s-sci-gtoc-vis_A.fits
+11 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-04-22/car-20170422T20h18m46s-sci-gtoc-vis_A.fits
+12 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-01/car-20170501T21h01m00s-sci-gtoc-vis_A.fits
+13 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-02/car-20170502T20h41m04s-sci-gtoc-vis_A.fits
+14 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-06/car-20170506T20h47m06s-sci-gtoc-vis_A.fits
+15 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-08/car-20170508T20h21m25s-sci-gtoc-vis_A.fits
+16 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-10/car-20170510T22h42m44s-sci-gtoc-vis_A.fits
+17 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-12/car-20170512T21h05m03s-sci-gtoc-vis_A.fits
+18 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-14/car-20170514T20h54m05s-sci-gtoc-vis_A.fits
+19 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-16/car-20170516T21h50m49s-sci-gtoc-vis_A.fits
+20 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-18/car-20170518T20h40m31s-sci-gtoc-vis_A.fits
+21 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-20/car-20170520T21h26m28s-sci-gtoc-vis_A.fits
+22 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-22/car-20170522T21h09m11s-sci-gtoc-vis_A.fits
+23 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-24/car-20170524T20h22m29s-sci-gtoc-vis_A.fits
+24 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-05-31/car-20170531T21h25m08s-sci-gtoc-vis_A.fits
+25 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-06-09/car-20170609T21h00m39s-sci-gtoc-vis_A.fits
+26 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-09-28/car-20170929T04h25m44s-sci-gtoc-vis_A.fits
+27 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-10-04/car-20171005T04h40m13s-sci-gtoc-vis_A.fits
+28 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-10-26/car-20171027T03h36m01s-sci-gtoc-vis_A.fits
+29 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-11-15/car-20171116T05h00m06s-sci-gtoc-vis_A.fits
+30 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-11-20/car-20171121T04h46m34s-sci-gtoc-vis_A.fits
+31 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-11-26/car-20171127T04h16m31s-sci-gtoc-vis_A.fits
+32 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-11-30/car-20171201T04h08m32s-sci-gtoc-vis_A.fits
+33 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-12-03/car-20171204T03h45m53s-sci-gtoc-vis_A.fits
+34 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-12-05/car-20171206T03h06m44s-sci-gtoc-vis_A.fits
+35 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-12-07/car-20171208T03h48m00s-sci-gtoc-vis_A.fits
+36 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-12-09/car-20171210T03h31m45s-sci-gtoc-vis_A.fits
+37 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-12-17/car-20171218T02h25m35s-sci-gtoc-vis_A.fits
+38 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-12-21/car-20171222T02h45m46s-sci-gtoc-vis_A.fits
+39 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-12-23/car-20171224T05h33m20s-sci-gtoc-vis_A.fits
+40 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-12-29/car-20171230T02h00m51s-sci-gtoc-vis_A.fits
+41 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-12-30/car-20171231T02h00m49s-sci-gtoc-vis_A.fits
+42 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2017-12-31/car-20180101T03h44m46s-sci-gtoc-vis_A.fits
+43 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-01/car-20180101T23h16m31s-sci-gtoc-vis_A.fits
+44 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-01/car-20180102T00h23m15s-sci-gtoc-vis_A.fits
+45 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-02/car-20180103T00h21m47s-sci-gtoc-vis_A.fits
+46 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-03/car-20180104T02h35m08s-sci-gtoc-vis_A.fits
+47 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-04/car-20180105T02h02m23s-sci-gtoc-vis_A.fits
+48 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-08/car-20180109T04h50m31s-sci-gtoc-vis_A.fits
+49 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-11/car-20180112T02h57m01s-sci-gtoc-vis_A.fits
+50 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-12/car-20180113T01h41m07s-sci-gtoc-vis_A.fits
+51 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-13/car-20180114T05h03m53s-sci-gtoc-vis_A.fits
+52 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-16/car-20180117T01h29m54s-sci-gtoc-vis_A.fits
+53 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-17/car-20180117T23h19m40s-sci-gtoc-vis_A.fits
+54 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-19/car-20180120T00h12m13s-sci-gtoc-vis_A.fits
+55 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-20/car-20180121T00h20m47s-sci-gtoc-vis_A.fits
+56 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-21/car-20180121T23h28m31s-sci-gtoc-vis_A.fits
+57 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-22/car-20180123T00h34m53s-sci-gtoc-vis_A.fits
+58 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-23/car-20180124T02h28m32s-sci-gtoc-vis_A.fits
+59 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-24/car-20180124T21h29m53s-sci-gtoc-vis_A.fits
+60 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-01-30/car-20180131T00h31m40s-sci-gtoc-vis_A.fits
+61 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-02-14/car-20180214T20h58m10s-sci-gtoc-vis_A.fits
+62 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-02-16/car-20180216T23h00m41s-sci-gtoc-vis_A.fits
+63 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-02-17/car-20180217T23h03m58s-sci-gtoc-vis_A.fits
+64 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-02-19/car-20180220T01h51m51s-sci-gtoc-vis_A.fits
+65 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-02-20/car-20180221T03h52m22s-sci-gtoc-vis_A.fits
+66 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-02-21/car-20180221T22h33m49s-sci-gtoc-vis_A.fits
+67 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-02-22/car-20180222T22h28m53s-sci-gtoc-vis_A.fits
+68 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-02-24/car-20180224T22h26m31s-sci-gtoc-vis_A.fits
+69 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-02-25/car-20180225T22h10m20s-sci-gtoc-vis_A.fits
+70 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-03-04/car-20180304T22h08m41s-sci-gtoc-vis_A.fits
+71 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-03-08/car-20180309T01h28m35s-sci-gtoc-vis_A.fits
+72 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-03-09/car-20180309T22h46m48s-sci-gtoc-vis_A.fits
+73 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-03-10/car-20180310T22h25m31s-sci-gtoc-vis_A.fits
+74 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-03-21/car-20180321T20h48m36s-sci-gtoc-vis_A.fits
+75 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-03-22/car-20180322T20h44m36s-sci-gtoc-vis_A.fits
+76 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-03-27/car-20180327T20h36m42s-sci-gtoc-vis_A.fits
+77 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-03-28/car-20180328T20h31m32s-sci-gtoc-vis_A.fits
+78 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-03-29/car-20180329T20h15m11s-sci-gtoc-vis_A.fits
+79 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-03-31/car-20180331T20h58m33s-sci-gtoc-vis_A.fits
+80 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-02/car-20180402T21h06m54s-sci-gtoc-vis_A.fits
+81 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-03/car-20180403T20h38m08s-sci-gtoc-vis_A.fits
+82 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-04/car-20180404T21h09m10s-sci-gtoc-vis_A.fits
+83 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-06/car-20180406T20h22m13s-sci-gtoc-vis_A.fits
+84 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-07/car-20180407T19h52m26s-sci-gtoc-vis_A.fits
+85 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-08/car-20180408T19h50m12s-sci-gtoc-vis_A.fits
+86 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-09/car-20180409T19h47m33s-sci-gtoc-vis_A.fits
+87 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-16/car-20180416T21h01m50s-sci-gtoc-vis_A.fits
+88 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-20/car-20180420T22h11m56s-sci-gtoc-vis_A.fits
+89 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-27/car-20180427T22h35m34s-sci-gtoc-vis_A.fits
+90 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-28/car-20180428T20h10m28s-sci-gtoc-vis_A.fits
+91 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-04-29/car-20180429T20h41m18s-sci-gtoc-vis_A.fits
+92 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-04/car-20180504T20h57m34s-sci-gtoc-vis_A.fits
+93 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-06/car-20180506T22h18m57s-sci-gtoc-vis_A.fits
+94 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-07/car-20180507T22h29m19s-sci-gtoc-vis_A.fits
+95 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-10/car-20180510T23h36m39s-sci-gtoc-vis_A.fits
+96 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-12/car-20180512T20h36m01s-sci-gtoc-vis_A.fits
+97 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-21/car-20180521T21h33m48s-sci-gtoc-vis_A.fits
+98 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-22/car-20180522T21h01m34s-sci-gtoc-vis_A.fits
+99 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-23/car-20180523T21h01m42s-sci-gtoc-vis_A.fits
+100 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-24/car-20180524T21h45m22s-sci-gtoc-vis_A.fits
+101 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-25/car-20180525T21h31m06s-sci-gtoc-vis_A.fits
+102 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-26/car-20180526T21h56m52s-sci-gtoc-vis_A.fits
+103 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-27/car-20180527T21h33m56s-sci-gtoc-vis_A.fits
+104 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-05-31/car-20180531T20h36m40s-sci-gtoc-vis_A.fits
+105 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-06-01/car-20180601T21h08m36s-sci-gtoc-vis_A.fits
+106 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-06-07/car-20180607T21h11m16s-sci-gtoc-vis_A.fits
+107 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-08-28/car-20180829T04h05m40s-sci-gtoc-vis_A.fits
+108 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-08-29/car-20180830T04h19m16s-sci-gtoc-vis_A.fits
+109 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-08-30/car-20180831T03h56m48s-sci-gtoc-vis_A.fits
+110 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-08-31/car-20180901T04h05m39s-sci-gtoc-vis_A.fits
+111 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-03/car-20180904T03h46m20s-sci-gtoc-vis_A.fits
+112 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-04/car-20180905T04h17m49s-sci-gtoc-vis_A.fits
+113 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-05/car-20180906T04h10m30s-sci-gtoc-vis_A.fits
+114 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-06/car-20180907T03h25m29s-sci-gtoc-vis_A.fits
+115 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-06/car-20180907T04h00m02s-sci-gtoc-vis_A.fits
+116 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-08/car-20180909T04h22m09s-sci-gtoc-vis_A.fits
+117 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-09/car-20180910T04h34m58s-sci-gtoc-vis_A.fits
+118 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-13/car-20180914T04h37m33s-sci-gtoc-vis_A.fits
+119 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-17/car-20180918T04h25m53s-sci-gtoc-vis_A.fits
+120 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-18/car-20180919T04h30m05s-sci-gtoc-vis_A.fits
+121 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-19/car-20180920T04h31m34s-sci-gtoc-vis_A.fits
+122 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-20/car-20180921T04h13m05s-sci-gtoc-vis_A.fits
+123 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-23/car-20180924T04h28m22s-sci-gtoc-vis_A.fits
+124 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-09-28/car-20180929T04h26m31s-sci-gtoc-vis_A.fits
+125 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-10-01/car-20181002T03h34m04s-sci-gtoc-vis_A.fits
+126 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-10-06/car-20181007T04h30m18s-sci-gtoc-vis_A.fits
+127 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-10-13/car-20181014T03h53m40s-sci-gtoc-vis_A.fits
+128 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-10-21/car-20181022T04h01m44s-sci-gtoc-vis_A.fits
+129 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-11-01/car-20181102T04h46m35s-sci-gtoc-vis_A.fits
+130 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-11-03/car-20181104T04h09m29s-sci-gtoc-vis_A.fits
+131 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-11-06/car-20181107T04h15m46s-sci-gtoc-vis_A.fits
+132 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-11-08/car-20181109T05h12m54s-sci-gtoc-vis_A.fits
+133 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-11-10/car-20181111T04h58m31s-sci-gtoc-vis_A.fits
+134 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-11-26/car-20181127T03h07m17s-sci-gtoc-vis_A.fits
+135 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-12-05/car-20181206T02h48m28s-tst-vis_A.fits
+136 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-12-05/car-20181206T02h50m19s-sci-gtoc-vis_A.fits
+137 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-12-13/car-20181214T05h12m46s-sci-gtoc-vis_A.fits
+138 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2018-12-21/car-20181222T02h48m21s-sci-gtoc-vis_A.fits
+139 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-01-01/car-20190102T02h13m13s-sci-gtoc-vis_A.fits
+140 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-01-08/car-20190109T01h21m25s-sci-gtoc-vis_A.fits
+141 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-01-15/car-20190116T01h20m13s-sci-gtoc-vis_A.fits
+142 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-01-26/car-20190127T03h07m35s-sci-gtoc-vis_A.fits
+143 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-02-03/car-20190204T02h28m52s-sci-gotc-vis_A.fits
+144 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-02-09/car-20190210T02h11m35s-sci-gtoc-vis_A.fits
+145 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-02-14/car-20190214T22h24m58s-sci-gtoc-vis_A.fits
+146 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-02-19/car-20190219T23h35m21s-sci-gtoc-vis_A.fits
+147 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-02-24/car-20190225T00h01m15s-sci-gtoc-vis_A.fits
+148 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-03-01/car-20190302T02h08m21s-sci-gtoc-vis_A.fits
+149 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-03-10/car-20190310T23h43m35s-sci-gtoc-vis_A.fits
+150 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-03-15/car-20190315T20h35m31s-sci-gtoc-vis_A.fits
+151 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-03-17/car-20190317T20h24m39s-sci-gtoc-vis_A.fits
+152 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-03-21/car-20190322T01h32m40s-sci-gtoc-vis_A.fits
+153 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-03-25/car-20190326T00h52m14s-sci-gtoc-vis_A.fits
+154 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-03-27/car-20190328T00h26m41s-sci-gtoc-vis_A.fits
+155 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-04-02/car-20190403T01h51m24s-sci-gtoc-vis_A.fits
+156 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-04-13/car-20190413T20h55m57s-sci-gtoc-vis_A.fits
+157 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-04-24/car-20190425T00h11m29s-sci-gtoc-vis_A.fits
+158 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-05-05/car-20190505T22h50m35s-sci-gtoc-vis_A.fits
+159 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-05-12/car-20190512T21h47m39s-sci-gtoc-vis_A.fits
+160 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-05-22/car-20190522T22h23m43s-sci-gtoc-vis_A.fits
+161 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-05-29/car-20190529T21h04m27s-sci-gtoc-vis_A.fits
+162 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-06-06/car-20190606T21h16m18s-sci-gtoc-vis_A.fits
+163 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-06-14/car-20190614T20h46m24s-sci-gtoc-vis_A.fits
+164 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-09-17/car-20190918T04h05m45s-sci-gtoc-vis_A.fits
+165 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-09-29/car-20190930T03h45m39s-sci-gtoc-vis_A.fits
+166 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-10-06/car-20191007T04h03m40s-sci-gtoc-vis_A.fits
+167 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-10-14/car-20191015T04h02m25s-sci-gtoc-vis_A.fits
+168 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-10-25/car-20191026T03h17m09s-sci-gtoc-vis_A.fits
+169 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2019-11-03/car-20191104T05h05m02s-sci-gtoc-vis_A.fits
+maskfile /users/zechmeister/carmenes/serval/lib/telluric_mask_carm_short.dat
+using telluric mask:  /users/zechmeister/carmenes/serval/lib/telluric_mask_carm_short.dat
+    # inst_mode      timeid                                     OBJECT    BJD        SN  DRSBERV  DRSdrift flag calmode
+  1/169 scan CARM_VIS: car-20161229T21h18m51s-sci-gtoc-vis.fits J08413+594 2457752.40227 46.255 6.925318 7.34509 0 OBJ,FP
+The IERS Bulletin download may take a few minutes.
+  2/169 scan CARM_VIS: car-20170101T20h48m33s-sci-gtoc-vis.fits J08413+594 2457755.38181 36.906 5.749458 -0.651275 0 OBJ,FP
+  3/169 scan CARM_VIS: car-20170107T22h58m52s-sci-gtoc-vis.fits J08413+594 2457761.47233 37.989 3.230717 5.18846 0 OBJ,FP
+  4/169 scan CARM_VIS: car-20170203T23h39m03s-sci-gtoc-vis.fits J08413+594 2457788.49913 22.294 -7.736076 2.88828 0 OBJ,FP
+  5/169 scan CARM_VIS: car-20170302T22h50m50s-sci-gtoc-vis.fits J08413+594 2457815.46529 42.557 -16.795947 0.94675 0 OBJ,FP
+  6/169 scan CARM_VIS: car-20170311T01h15m33s-sci-gtoc-vis.fits J08413+594 2457823.56534 51.013 -18.933227 5.79135 0 OBJ,FP
+  7/169 scan CARM_VIS: car-20170320T21h19m07s-sci-gtoc-vis.fits J08413+594 2457833.39929 30.427 -20.756213 -9.33636 0 OBJ,FP
+  8/169 scan CARM_VIS: car-20170404T20h23m53s-sci-gtoc-vis.fits J08413+594 2457848.36147 47.186 -22.553472 -0.0681399 0 OBJ,FP
+  9/169 scan CARM_VIS: car-20170408T21h06m36s-sci-gtoc-vis.fits J08413+594 2457852.3904 38.302 -22.818412 -0.766867 0 OBJ,FP
+ 10/169 scan CARM_VIS: car-20170412T21h38m24s-sci-gtoc-vis.fits J08413+594 2457856.41234 45.003 -22.968063 -4.7143 0 OBJ,FP
+ 11/169 scan CARM_VIS: car-20170422T20h18m46s-sci-gtoc-vis.fits J08413+594 2457866.35604 41.541 -22.779652 -3.19183 0 OBJ,FP
+ 12/169 scan CARM_VIS: car-20170501T21h01m00s-sci-gtoc-vis.fits J08413+594 2457875.38738 31.808 -22.105722 -0.527368 0 OBJ,FP
+ 13/169 scan CARM_VIS: car-20170502T20h41m04s-sci-gtoc-vis.fits J08413+594 2457876.37101 52.302 -21.981973 -1.47748 0 OBJ,FP
+ 14/169 scan CARM_VIS: car-20170506T20h47m06s-sci-gtoc-vis.fits J08413+594 2457880.37469 39.56 -21.478506 0.0509011 0 OBJ,FP
+ 15/169 scan CARM_VIS: car-20170508T20h21m25s-sci-gtoc-vis.fits J08413+594 2457882.35814 34.242 -21.179729 -0.781592 0 OBJ,FP
+ 16/169 scan CARM_VIS: car-20170510T22h42m44s-sci-gtoc-vis.fits J08413+594 2457884.45511 18.562 -20.906608 -3.52931 0 OBJ,FP
+ 17/169 scan CARM_VIS: car-20170512T21h05m03s-sci-gtoc-vis.fits J08413+594 2457886.38757 23.485 -20.555062 4.84592 0 OBJ,FP
+ 18/169 scan CARM_VIS: car-20170514T20h54m05s-sci-gtoc-vis.fits J08413+594 2457888.3795 43.74 -20.196741 -3.33634 0 OBJ,FP
+ 19/169 scan CARM_VIS: car-20170516T21h50m49s-sci-gtoc-vis.fits J08413+594 2457890.41921 35.516 -19.831541 1.81435 0 OBJ,FP
+ 20/169 scan CARM_VIS: car-20170518T20h40m31s-sci-gtoc-vis.fits J08413+594 2457892.36978 27.414 -19.417762 4.40084 0 OBJ,FP
+ 21/169 scan CARM_VIS: car-20170520T21h26m28s-sci-gtoc-vis.fits J08413+594 2457894.40068 42.658 -19.005963 -1.80192 0 OBJ,FP
+ 22/169 scan CARM_VIS: car-20170522T21h09m11s-sci-gtoc-vis.fits J08413+594 2457896.38886 45.479 -18.559259 -2.01619 0 OBJ,FP
+ 23/169 scan CARM_VIS: car-20170524T20h22m29s-sci-gtoc-vis.fits J08413+594 2457898.35613 37.731 -18.083356 -0.983573 0 OBJ,FP
+ 24/169 scan CARM_VIS: car-20170531T21h25m08s-sci-gtoc-vis.fits J08413+594 2457905.40129 32.768 -16.290155 3.04044 0 OBJ,FP
+ 25/169 scan CARM_VIS: car-20170609T21h00m39s-sci-gtoc-vis.fits J08413+594 2457914.38382 25.213 -13.67275 4.90159 0 OBJ,FP
+ 26/169 scan CARM_VIS: car-20170929T04h25m44s-sci-gtoc-vis.fits J08413+594 2458025.69395 39.359 21.940911 2.25415 0 OBJ,FP
+ 27/169 scan CARM_VIS: car-20171005T04h40m13s-sci-gtoc-vis.fits J08413+594 2458031.7036 33.054 22.574667 -25.5533 0 OBJ,FP
+ 28/169 scan CARM_VIS: car-20171027T03h36m01s-sci-gtoc-vis.fits J08413+594 2458053.66125 44.329 22.936625 7.90634 0 OBJ,FP
+ 29/169 scan CARM_VIS: car-20171116T05h00m06s-sci-gtoc-vis.fits J08413+594 2458073.72106 52.471 20.272092 5.95344 0 OBJ,FP
+ 30/169 scan CARM_VIS: car-20171121T04h46m34s-sci-gtoc-vis.fits J08413+594 2458078.7121 51.271 19.220082 0.269436 0 OBJ,FP
+ 31/169 scan CARM_VIS: car-20171127T04h16m31s-sci-gtoc-vis.fits J08413+594 2458084.69163 39.747 17.76863 -1.61352 0 OBJ,FP
+ 32/169 scan CARM_VIS: car-20171201T04h08m32s-sci-gtoc-vis.fits J08413+594 2458088.68559 10.106 16.681504 16.2044 0 OBJ,FP
+ 33/169 scan CARM_VIS: car-20171204T03h45m53s-sci-gtoc-vis.fits J08413+594 2458091.67039 50.124 15.832025 0.294011 0 OBJ,FP
+ 34/169 scan CARM_VIS: car-20171206T03h06m44s-sci-gtoc-vis.fits J08413+594 2458093.64376 49.33 15.267453 9.38737 0 OBJ,FP
+ 35/169 scan CARM_VIS: car-20171208T03h48m00s-sci-gtoc-vis.fits J08413+594 2458095.67204 47.297 14.602052 12.2495 0 OBJ,FP
+ 36/169 scan CARM_VIS: car-20171210T03h31m45s-sci-gtoc-vis.fits J08413+594 2458097.65976 33.279 13.977755 -11.6632 0 OBJ,FP
+ 37/169 scan CARM_VIS: car-20171218T02h25m35s-sci-gtoc-vis.fits J08413+594 2458105.61511 38.021 11.290002 40.7477 0 OBJ,FP
+ 38/169 scan CARM_VIS: car-20171222T02h45m46s-sci-gtoc-vis.fits J08413+594 2458109.6297 40.36 9.793358 10.907 0 OBJ,FP
+ 39/169 scan CARM_VIS: car-20171224T05h33m20s-sci-gtoc-vis.fits J08413+594 2458111.74613 34.336 8.871456 -3.52627 0 OBJ,FP
+ 40/169 scan CARM_VIS: car-20171230T02h00m51s-sci-gtoc-vis.fits J08413+594 2458117.59864 40.366 6.760563 2.71463 0 OBJ,FP
+ 41/169 scan CARM_VIS: car-20171231T02h00m49s-sci-gtoc-vis.fits J08413+594 2458118.5995 31.137 6.365275 9.44561 0 OBJ,FP
+ 42/169 scan CARM_VIS: car-20180101T03h44m46s-sci-gtoc-vis.fits J08413+594 2458119.67093 37.151 5.860314 nan 0 OBJ,FP
+ 43/169 scan CARM_VIS: car-20180101T23h16m31s-sci-gtoc-vis.fits J08413+594 2458120.47608 3.969 5.756404 5.46038 0 OBJ,FP
+ 44/169 scan CARM_VIS: car-20180102T00h23m15s-sci-gtoc-vis.fits J08413+594 2458120.53155 30.77 5.678781 5.50164 0 OBJ,FP
+ 45/169 scan CARM_VIS: car-20180103T00h21m47s-sci-gtoc-vis.fits J08413+594 2458121.52985 48.854 5.283207 8.67086 0 OBJ,FP
+ 46/169 scan CARM_VIS: car-20180104T02h35m08s-sci-gtoc-vis.fits J08413+594 2458122.62227 42.902 4.738636 8.51948 0 OBJ,FP
+ 47/169 scan CARM_VIS: car-20180105T02h02m23s-sci-gtoc-vis.fits J08413+594 2458123.59936 49.25 4.372918 5.7916 0 OBJ,FP
+ 48/169 scan CARM_VIS: car-20180109T04h50m31s-sci-gtoc-vis.fits J08413+594 2458127.71794 10.256 2.583666 -5.90726 0 OBJ,FP
+ 49/169 scan CARM_VIS: car-20180112T02h57m01s-sci-gtoc-vis.fits J08413+594 2458130.63882 18.802 1.458614 14.027 0 OBJ,FP
+ 50/169 scan CARM_VIS: car-20180113T01h41m07s-sci-gtoc-vis.fits J08413+594 2458131.58444 37.628 1.130212 9.36294 0 OBJ,FP
+ 51/169 scan CARM_VIS: car-20180114T05h03m53s-sci-gtoc-vis.fits J08413+594 2458132.7257 20.356 0.525826 6.32152 0 OBJ,FP
+ 52/169 scan CARM_VIS: car-20180117T01h29m54s-sci-gtoc-vis.fits J08413+594 2458135.57669 42.079 -0.510105 11.3352 0 OBJ,FP
+ 53/169 scan CARM_VIS: car-20180117T23h19m40s-sci-gtoc-vis.fits J08413+594 2458136.4864 39.87 -0.780963 10.751 0 OBJ,FP
+ 54/169 scan CARM_VIS: car-20180120T00h12m13s-sci-gtoc-vis.fits J08413+594 2458138.52265 30.341 -1.662138 14.7715 0 OBJ,FP
+ 55/169 scan CARM_VIS: car-20180121T00h20m47s-sci-gtoc-vis.fits J08413+594 2458139.52893 45.439 -2.083481 1.63325 0 OBJ,FP
+ 56/169 scan CARM_VIS: car-20180121T23h28m31s-sci-gtoc-vis.fits J08413+594 2458140.49334 43.801 -2.437703 0.57709 0 OBJ,FP
+ 57/169 scan CARM_VIS: car-20180123T00h34m53s-sci-gtoc-vis.fits J08413+594 2458141.53895 50.436 -2.918848 -2.29328 0 OBJ,FP
+ 58/169 scan CARM_VIS: car-20180124T02h28m32s-sci-gtoc-vis.fits J08413+594 2458142.6181 46.608 -3.447544 9.47919 0 OBJ,FP
+ 59/169 scan CARM_VIS: car-20180124T21h29m53s-sci-gtoc-vis.fits J08413+594 2458143.41032 45.971 -3.540705 6.35579 0 OBJ,FP
+ 60/169 scan CARM_VIS: car-20180131T00h31m40s-sci-gtoc-vis.fits J08413+594 2458149.53523 28.958 -6.121043 6.07475 0 OBJ,FP
+ 61/169 scan CARM_VIS: car-20180214T20h58m10s-sci-gtoc-vis.fits J08413+594 2458164.38791 37.876 -11.534383 -4.11365 0 OBJ,FP
+ 62/169 scan CARM_VIS: car-20180216T23h00m41s-sci-gtoc-vis.fits J08413+594 2458166.47382 38.427 -12.360674 -21.3406 0 OBJ,FP
+ 63/169 scan CARM_VIS: car-20180217T23h03m58s-sci-gtoc-vis.fits J08413+594 2458167.47328 33.346 -12.70284 -9.90683 0 OBJ,FP
+ 64/169 scan CARM_VIS: car-20180220T01h51m51s-sci-gtoc-vis.fits J08413+594 2458169.59156 31.966 -13.536447 -48.2681 0 OBJ,FP
+ 65/169 scan CARM_VIS: car-20180221T03h52m22s-sci-gtoc-vis.fits J08413+594 2458170.67502 29.704 -13.933107 -29.0222 0 OBJ,FP
+ 66/169 scan CARM_VIS: car-20180221T22h33m49s-sci-gtoc-vis.fits J08413+594 2458171.45419 19.411 -13.999975 2.97228 0 OBJ,FP
+ 67/169 scan CARM_VIS: car-20180222T22h28m53s-sci-gtoc-vis.fits J08413+594 2458172.45067 26.72 -14.314032 9.15687 0 OBJ,FP
+ 68/169 scan CARM_VIS: car-20180224T22h26m31s-sci-gtoc-vis.fits J08413+594 2458174.44379 11.661 -14.927213 7.95016 0 OBJ,FP
+ 69/169 scan CARM_VIS: car-20180225T22h10m20s-sci-gtoc-vis.fits J08413+594 2458175.43845 35.981 -15.223381 7.85186 0 OBJ,FP
+ 70/169 scan CARM_VIS: car-20180304T22h08m41s-sci-gtoc-vis.fits J08413+594 2458182.43567 20.654 -17.210342 6.7386 0 OBJ,FP
+ 71/169 scan CARM_VIS: car-20180309T01h28m35s-sci-gtoc-vis.fits J08413+594 2458186.57693 12.925 -18.407805 6.20564 0 OBJ,FP
+ 72/169 scan CARM_VIS: car-20180309T22h46m48s-sci-gtoc-vis.fits J08413+594 2458187.45481 1.0078 -18.510696 6.43518 0 OBJ,FP
+ 73/169 scan CARM_VIS: car-20180310T22h25m31s-sci-gtoc-vis.fits J08413+594 2458188.43879 2.7353 -18.726993 -2.88509 0 OBJ,FP
+ 74/169 scan CARM_VIS: car-20180321T20h48m36s-sci-gtoc-vis.fits J08413+594 2458199.37949 17.317 -20.868386 nan 0 OBJ,FP
+ 75/169 scan CARM_VIS: car-20180322T20h44m36s-sci-gtoc-vis.fits J08413+594 2458200.37612 32.172 -21.026411 5.67874 0 OBJ,FP
+ 76/169 scan CARM_VIS: car-20180327T20h36m42s-sci-gtoc-vis.fits J08413+594 2458205.36981 38.939 -21.729643 4.9428 0 OBJ,FP
+ 77/169 scan CARM_VIS: car-20180328T20h31m32s-sci-gtoc-vis.fits J08413+594 2458206.36681 29.364 -21.848503 -5.01436 0 OBJ,FP
+ 78/169 scan CARM_VIS: car-20180329T20h15m11s-sci-gtoc-vis.fits J08413+594 2458207.3561 28.747 -21.95115 0.142867 0 OBJ,FP
+ 79/169 scan CARM_VIS: car-20180331T20h58m33s-sci-gtoc-vis.fits J08413+594 2458209.38535 38.436 -22.202986 10.3133 0 OBJ,FP
+ 80/169 scan CARM_VIS: car-20180402T21h06m54s-sci-gtoc-vis.fits J08413+594 2458211.39038 22.099 -22.398605 5.68448 0 OBJ,FP
+ 81/169 scan CARM_VIS: car-20180403T20h38m08s-sci-gtoc-vis.fits J08413+594 2458212.36953 24.71 -22.458385 5.69103 0 OBJ,FP
+ 82/169 scan CARM_VIS: car-20180404T21h09m10s-sci-gtoc-vis.fits J08413+594 2458213.39275 29.796 -22.565713 3.26355 0 OBJ,FP
+ 83/169 scan CARM_VIS: car-20180406T20h22m13s-sci-gtoc-vis.fits J08413+594 2458215.36019 36.638 -22.66541 0.849645 0 OBJ,FP
+ 84/169 scan CARM_VIS: car-20180407T19h52m26s-sci-gtoc-vis.fits J08413+594 2458216.33937 14.575 -22.699705 2.92364 0 OBJ,FP
+ 85/169 scan CARM_VIS: car-20180408T19h50m12s-sci-gtoc-vis.fits J08413+594 2458217.33701 14.712 -22.75024 3.48182 0 OBJ,FP
+ 86/169 scan CARM_VIS: car-20180409T19h47m33s-sci-gtoc-vis.fits J08413+594 2458218.33519 10.077 -22.794774 1.23762 0 OBJ,FP
+ 87/169 scan CARM_VIS: car-20180416T21h01m50s-sci-gtoc-vis.fits J08413+594 2458225.38719 45.029 -22.984523 -1.1456 0 OBJ,FP
+ 88/169 scan CARM_VIS: car-20180420T22h11m56s-sci-gtoc-vis.fits J08413+594 2458229.43383 28.097 -22.93794 1.25838 0 OBJ,FP
+ 89/169 scan CARM_VIS: car-20180427T22h35m34s-sci-gtoc-vis.fits J08413+594 2458236.45075 48.4 -22.531306 -1.73706 0 OBJ,FP
+ 90/169 scan CARM_VIS: car-20180428T20h10m28s-sci-gtoc-vis.fits J08413+594 2458237.34996 12.012 -22.377095 0.849138 0 OBJ,FP
+ 91/169 scan CARM_VIS: car-20180429T20h41m18s-sci-gtoc-vis.fits J08413+594 2458238.37186 11.372 -22.308245 7.82137 0 OBJ,FP
+ 92/169 scan CARM_VIS: car-20180504T20h57m34s-sci-gtoc-vis.fits J08413+594 2458243.3741 11.223 -21.777823 15.7643 0 OBJ,FP
+ 93/169 scan CARM_VIS: car-20180506T22h18m57s-sci-gtoc-vis.fits J08413+594 2458245.43791 34.973 -21.553705 4.25228 0 OBJ,FP
+ 94/169 scan CARM_VIS: car-20180507T22h29m19s-sci-gtoc-vis.fits J08413+594 2458246.44549 44.995 -21.417125 1.49691 0 OBJ,FP
+ 95/169 scan CARM_VIS: car-20180510T23h36m39s-sci-gtoc-vis.fits J08413+594 2458249.4908 32.423 -20.962324 -3.29296 0 OBJ,FP
+ 96/169 scan CARM_VIS: car-20180512T20h36m01s-sci-gtoc-vis.fits J08413+594 2458251.36727 15.8 -20.605476 4.1859 0 OBJ,FP
+ 97/169 scan CARM_VIS: car-20180521T21h33m48s-sci-gtoc-vis.fits J08413+594 2458260.4059 40.341 -18.832214 2.99238 0 OBJ,FP
+ 98/169 scan CARM_VIS: car-20180522T21h01m34s-sci-gtoc-vis.fits J08413+594 2458261.38354 45.713 -18.601843 5.39021 0 OBJ,FP
+ 99/169 scan CARM_VIS: car-20180523T21h01m42s-sci-gtoc-vis.fits J08413+594 2458262.37933 12.88 -18.370041 6.87984 0 OBJ,FP
+100/169 scan CARM_VIS: car-20180524T21h45m22s-sci-gtoc-vis.fits J08413+594 2458263.41354 25.577 -18.138442 2.4148 0 OBJ,FP
+101/169 scan CARM_VIS: car-20180525T21h31m06s-sci-gtoc-vis.fits J08413+594 2458264.40431 32.461 -17.897729 3.42625 0 OBJ,FP
+102/169 scan CARM_VIS: car-20180526T21h56m52s-sci-gtoc-vis.fits J08413+594 2458265.4217 40.627 -17.651667 6.59329 0 OBJ,FP
+103/169 scan CARM_VIS: car-20180527T21h33m56s-sci-gtoc-vis.fits J08413+594 2458266.4054 27.209 -17.403224 2.06827 0 OBJ,FP
+104/169 scan CARM_VIS: car-20180531T20h36m40s-sci-gtoc-vis.fits J08413+594 2458270.36586 48.15 -16.360707 4.42181 0 OBJ,FP
+105/169 scan CARM_VIS: car-20180601T21h08m36s-sci-gtoc-vis.fits J08413+594 2458271.38855 39.095 -16.091483 2.78554 0 OBJ,FP
+106/169 scan CARM_VIS: car-20180607T21h11m16s-sci-gtoc-vis.fits J08413+594 2458277.38957 34.606 -14.373825 3.00185 0 OBJ,FP
+107/169 scan CARM_VIS: car-20180829T04h05m40s-sci-gtoc-vis.fits J08413+594 2458359.67767 31.942 15.137665 7.67121 0 OBJ,FP
+108/169 scan CARM_VIS: car-20180830T04h19m16s-sci-gtoc-vis.fits J08413+594 2458360.68804 13.91 15.432874 15.9533 0 OBJ,FP
+109/169 scan CARM_VIS: car-20180831T03h56m48s-sci-gtoc-vis.fits J08413+594 2458361.67175 35.872 15.717488 10.851 0 OBJ,FP
+110/169 scan CARM_VIS: car-20180901T04h05m39s-sci-gtoc-vis.fits J08413+594 2458362.67865 44.909 16.004421 10.8365 0 OBJ,FP
+111/169 scan CARM_VIS: car-20180904T03h46m20s-sci-gtoc-vis.fits J08413+594 2458365.66562 20.644 16.83281 6.12266 0 OBJ,FP
+112/169 scan CARM_VIS: car-20180905T04h17m49s-sci-gtoc-vis.fits J08413+594 2458366.68691 35.368 17.105016 10.1811 0 OBJ,FP
+113/169 scan CARM_VIS: car-20180906T04h10m30s-sci-gtoc-vis.fits J08413+594 2458367.68148 43.52 17.368589 -5.04857 0 OBJ,FP
+114/169 scan CARM_VIS: car-20180907T03h25m29s-sci-gtoc-vis.fits J08413+594 2458368.64446 9.2653 17.620442 -0.479102 0 OBJ,FP
+115/169 scan CARM_VIS: car-20180907T04h00m02s-sci-gtoc-vis.fits J08413+594 2458368.6679 0.57018 17.626377 -0.163921 256 OBJ,FP
+116/169 scan CARM_VIS: car-20180909T04h22m09s-sci-gtoc-vis.fits J08413+594 2458370.69123 31.568 18.131215 -10.1721 0 OBJ,FP
+117/169 scan CARM_VIS: car-20180910T04h34m58s-sci-gtoc-vis.fits J08413+594 2458371.69874 41.084 18.373802 -23.4423 0 OBJ,FP
+118/169 scan CARM_VIS: car-20180914T04h37m33s-sci-gtoc-vis.fits J08413+594 2458375.70085 35.527 19.288643 2.27004 0 OBJ,FP
+119/169 scan CARM_VIS: car-20180918T04h25m53s-sci-gtoc-vis.fits J08413+594 2458379.69309 40.1 20.112623 nan 0 OBJ,FP
+120/169 scan CARM_VIS: car-20180919T04h30m05s-sci-gtoc-vis.fits J08413+594 2458380.69587 48.664 20.302704 nan 0 OBJ,FP
+121/169 scan CARM_VIS: car-20180920T04h31m34s-sci-gtoc-vis.fits J08413+594 2458381.69696 49.957 20.487408 13.4528 0 OBJ,FP
+122/169 scan CARM_VIS: car-20180921T04h13m05s-sci-gtoc-vis.fits J08413+594 2458382.6842 50.46 20.671075 9.27518 0 OBJ,FP
+123/169 scan CARM_VIS: car-20180924T04h28m22s-sci-gtoc-vis.fits J08413+594 2458385.69501 50.889 21.170663 3.24631 0 OBJ,FP
+124/169 scan CARM_VIS: car-20180929T04h26m31s-sci-gtoc-vis.fits J08413+594 2458390.69302 44.267 21.895649 7.64805 0 OBJ,FP
+125/169 scan CARM_VIS: car-20181002T03h34m04s-sci-gtoc-vis.fits J08413+594 2458393.65801 35.717 22.277669 1.64425 0 OBJ,FP
+126/169 scan CARM_VIS: car-20181007T04h30m18s-sci-gtoc-vis.fits J08413+594 2458398.69757 37.154 22.737342 2.06174 0 OBJ,FP
+127/169 scan CARM_VIS: car-20181014T03h53m40s-sci-gtoc-vis.fits J08413+594 2458405.67172 21.319 23.133412 -38.3491 0 OBJ,FP
+128/169 scan CARM_VIS: car-20181022T04h01m44s-sci-gtoc-vis.fits J08413+594 2458413.67894 43.636 23.135335 -4.27717 0 OBJ,FP
+129/169 scan CARM_VIS: car-20181102T04h46m35s-sci-gtoc-vis.fits J08413+594 2458424.71033 27.417 22.414806 5.20735 0 OBJ,FP
+130/169 scan CARM_VIS: car-20181104T04h09m29s-sci-gtoc-vis.fits J08413+594 2458426.68527 37.59 22.231804 31.1186 0 OBJ,FP
+131/169 scan CARM_VIS: car-20181107T04h15m46s-sci-gtoc-vis.fits J08413+594 2458429.68971 33.862 21.851674 26.8814 0 OBJ,FP
+132/169 scan CARM_VIS: car-20181109T05h12m54s-sci-gtoc-vis.fits J08413+594 2458431.72969 10.189 21.512977 -13.0104 0 OBJ,FP
+133/169 scan CARM_VIS: car-20181111T04h58m31s-sci-gtoc-vis.fits J08413+594 2458433.71942 37.742 21.211775 6.88744 0 OBJ,FP
+134/169 scan CARM_VIS: car-20181127T03h07m17s-sci-gtoc-vis.fits J08413+594 2458449.64294 27.596 17.909123 7.66824 0 OBJ,FP
+135/169 scan CARM_VIS: car-20181206T02h48m28s-tst-vis.fits J08413+594 2458458.62045 1.4373 15.389218 18.5153 0 OBJ,FP
+136/169 scan CARM_VIS: car-20181206T02h50m19s-sci-gtoc-vis.fits J08413+594 2458458.63225 49.62 15.372018 20.0958 0 OBJ,FP
+137/169 scan CARM_VIS: car-20181214T05h12m46s-sci-gtoc-vis.fits J08413+594 2458466.73122 9.5511 12.602038 17.0524 0 OBJ,FP
+138/169 scan CARM_VIS: car-20181222T02h48m21s-sci-gtoc-vis.fits J08413+594 2458474.63119 45.871 9.880715 4.5486 0 OBJ,FP
+139/169 scan CARM_VIS: car-20190102T02h13m13s-sci-gtoc-vis.fits J08413+594 2458485.60725 46.686 5.672517 15.0117 0 OBJ,FP
+140/169 scan CARM_VIS: car-20190109T01h21m25s-sci-gtoc-vis.fits J08413+594 2458492.5715 39.404 2.884045 -1.01601 0 OBJ,FP
+141/169 scan CARM_VIS: car-20190116T01h20m13s-sci-gtoc-vis.fits J08413+594 2458499.57057 32.929 0.004308 -10.5026 0 OBJ,FP
+142/169 scan CARM_VIS: car-20190127T03h07m35s-sci-gtoc-vis.fits J08413+594 2458510.6458 30.599 -4.577657 -3.03488 0 OBJ,FP
+143/169 scan CARM_VIS: car-20190204T02h28m52s-sci-gotc-vis.fits J08413+594 2458518.61765 24.538 -7.708931 3.26492 0 OBJ,FP
+144/169 scan CARM_VIS: car-20190210T02h11m35s-sci-gtoc-vis.fits J08413+594 2458524.60598 37.841 -9.967639 3.29243 0 OBJ,FP
+145/169 scan CARM_VIS: car-20190214T22h24m58s-sci-gtoc-vis.fits J08413+594 2458529.4481 46.629 -11.539276 1.88171 0 OBJ,FP
+146/169 scan CARM_VIS: car-20190219T23h35m21s-sci-gtoc-vis.fits J08413+594 2458534.49707 40.095 -13.314758 9.58262 0 OBJ,FP
+147/169 scan CARM_VIS: car-20190225T00h01m15s-sci-gtoc-vis.fits J08413+594 2458539.51447 38.398 -14.940683 2.09106 0 OBJ,FP
+148/169 scan CARM_VIS: car-20190302T02h08m21s-sci-gtoc-vis.fits J08413+594 2458544.60157 33.445 -16.528472 -0.125764 0 OBJ,FP
+149/169 scan CARM_VIS: car-20190310T23h43m35s-sci-gtoc-vis.fits J08413+594 2458553.50207 43.246 -18.766909 8.49518 0 OBJ,FP
+150/169 scan CARM_VIS: car-20190315T20h35m31s-sci-gtoc-vis.fits J08413+594 2458558.3707 48.214 -19.685991 6.20389 0 OBJ,FP
+151/169 scan CARM_VIS: car-20190317T20h24m39s-sci-gtoc-vis.fits J08413+594 2458560.36524 23.332 -20.073587 3.73432 0 OBJ,FP
+152/169 scan CARM_VIS: car-20190322T01h32m40s-sci-gtoc-vis.fits J08413+594 2458564.57688 20.573 -21.018037 1.90068 0 OBJ,FP
+153/169 scan CARM_VIS: car-20190326T00h52m14s-sci-gtoc-vis.fits J08413+594 2458568.54706 18.402 -21.612935 4.05804 0 OBJ,FP
+154/169 scan CARM_VIS: car-20190328T00h26m41s-sci-gtoc-vis.fits J08413+594 2458570.53063 19.248 -21.872424 12.675 0 OBJ,OFF
+155/169 scan CARM_VIS: car-20190403T01h51m24s-sci-gtoc-vis.fits J08413+594 2458576.58921 28.221 -22.543403 -2.02055 0 OBJ,FP
+156/169 scan CARM_VIS: car-20190413T20h55m57s-sci-gtoc-vis.fits J08413+594 2458587.38375 31.233 -22.957971 1.96069 0 OBJ,FP
+157/169 scan CARM_VIS: car-20190425T00h11m29s-sci-gtoc-vis.fits J08413+594 2458598.51682 8.618 -22.785784 3.61666 0 OBJ,FP
+158/169 scan CARM_VIS: car-20190505T22h50m35s-sci-gtoc-vis.fits J08413+594 2458609.45398 9.7392 -21.735205 -8.1336 0 OBJ,FP
+159/169 scan CARM_VIS: car-20190512T21h47m39s-sci-gtoc-vis.fits J08413+594 2458616.41652 45.634 -20.65787 3.48721 0 OBJ,FP
+160/169 scan CARM_VIS: car-20190522T22h23m43s-sci-gtoc-vis.fits J08413+594 2458626.44036 27.781 -18.669004 3.09807 0 OBJ,FP
+161/169 scan CARM_VIS: car-20190529T21h04m27s-sci-gtoc-vis.fits J08413+594 2458633.38552 30.056 -16.975988 11.4713 0 OBJ,FP
+162/169 scan CARM_VIS: car-20190606T21h16m18s-sci-gtoc-vis.fits J08413+594 2458641.39355 31.522 -14.740514 2.81064 0 OBJ,FP
+163/169 scan CARM_VIS: car-20190614T20h46m24s-sci-gtoc-vis.fits J08413+594 2458649.3712 27.165 -12.252269 8.96358 0 OBJ,FP
+164/169 scan CARM_VIS: car-20190918T04h05m45s-sci-gtoc-vis.fits J08413+594 2458744.67907 44.789 20.048267 3.72498 0 OBJ,FP
+165/169 scan CARM_VIS: car-20190930T03h45m39s-sci-gtoc-vis.fits J08413+594 2458756.66608 48.639 22.017211 4.19348 0 OBJ,FP
+166/169 scan CARM_VIS: car-20191007T04h03m40s-sci-gtoc-vis.fits J08413+594 2458763.67885 46.23 22.718559 -0.714551 0 OBJ,FP
+167/169 scan CARM_VIS: car-20191015T04h02m25s-sci-gtoc-vis.fits J08413+594 2458771.67857 13.254 23.129069 -2.57179 0 OBJ,FP
+168/169 scan CARM_VIS: car-20191026T03h17m09s-sci-gtoc-vis.fits J08413+594 2458782.64793 50.275 23.035853 -3.06051 0 OBJ,FP
+169/169 scan CARM_VIS: car-20191104T05h05m02s-sci-gtoc-vis.fits J08413+594 2458791.72275 20.493 22.201109 17.3819 0 OBJ,FP
+logging to J08413+594/log.J08413+594
+169 spectra read (1m13.306s)
+
+bad spectra: car-20180101T23h16m31s-sci-gtoc-vis.fits J08413+594 OBJ,FP sn: 3.969 flag: 64 ['lowSN']
+bad spectra: car-20180309T22h46m48s-sci-gtoc-vis.fits J08413+594 OBJ,FP sn: 1.0078 flag: 64 ['lowSN']
+bad spectra: car-20180310T22h25m31s-sci-gtoc-vis.fits J08413+594 OBJ,FP sn: 2.7353 flag: 64 ['lowSN']
+bad spectra: car-20180907T03h25m29s-sci-gtoc-vis.fits J08413+594 OBJ,FP sn: 9.2653 flag: 64 ['lowSN']
+bad spectra: car-20180907T04h00m02s-sci-gtoc-vis.fits J08413+594 OBJ,FP sn: 0.57018 flag: 320 ['lowSN', 'led']
+bad spectra: car-20181206T02h48m28s-tst-vis.fits J08413+594 OBJ,FP sn: 1.4373 flag: 64 ['lowSN']
+bad spectra: car-20181214T05h12m46s-sci-gtoc-vis.fits J08413+594 OBJ,FP sn: 9.5511 flag: 64 ['lowSN']
+bad spectra: car-20190425T00h11m29s-sci-gtoc-vis.fits J08413+594 OBJ,FP sn: 8.618 flag: 64 ['lowSN']
+bad spectra: car-20190505T22h50m35s-sci-gtoc-vis.fits J08413+594 OBJ,FP sn: 9.7392 flag: 64 ['lowSN']
+median SN: 35.926500000000004
+template: car-20171116T05h00m06s-sci-gtoc-vis.fits SN55 52.471 # 28  <e_rv>=10.50m/s, <Q>=26529.695949682136
+
+setting targ RV to: 6.59869 km/s (drsspt)
+setting tpl RV to:  6.59869 km/s (tpl)
+
+Iteration 1 / 2 (J08413+594)
+time: 0m0.115s
+
+Iteration 1 / 2 (J08413+594)
+RV method:  LEAST SQUARE
+1 / 169 car-20161229T21h18m51s-sci-gtoc-vis.fits 2457752.40306 -122.85092509074633 12.538413708917789
+opti warning: v not in [va,vb].
+ Setting  v=
+2 / 169 car-20170101T20h48m33s-sci-gtoc-vis.fits 2457755.38261 -129.97839911305982 4.942669768078343
+3 / 169 car-20170107T22h58m52s-sci-gtoc-vis.fits 2457761.47313 -128.14209034900307 9.021935129888034
+4 / 169 car-20170203T23h39m03s-sci-gtoc-vis.fits 2457788.49993 -87.36328363462002 10.455689329308772
+opti warning: v not in [va,vb].
+ Setting  v=
+5 / 169 car-20170302T22h50m50s-sci-gtoc-vis.fits 2457815.46609 -51.26751975709877 2.6709244359249844
+opti warning: v not in [va,vb].
+ Setting  v=
+6 / 169 car-20170311T01h15m33s-sci-gtoc-vis.fits 2457823.56615 -36.03851020939611 3.010779205749524
+opti warning: v not in [va,vb].
+ Setting  v=
+7 / 169 car-20170320T21h19m07s-sci-gtoc-vis.fits 2457833.4001 -48.57925584449791 4.1985936817828735
+8 / 169 car-20170404T20h23m53s-sci-gtoc-vis.fits 2457848.36227 -21.020965226822273 7.518446514518932
+9 / 169 car-20170408T21h06m36s-sci-gtoc-vis.fits 2457852.39121 -15.988387503941942 11.107616155620734
+10 / 169 car-20170412T21h38m24s-sci-gtoc-vis.fits 2457856.41314 -16.790674819958394 9.355680527010573
+11 / 169 car-20170422T20h18m46s-sci-gtoc-vis.fits 2457866.35684 -8.644550187752236 10.340917574310836
+12 / 169 car-20170501T21h01m00s-sci-gtoc-vis.fits 2457875.38818 0.5227424621173926 12.909704350429104
+13 / 169 car-20170502T20h41m04s-sci-gtoc-vis.fits 2457876.37181 -0.03837016248510854 9.625612422232466
+opti warning: v not in [va,vb].
+ Setting  v=
+14 / 169 car-20170506T20h47m06s-sci-gtoc-vis.fits 2457880.37549 9.253558389905535 4.044583512441702
+15 / 169 car-20170508T20h21m25s-sci-gtoc-vis.fits 2457882.35894 7.411673569061826 14.069105277412406
+opti warning: v not in [va,vb].
+ Setting  v=
+16 / 169 car-20170510T22h42m44s-sci-gtoc-vis.fits 2457884.45591 -5.464492765868214 9.863052537942771
+opti warning: v not in [va,vb].
+ Setting  v=
+17 / 169 car-20170512T21h05m03s-sci-gtoc-vis.fits 2457886.38837 12.656461433318288 5.337254430709609
+opti warning: v not in [va,vb].
+ Setting  v=
+18 / 169 car-20170514T20h54m05s-sci-gtoc-vis.fits 2457888.3803 3.1560875504803447 2.633982866956202
+opti warning: v not in [va,vb].
+ Setting  v=
+19 / 169 car-20170516T21h50m49s-sci-gtoc-vis.fits 2457890.42001 6.920124207263406 3.8428201396246173
+opti warning: v not in [va,vb].
+ Setting  v=
+20 / 169 car-20170518T20h40m31s-sci-gtoc-vis.fits 2457892.37058 13.303348688472145 3.9309314732379375
+opti warning: v not in [va,vb].
+ Setting  v=
+21 / 169 car-20170520T21h26m28s-sci-gtoc-vis.fits 2457894.40148 10.348546971427597 3.050734121144672
+opti warning: v not in [va,vb].
+ Setting  v=
+22 / 169 car-20170522T21h09m11s-sci-gtoc-vis.fits 2457896.38966 4.041836616025057 4.576441372982667
+opti warning: a[2]=-15.213570<=0.
+ Setting  v=
+23 / 169 car-20170524T20h22m29s-sci-gtoc-vis.fits 2457898.35693 10.958805885061743 3.032707309686887
+opti warning: a[2]=-36.863835<=0.
+ Setting  v=
+24 / 169 car-20170531T21h25m08s-sci-gtoc-vis.fits 2457905.40209 19.598464307376116 3.9949316402334394
+opti warning: a[2]=-12.421121<=0.
+ Setting  v=
+25 / 169 car-20170609T21h00m39s-sci-gtoc-vis.fits 2457914.38462 6.165292310137534 12.82000239657204
+26 / 169 car-20170929T04h25m44s-sci-gtoc-vis.fits 2458025.69475 -47.428141035971755 5.974167559497052
+27 / 169 car-20171005T04h40m13s-sci-gtoc-vis.fits 2458031.7044 -62.452803806360336 10.782527668496986
+28 / 169 car-20171027T03h36m01s-sci-gtoc-vis.fits 2458053.66205 -11.707559437638267 3.872186295160142
+29 / 169 car-20171116T05h00m06s-sci-gtoc-vis.fits 2458073.72185 0.23166001437136988 0.9322174029580704
+30 / 169 car-20171121T04h46m34s-sci-gtoc-vis.fits 2458078.7129 -8.396296944358816 3.2839878625334875
+31 / 169 car-20171127T04h16m31s-sci-gtoc-vis.fits 2458084.69243 -3.440137465979264 4.638172477232727
+32 / 169 car-20171201T04h08m32s-sci-gtoc-vis.fits 2458088.68639 6.012023112297927 47.411802526802724
+33 / 169 car-20171204T03h45m53s-sci-gtoc-vis.fits 2458091.67119 1.9086246375291378 3.395463636735216
+34 / 169 car-20171206T03h06m44s-sci-gtoc-vis.fits 2458093.64456 8.046670938076494 4.192833403215189
+35 / 169 car-20171208T03h48m00s-sci-gtoc-vis.fits 2458095.67284 14.365209018602963 2.1966376604295323
+opti warning: v not in [va,vb].
+ Setting  v=
+36 / 169 car-20171210T03h31m45s-sci-gtoc-vis.fits 2458097.66056 -4.179552266640599 3.123048567092524
+37 / 169 car-20171218T02h25m35s-sci-gtoc-vis.fits 2458105.61591 56.08523063460952 3.5095360054173446
+38 / 169 car-20171222T02h45m46s-sci-gtoc-vis.fits 2458109.6305 19.316864945301177 3.471468537484097
+39 / 169 car-20171224T05h33m20s-sci-gtoc-vis.fits 2458111.74693 12.127853149161137 3.9807644822759563
+opti warning: v not in [va,vb].
+ Setting  v=
+40 / 169 car-20171230T02h00m51s-sci-gtoc-vis.fits 2458117.59944 8.012247230599431 2.6918319216634767
+opti warning: v not in [va,vb].
+ Setting  v=
+41 / 169 car-20171231T02h00m49s-sci-gtoc-vis.fits 2458118.6003 16.02735735451879 4.722090561032758
+42 / 169 car-20180101T03h44m46s-sci-gtoc-vis.fits 2458119.67173 22.375499983363042 11.968267606483362
+43 / 169 car-20180102T00h23m15s-sci-gtoc-vis.fits 2458120.53235 9.413283060390219 11.039134385504743
+opti warning: v not in [va,vb].
+ Setting  v=
+44 / 169 car-20180103T00h21m47s-sci-gtoc-vis.fits 2458121.53065 10.364154695547537 2.9920004866914693
+45 / 169 car-20180104T02h35m08s-sci-gtoc-vis.fits 2458122.62307 16.16445888544524 14.29571484186337
+46 / 169 car-20180105T02h02m23s-sci-gtoc-vis.fits 2458123.60016 12.692405948913668 7.72507454593719
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+WARNING: Matrix is not positive definite. Zero or negative yerr values for  0 at []
+WARNING: Matrix is not positive definite. Zero or negative yerr values for  0 at []
+WARNING: Matrix is not positive definite. Zero or negative yerr values for  0 at []
+opti warning: bad ccf.
+ Setting  v=
+Negative scale value. Setting  e_v= nan
+WARNING: Matrix is not positive definite. Zero or negative yerr values for  0 at []
+WARNING: Matrix is not positive definite. Zero or negative yerr values for  0 at []
+WARNING: Matrix is not positive definite. Zero or negative yerr values for  0 at []
+WARNING: Matrix is not positive definite. Zero or negative yerr values for  0 at []
+WARNING: Matrix is not positive definite. Zero or negative yerr values for  0 at []
+WARNING: Matrix is not positive definite. Zero or negative yerr values for  0 at []
+opti warning: bad ccf.
+ Setting  v=
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+47 / 169 car-20180109T04h50m31s-sci-gtoc-vis.fits 2458127.71874 1.4085652789390675 32.385515310565474
+opti warning: bad ccf.
+48 / 169 car-20180112T02h57m01s-sci-gtoc-vis.fits 2458130.63962 1.2465864612719275 5.292763437501056
+49 / 169 car-20180113T01h41m07s-sci-gtoc-vis.fits 2458131.58525 -2.915183683242212 2.2046915368774376
+opti warning: v not in [va,vb].
+ Setting  v=
+50 / 169 car-20180114T05h03m53s-sci-gtoc-vis.fits 2458132.7265 0.01852095995501789 4.73822052099073
+opti warning: v not in [va,vb].
+ Setting  v=
+51 / 169 car-20180117T01h29m54s-sci-gtoc-vis.fits 2458135.57749 -5.965041072218253 3.3005959987878657
+opti warning: v not in [va,vb].
+ Setting  v=
+52 / 169 car-20180117T23h19m40s-sci-gtoc-vis.fits 2458136.4872 -11.893960244173911 2.754734764431879
+53 / 169 car-20180120T00h12m13s-sci-gtoc-vis.fits 2458138.52345 -6.402372881930376 12.049947708856786
+54 / 169 car-20180121T00h20m47s-sci-gtoc-vis.fits 2458139.52973 -26.281431592053636 10.709912929693711
+55 / 169 car-20180121T23h28m31s-sci-gtoc-vis.fits 2458140.49414 -33.56491268817056 5.857829986219546
+56 / 169 car-20180123T00h34m53s-sci-gtoc-vis.fits 2458141.53974 -43.18908484268554 4.608198796345889
+57 / 169 car-20180124T02h28m32s-sci-gtoc-vis.fits 2458142.6189 -31.990599297976306 8.92619102827635
+58 / 169 car-20180124T21h29m53s-sci-gtoc-vis.fits 2458143.41112 -43.69415986350113 7.86572195633261
+opti warning: v not in [va,vb].
+ Setting  v=
+59 / 169 car-20180131T00h31m40s-sci-gtoc-vis.fits 2458149.53603 -73.9622437479641 4.437785847929656
+60 / 169 car-20180214T20h58m10s-sci-gtoc-vis.fits 2458164.38871 -134.3813036761376 3.029860613296667
+61 / 169 car-20180216T23h00m41s-sci-gtoc-vis.fits 2458166.47462 -154.26168849535904 7.08105251461195
+62 / 169 car-20180217T23h03m58s-sci-gtoc-vis.fits 2458167.47407 -145.1796862532241 3.4015767340913214
+63 / 169 car-20180220T01h51m51s-sci-gtoc-vis.fits 2458169.59236 -177.0739560155797 2.713701236368673
+64 / 169 car-20180221T03h52m22s-sci-gtoc-vis.fits 2458170.67582 -155.2785400672436 8.480693723240249
+65 / 169 car-20180221T22h33m49s-sci-gtoc-vis.fits 2458171.45499 -120.42199110310206 16.649191086828765
+66 / 169 car-20180222T22h28m53s-sci-gtoc-vis.fits 2458172.45148 -122.1864867563705 3.7506205227963756
+67 / 169 car-20180224T22h26m31s-sci-gtoc-vis.fits 2458174.44459 -106.79586076029634 21.901095649790882
+opti warning: v not in [va,vb].
+ Setting  v=
+68 / 169 car-20180225T22h10m20s-sci-gtoc-vis.fits 2458175.43926 -111.16913018643407 2.8385432129653343
+opti warning: a[2]=-22.925803<=0.
+ Setting  v=
+69 / 169 car-20180304T22h08m41s-sci-gtoc-vis.fits 2458182.43647 -94.48256477196901 6.482053019395627
+opti warning: v not in [va,vb].
+ Setting  v=
+70 / 169 car-20180309T01h28m35s-sci-gtoc-vis.fits 2458186.57773 -85.34347660061376 7.775869670531407
+71 / 169 car-20180321T20h48m36s-sci-gtoc-vis.fits 2458199.38029 -65.41653806435899 10.669883258094876
+72 / 169 car-20180322T20h44m36s-sci-gtoc-vis.fits 2458200.37692 -64.21453142481204 6.705648539926832
+73 / 169 car-20180327T20h36m42s-sci-gtoc-vis.fits 2458205.37061 -58.388988062345966 9.165130752331088
+74 / 169 car-20180328T20h31m32s-sci-gtoc-vis.fits 2458206.3676 -70.93197110906745 15.114499367422544
+75 / 169 car-20180329T20h15m11s-sci-gtoc-vis.fits 2458207.3569 -61.8456203030162 10.870577982743136
+76 / 169 car-20180331T20h58m33s-sci-gtoc-vis.fits 2458209.38615 -50.51363282784044 9.623497664674685
+77 / 169 car-20180402T21h06m54s-sci-gtoc-vis.fits 2458211.39118 -50.59518544565889 16.96303003185219
+78 / 169 car-20180403T20h38m08s-sci-gtoc-vis.fits 2458212.37033 -49.64031868756512 9.715425812950535
+79 / 169 car-20180404T21h09m10s-sci-gtoc-vis.fits 2458213.39355 -49.55683844799722 9.865589111805354
+80 / 169 car-20180406T20h22m13s-sci-gtoc-vis.fits 2458215.361 -51.0106243793466 10.927602239427348
+81 / 169 car-20180407T19h52m26s-sci-gtoc-vis.fits 2458216.34017 -57.68711210989645 32.633070093989225
+82 / 169 car-20180408T19h50m12s-sci-gtoc-vis.fits 2458217.33781 -47.78712934316708 16.814657621964784
+83 / 169 car-20180409T19h47m33s-sci-gtoc-vis.fits 2458218.33599 -47.42395176336799 23.155291089847378
+84 / 169 car-20180416T21h01m50s-sci-gtoc-vis.fits 2458225.38799 -43.888601317607616 8.897751511382632
+85 / 169 car-20180420T22h11m56s-sci-gtoc-vis.fits 2458229.43463 -38.36947890540426 8.723094861089242
+86 / 169 car-20180427T22h35m34s-sci-gtoc-vis.fits 2458236.45155 -32.38965033454597 10.942540964201894
+Negative scale value. Setting  e_v= nan
+too much rejected, skipping
+Negative scale value. Setting  e_v= nan
+opti warning: v not in [va,vb].
+ Setting  v=
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+87 / 169 car-20180428T20h10m28s-sci-gtoc-vis.fits 2458237.35076 -28.98203506931763 8.907073575294525
+88 / 169 car-20180429T20h41m18s-sci-gtoc-vis.fits 2458238.37266 -3.8002096701297376 21.900579422690683
+89 / 169 car-20180504T20h57m34s-sci-gtoc-vis.fits 2458243.37491 -16.695617376225716 26.92097898823976
+90 / 169 car-20180506T22h18m57s-sci-gtoc-vis.fits 2458245.43872 -11.13385675334884 14.415126614385043
+opti warning: v not in [va,vb].
+ Setting  v=
+91 / 169 car-20180507T22h29m19s-sci-gtoc-vis.fits 2458246.44629 -23.080028805602947 3.0988120524743996
+92 / 169 car-20180510T23h36m39s-sci-gtoc-vis.fits 2458249.4916 -20.77642307883557 7.591952240336272
+opti warning: v not in [va,vb].
+ Setting  v=
+93 / 169 car-20180512T20h36m01s-sci-gtoc-vis.fits 2458251.36808 -9.274333941798131 7.522460549472625
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+94 / 169 car-20180521T21h33m48s-sci-gtoc-vis.fits 2458260.4067 -3.9286531885351983 3.1363781166985847
+opti warning: v not in [va,vb].
+ Setting  v=
+95 / 169 car-20180522T21h01m34s-sci-gtoc-vis.fits 2458261.38434 -2.3820620203603697 2.5667659741399778
+opti warning: v not in [va,vb].
+ Setting  v=
+96 / 169 car-20180523T21h01m42s-sci-gtoc-vis.fits 2458262.38014 7.443518933465198 10.044095227253745
+opti warning: v not in [va,vb].
+ Setting  v=
+97 / 169 car-20180524T21h45m22s-sci-gtoc-vis.fits 2458263.41435 -5.220172675025239 3.9624891514663676
+opti warning: v not in [va,vb].
+ Setting  v=
+98 / 169 car-20180525T21h31m06s-sci-gtoc-vis.fits 2458264.40512 0.18283429665255246 3.209737191441176
+opti warning: v not in [va,vb].
+ Setting  v=
+99 / 169 car-20180526T21h56m52s-sci-gtoc-vis.fits 2458265.4225 3.4493858246747227 2.9880828900144856
+opti warning: a[2]=-21.725238<=0.
+ Setting  v=
+100 / 169 car-20180527T21h33m56s-sci-gtoc-vis.fits 2458266.40621 4.652199293266117 3.2978655547771996
+opti warning: v not in [va,vb].
+ Setting  v=
+101 / 169 car-20180531T20h36m40s-sci-gtoc-vis.fits 2458270.36666 4.124917738469151 2.254913410401068
+102 / 169 car-20180601T21h08m36s-sci-gtoc-vis.fits 2458271.38935 5.068577216508063 10.17658720312672
+opti warning: v not in [va,vb].
+ Setting  v=
+103 / 169 car-20180607T21h11m16s-sci-gtoc-vis.fits 2458277.39038 9.063619312253799 3.418278684650044
+104 / 169 car-20180829T04h05m40s-sci-gtoc-vis.fits 2458359.67847 -108.03773069569078 30.02025291485429
+105 / 169 car-20180830T04h19m16s-sci-gtoc-vis.fits 2458360.68884 -78.41061604751046 24.803058779222635
+106 / 169 car-20180831T03h56m48s-sci-gtoc-vis.fits 2458361.67255 -114.60251260296141 9.409441212496668
+107 / 169 car-20180901T04h05m39s-sci-gtoc-vis.fits 2458362.67945 -107.2251913253869 6.595904709632522
+108 / 169 car-20180904T03h46m20s-sci-gtoc-vis.fits 2458365.66642 -118.94660683571422 13.538699197866222
+109 / 169 car-20180905T04h17m49s-sci-gtoc-vis.fits 2458366.68771 -114.52571589536264 7.060090988348701
+110 / 169 car-20180906T04h10m30s-sci-gtoc-vis.fits 2458367.68229 -131.4376350615534 5.460190162299058
+111 / 169 car-20180909T04h22m09s-sci-gtoc-vis.fits 2458370.69203 -133.70561277616835 5.017970906348257
+112 / 169 car-20180910T04h34m58s-sci-gtoc-vis.fits 2458371.69954 -149.7586621443719 7.831030808529305
+113 / 169 car-20180914T04h37m33s-sci-gtoc-vis.fits 2458375.70165 -112.69900225002654 5.266191995193211
+114 / 169 car-20180918T04h25m53s-sci-gtoc-vis.fits 2458379.6939 -112.58043865985657 2.414502920049985
+115 / 169 car-20180919T04h30m05s-sci-gtoc-vis.fits 2458380.69667 -105.53741518624223 5.072391206907413
+116 / 169 car-20180920T04h31m34s-sci-gtoc-vis.fits 2458381.69776 -85.03487337387432 3.5731191814967183
+117 / 169 car-20180921T04h13m05s-sci-gtoc-vis.fits 2458382.685 -88.69837816354887 3.9317545801190583
+118 / 169 car-20180924T04h28m22s-sci-gtoc-vis.fits 2458385.69581 -86.56392967000706 3.365933404525137
+119 / 169 car-20180929T04h26m31s-sci-gtoc-vis.fits 2458390.69382 -72.36436367615434 5.8472852427854365
+120 / 169 car-20181002T03h34m04s-sci-gtoc-vis.fits 2458393.65881 -78.6586281073016 4.732377920848857
+121 / 169 car-20181007T04h30m18s-sci-gtoc-vis.fits 2458398.69837 -69.47337147613942 10.191056966462448
+122 / 169 car-20181014T03h53m40s-sci-gtoc-vis.fits 2458405.67252 -93.7139157875981 15.395001783836078
+123 / 169 car-20181022T04h01m44s-sci-gtoc-vis.fits 2458413.67975 -49.142662778870765 6.5501916849522965
+124 / 169 car-20181102T04h46m35s-sci-gtoc-vis.fits 2458424.71113 -25.356380215730365 7.2596056716609745
+125 / 169 car-20181104T04h09m29s-sci-gtoc-vis.fits 2458426.68607 -2.465616137857842 7.150544902352444
+126 / 169 car-20181107T04h15m46s-sci-gtoc-vis.fits 2458429.69051 9.224889573878775 5.725718857462619
+127 / 169 car-20181109T05h12m54s-sci-gtoc-vis.fits 2458431.73049 -11.973911081418347 13.773179378511754
+128 / 169 car-20181111T04h58m31s-sci-gtoc-vis.fits 2458433.72023 -18.565709557238222 5.50766456826832
+129 / 169 car-20181127T03h07m17s-sci-gtoc-vis.fits 2458449.64374 -7.71850355477721 12.91273141614891
+130 / 169 car-20181206T02h50m19s-sci-gtoc-vis.fits 2458458.63305 18.161446210586462 2.5534972248445165
+131 / 169 car-20181222T02h48m21s-sci-gtoc-vis.fits 2458474.63199 14.697778681193572 3.5877951431138917
+132 / 169 car-20190102T02h13m13s-sci-gtoc-vis.fits 2458485.60806 27.19273010797293 6.0711612285718415
+133 / 169 car-20190109T01h21m25s-sci-gtoc-vis.fits 2458492.5723 17.424723513950987 3.7816874150473994
+opti warning: v not in [va,vb].
+ Setting  v=
+134 / 169 car-20190116T01h20m13s-sci-gtoc-vis.fits 2458499.57137 13.906531582270823 2.4363622669282936
+135 / 169 car-20190127T03h07m35s-sci-gtoc-vis.fits 2458510.6466 32.76436153287228 7.959647787524523
+136 / 169 car-20190204T02h28m52s-sci-gotc-vis.fits 2458518.61846 38.22097916774364 9.604522585377547
+137 / 169 car-20190210T02h11m35s-sci-gtoc-vis.fits 2458524.60678 34.573571452042266 10.96562199464732
+opti warning: v not in [va,vb].
+ Setting  v=
+138 / 169 car-20190214T22h24m58s-sci-gtoc-vis.fits 2458529.4489 30.523822852282503 2.1073470698696832
+opti warning: a[2]=-143.536425<=0.
+ Setting  v=
+139 / 169 car-20190219T23h35m21s-sci-gtoc-vis.fits 2458534.49788 30.872528516810252 2.608906666270811
+140 / 169 car-20190225T00h01m15s-sci-gtoc-vis.fits 2458539.51526 22.18190178280938 10.207465698230566
+opti warning: v not in [va,vb].
+ Setting  v=
+141 / 169 car-20190302T02h08m21s-sci-gtoc-vis.fits 2458544.60237 -2.7356016059766213 3.8306390165584263
+opti warning: v not in [va,vb].
+ Setting  v=
+142 / 169 car-20190310T23h43m35s-sci-gtoc-vis.fits 2458553.50286 -34.66868494603751 2.896107757274964
+opti warning: v not in [va,vb].
+ Setting  v=
+143 / 169 car-20190315T20h35m31s-sci-gtoc-vis.fits 2458558.3715 -66.32910205331487 2.185390283839397
+opti warning: v not in [va,vb].
+ Setting  v=
+144 / 169 car-20190317T20h24m39s-sci-gtoc-vis.fits 2458560.36604 -76.69992801021513 5.377036415967646
+145 / 169 car-20190322T01h32m40s-sci-gtoc-vis.fits 2458564.57768 -96.24179364768277 16.232162187905598
+146 / 169 car-20190326T00h52m14s-sci-gtoc-vis.fits 2458568.54786 -98.29877419230824 12.027778594477004
+147 / 169 car-20190328T00h26m41s-sci-gtoc-vis.fits 2458570.53143 -89.43680830768271 5.716612991223168
+148 / 169 car-20190403T01h51m24s-sci-gtoc-vis.fits 2458576.59001 -104.40778555751098 13.94937860270387
+149 / 169 car-20190413T20h55m57s-sci-gtoc-vis.fits 2458587.38455 -87.74950131595496 7.343003112487144
+150 / 169 car-20190512T21h47m39s-sci-gtoc-vis.fits 2458616.41732 -27.310296436474555 12.234769539588592
+opti warning: v not in [va,vb].
+ Setting  v=
+151 / 169 car-20190522T22h23m43s-sci-gtoc-vis.fits 2458626.44116 -23.9873146079621 5.3498305244218525
+opti warning: a[2]=-3.552622<=0.
+ Setting  v=
+152 / 169 car-20190529T21h04m27s-sci-gtoc-vis.fits 2458633.38632 0.7757995717050606 3.0901816566134475
+153 / 169 car-20190606T21h16m18s-sci-gtoc-vis.fits 2458641.39435 0.9339595886109926 8.609622317827682
+154 / 169 car-20190614T20h46m24s-sci-gtoc-vis.fits 2458649.372 17.78685442677849 13.156322897611313
+155 / 169 car-20190918T04h05m45s-sci-gtoc-vis.fits 2458744.67987 22.701996435148256 2.4703131421173063
+156 / 169 car-20190930T03h45m39s-sci-gtoc-vis.fits 2458756.66688 -33.24120188876956 3.807347078294133
+157 / 169 car-20191007T04h03m40s-sci-gtoc-vis.fits 2458763.67965 -69.44836454242065 2.5807646866889047
+158 / 169 car-20191015T04h02m25s-sci-gtoc-vis.fits 2458771.67936 -80.47865220596692 42.55958046049339
+159 / 169 car-20191026T03h17m09s-sci-gtoc-vis.fits 2458782.64873 -88.94993568993968 5.668691150343745
+160 / 169 car-20191104T05h05m02s-sci-gtoc-vis.fits 2458791.72355 -57.455408164755696 6.0839151636295785
+
+Iteration 2 / 2 (J08413+594)
+coadding method: post3
+coadding o 10: too many negative data points in n=46, o=10, RV=1.4085652789390675; skipping order
+too many negative data points in n=86, o=10, RV=-28.98203506931763; skipping order
+0.91625 (157) 0.91433 (4) 0.91433 (0)  S/N: 3.14067
+coadding o 11: too many negative data points in n=46, o=11, RV=1.4085652789390675; skipping order
+too many negative data points in n=86, o=11, RV=-28.98203506931763; skipping order
+0.91987 (145) 0.91607 (6) 0.91607 (0)  S/N: 5.31657
+coadding o 12: too many negative data points in n=46, o=12, RV=1.4085652789390675; skipping order
+0.92088 (169) 0.91789 (2) 0.91789 (0)  S/N: 6.81067
+coadding o 13: too many negative data points in n=46, o=13, RV=1.4085652789390675; skipping order
+too many negative data points in n=86, o=13, RV=-28.98203506931763; skipping order
+0.92103 (154) 0.91870 (12) 0.91839 (0)  S/N: 8.98677
+coadding o 14: too many negative data points in n=46, o=14, RV=1.4085652789390675; skipping order
+too many negative data points in n=47, o=14, RV=1.2465864612719275; skipping order
+too many negative data points in n=86, o=14, RV=-28.98203506931763; skipping order
+0.91266 (357) 0.91018 (158) 0.91005 (92)  S/N: 4.46421
+coadding o 15: too many negative data points in n=46, o=15, RV=1.4085652789390675; skipping order
+too many negative data points in n=86, o=15, RV=-28.98203506931763; skipping order
+too many negative data points in n=88, o=15, RV=-16.695617376225716; skipping order
+0.92396 (152) 0.92132 (8) 0.92131 (0)  S/N: 6.16452
+coadding o 16: too many negative data points in n=46, o=16, RV=1.4085652789390675; skipping order
+too many negative data points in n=86, o=16, RV=-28.98203506931763; skipping order
+0.93333 (142) 0.92944 (3) 0.92928 (0)  S/N: 10.92215
+coadding o 17: 0.93732 (129) 0.93676 (2) 0.93676 (0)  S/N: 19.31701
+coadding o 18: 0.93819 (150) 0.93565 (1) 0.93565 (0)  S/N: 22.09311
+coadding o 19: too many negative data points in n=46, o=19, RV=1.4085652789390675; skipping order
+too many negative data points in n=86, o=19, RV=-28.98203506931763; skipping order
+0.92727 (158) 0.92441 (10) 0.92439 (0)  S/N: 12.15134
+coadding o 20: too many negative data points in n=46, o=20, RV=1.4085652789390675; skipping order
+too many negative data points in n=86, o=20, RV=-28.98203506931763; skipping order
+0.95555 (192) 0.95295 (21) 0.95294 (6)  S/N: 13.24428
+coadding o 21: 0.98861 (127) 0.98619 (5) 0.98619 (0)  S/N: 32.75028
+coadding o 22: 0.97984 (188) 0.97713 (11) 0.97713 (1)  S/N: 52.78051
+coadding o 23: 0.98981 (146) 0.98728 (0) 0.98728 (0)  S/N: 73.65421
+coadding o 24: 1.02317 (158) 1.02119 (13) 1.02109 (4)  S/N: 101.47726
+coadding o 25: 1.02471 (325) 1.02316 (79) 1.02315 (21)  S/N: 87.95422
+coadding o 26: 0.99584 (160) 0.99225 (8) 0.99206 (0)  S/N: 80.31881
+coadding o 27: 0.99351 (161) 0.99032 (9) 0.99022 (0)  S/N: 72.09557
+coadding o 28: 1.00229 (195) 1.00025 (6) 1.00017 (0)  S/N: 87.36852
+coadding o 29: 1.05840 (115) 1.05355 (6) 1.05349 (0)  S/N: 56.26507
+coadding o 30: 1.19913 (78) 1.19643 (3) 1.19630 (0)  S/N: 100.43727
+coadding o 31: 1.07626 (129) 1.07386 (10) 1.07370 (0)  S/N: 173.03691
+coadding o 32: 1.04330 (172) 1.04066 (6) 1.04038 (0)  S/N: 120.96711
+coadding o 33: 1.55756 (99) 1.55221 (10) 1.55118 (1)  S/N: 70.42731
+coadding o 34: 2.42050 (51) 2.42019 (7) 2.42020 (0)  S/N: 112.47760
+coadding o 35: 1.17451 (160) 1.16987 (24) 1.16823 (4)  S/N: 251.02953
+coadding o 36: 1.04415 (131) 1.04152 (5) 1.04151 (0)  S/N: 383.87180
+coadding o 37: 1.05469 (117) 1.05269 (3) 1.05264 (0)  S/N: 145.88125
+coadding o 38: 5.11156 (74) 5.11550 (3) 5.11564 (0)  S/N: 28.67682
+coadding o 39: 1.06217 (163) 1.05888 (12) 1.05880 (1)  S/N: 198.41600
+coadding o 40: 1.06857 (188) 1.06586 (26) 1.06577 (7)  S/N: 265.19944
+coadding o 41: 1.18593 (258) 1.17374 (66) 1.16752 (15)  S/N: 264.03702
+coadding o 42: 1.14452 (339) 1.13000 (79) 1.12762 (18)  S/N: 367.27891
+coadding o 43: 2.56117 (158) 2.56190 (40) 2.56229 (10)  S/N: 117.53705
+coadding o 44: 3.11685 (195) 3.11970 (58) 3.12061 (19)  S/N: 116.29249
+coadding o 45: 1.30309 (277) 1.26755 (62) 1.26269 (19)  S/N: 204.66553
+coadding o 46: 1.05916 (381) 1.05571 (81) 1.05542 (17)  S/N: 317.57989
+coadding o 47: 1.06697 (329) 1.06366 (78) 1.06296 (12)  S/N: 432.02708
+coadding o 48: 1.05310 (273) 1.05013 (26) 1.04930 (1)  S/N: 397.07414
+coadding o 49: 1.06252 (189) 1.05880 (25) 1.05873 (3)  S/N: 286.76611
+coadding o 50: 4.02561 (68) 4.02727 (8) 4.02742 (1)  S/N: 90.72792
+coadding o 51: 7.11893 (38) 7.11986 (2) 7.11997 (0)  S/N: 79.72001
+
+template written to  J08413+594/template_post3.fits
+time: 7m44.800s
+
+Iteration 2 / 2 (J08413+594)
+RV method:  LEAST SQUARE
+1 / 169 car-20161229T21h18m51s-sci-gtoc-vis.fits 2457752.40306 -118.61895273799612 1.4009187420216873
+2 / 169 car-20170101T20h48m33s-sci-gtoc-vis.fits 2457755.38261 -133.89559708856754 2.6477745454705794
+3 / 169 car-20170107T22h58m52s-sci-gtoc-vis.fits 2457761.47313 -127.68341943926485 2.568141448840841
+4 / 169 car-20170203T23h39m03s-sci-gtoc-vis.fits 2457788.49993 -80.48371844320128 3.3997842489051857
+5 / 169 car-20170302T22h50m50s-sci-gtoc-vis.fits 2457815.46609 -51.56421987319359 1.6328807208142713
+6 / 169 car-20170311T01h15m33s-sci-gtoc-vis.fits 2457823.56615 -35.38766543381518 1.4245483087654918
+7 / 169 car-20170320T21h19m07s-sci-gtoc-vis.fits 2457833.4001 -48.24780250484364 2.6744160086551396
+8 / 169 car-20170404T20h23m53s-sci-gtoc-vis.fits 2457848.36227 -22.04793125589686 1.5319132226968102
+9 / 169 car-20170408T21h06m36s-sci-gtoc-vis.fits 2457852.39121 -18.527398376372812 2.7056490196306604
+10 / 169 car-20170412T21h38m24s-sci-gtoc-vis.fits 2457856.41314 -17.51119207878761 2.0155308008291297
+11 / 169 car-20170422T20h18m46s-sci-gtoc-vis.fits 2457866.35684 -13.017378971705309 2.267393297707838
+12 / 169 car-20170501T21h01m00s-sci-gtoc-vis.fits 2457875.38818 -2.3011016933119466 2.8066576136128405
+13 / 169 car-20170502T20h41m04s-sci-gtoc-vis.fits 2457876.37181 -2.0369671229480844 1.4262585825508745
+14 / 169 car-20170506T20h47m06s-sci-gtoc-vis.fits 2457880.37549 7.34109422194644 2.388880497472361
+15 / 169 car-20170508T20h21m25s-sci-gtoc-vis.fits 2457882.35894 7.150011732174194 2.560725190585189
+16 / 169 car-20170510T22h42m44s-sci-gtoc-vis.fits 2457884.45591 -1.0253773505778683 5.306731539104307
+17 / 169 car-20170512T21h05m03s-sci-gtoc-vis.fits 2457886.38837 7.787849580496293 4.071536991154231
+18 / 169 car-20170514T20h54m05s-sci-gtoc-vis.fits 2457888.3803 2.4135953189947608 1.5628943852852801
+19 / 169 car-20170516T21h50m49s-sci-gtoc-vis.fits 2457890.42001 9.291653354651618 2.143424245978854
+20 / 169 car-20170518T20h40m31s-sci-gtoc-vis.fits 2457892.37058 12.079769290506068 2.4415314202409735
+21 / 169 car-20170520T21h26m28s-sci-gtoc-vis.fits 2457894.40148 10.901900554306492 1.624322500435526
+22 / 169 car-20170522T21h09m11s-sci-gtoc-vis.fits 2457896.38966 6.8208929411780534 1.728694362990058
+23 / 169 car-20170524T20h22m29s-sci-gtoc-vis.fits 2457898.35693 12.248398347870905 1.9541629394533158
+24 / 169 car-20170531T21h25m08s-sci-gtoc-vis.fits 2457905.40209 20.012645757867475 2.5834045038019218
+25 / 169 car-20170609T21h00m39s-sci-gtoc-vis.fits 2457914.38462 13.283229693952832 4.49906392668905
+26 / 169 car-20170929T04h25m44s-sci-gtoc-vis.fits 2458025.69475 -40.71582503660069 1.7108552785331876
+27 / 169 car-20171005T04h40m13s-sci-gtoc-vis.fits 2458031.7044 -70.33241649490934 2.043811941754787
+28 / 169 car-20171027T03h36m01s-sci-gtoc-vis.fits 2458053.66205 -10.265730151421641 1.4542169827263778
+29 / 169 car-20171116T05h00m06s-sci-gtoc-vis.fits 2458073.72185 1.3656198559588693 1.1079181013526798
+30 / 169 car-20171121T04h46m34s-sci-gtoc-vis.fits 2458078.7129 -3.8818116896380728 1.5188862714862568
+31 / 169 car-20171127T04h16m31s-sci-gtoc-vis.fits 2458084.69243 0.9160161053920793 1.755661055434498
+opti warning: v not in [va,vb].
+ Setting  v=
+32 / 169 car-20171201T04h08m32s-sci-gtoc-vis.fits 2458088.68639 22.733511701680346 7.425786302455877
+33 / 169 car-20171204T03h45m53s-sci-gtoc-vis.fits 2458091.67119 7.629537220496995 1.542682509115726
+34 / 169 car-20171206T03h06m44s-sci-gtoc-vis.fits 2458093.64456 13.439400518703495 1.5881208194604606
+35 / 169 car-20171208T03h48m00s-sci-gtoc-vis.fits 2458095.67284 15.238257916892717 1.1267291980543321
+36 / 169 car-20171210T03h31m45s-sci-gtoc-vis.fits 2458097.66056 -4.5440648406984785 2.230922041441625
+37 / 169 car-20171218T02h25m35s-sci-gtoc-vis.fits 2458105.61591 56.191821458020414 1.7034876847497225
+38 / 169 car-20171222T02h45m46s-sci-gtoc-vis.fits 2458109.6305 21.321930321139007 1.7942976062925926
+39 / 169 car-20171224T05h33m20s-sci-gtoc-vis.fits 2458111.74693 10.131076965914453 1.924574472839616
+40 / 169 car-20171230T02h00m51s-sci-gtoc-vis.fits 2458117.59944 10.525258642081033 1.6353725636042933
+41 / 169 car-20171231T02h00m49s-sci-gtoc-vis.fits 2458118.6003 17.550950507385664 2.6404762930125854
+42 / 169 car-20180101T03h44m46s-sci-gtoc-vis.fits 2458119.67173 23.023378110930096 1.5334347516263676
+43 / 169 car-20180102T00h23m15s-sci-gtoc-vis.fits 2458120.53235 9.720894036109268 2.4414042798754174
+44 / 169 car-20180103T00h21m47s-sci-gtoc-vis.fits 2458121.53065 11.633304087929158 1.7194124590207103
+45 / 169 car-20180104T02h35m08s-sci-gtoc-vis.fits 2458122.62307 12.908642600471044 1.685457544999914
+46 / 169 car-20180105T02h02m23s-sci-gtoc-vis.fits 2458123.60016 10.64469236039979 1.7595565799333903
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: a[2]=-1.772720<=0.
+ Setting  v=
+Negative scale value. Setting  e_v= nan
+opti warning: a[2]=-0.141783<=0.
+ Setting  v=
+Negative scale value. Setting  e_v= nan
+too much rejected, skipping
+opti warning: v not in [va,vb].
+ Setting  v=
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+47 / 169 car-20180109T04h50m31s-sci-gtoc-vis.fits 2458127.71874 0.4005599856023443 6.800538776378739
+48 / 169 car-20180112T02h57m01s-sci-gtoc-vis.fits 2458130.63962 1.2626556656972285 3.5789577808673534
+49 / 169 car-20180113T01h41m07s-sci-gtoc-vis.fits 2458131.58525 -2.268655571650536 1.9331221047507847
+50 / 169 car-20180114T05h03m53s-sci-gtoc-vis.fits 2458132.7265 -0.8038740760111102 3.462426095145859
+51 / 169 car-20180117T01h29m54s-sci-gtoc-vis.fits 2458135.57749 -4.789391637916304 2.0765436326278865
+52 / 169 car-20180117T23h19m40s-sci-gtoc-vis.fits 2458136.4872 -10.28718856503087 1.787852437303536
+53 / 169 car-20180120T00h12m13s-sci-gtoc-vis.fits 2458138.52345 -9.992140001585025 2.3836828949502755
+54 / 169 car-20180121T00h20m47s-sci-gtoc-vis.fits 2458139.52973 -28.390775088356097 1.5823954173650328
+55 / 169 car-20180121T23h28m31s-sci-gtoc-vis.fits 2458140.49414 -32.10094815907224 1.449706856085202
+56 / 169 car-20180123T00h34m53s-sci-gtoc-vis.fits 2458141.53974 -43.94478802794301 1.435454050389787
+57 / 169 car-20180124T02h28m32s-sci-gtoc-vis.fits 2458142.6189 -35.60526617898272 1.58079533603863
+58 / 169 car-20180124T21h29m53s-sci-gtoc-vis.fits 2458143.41112 -45.953946377687814 1.7847893649700504
+59 / 169 car-20180131T00h31m40s-sci-gtoc-vis.fits 2458149.53603 -74.14849957425105 3.0552780017509344
+60 / 169 car-20180214T20h58m10s-sci-gtoc-vis.fits 2458164.38871 -135.88755480986822 2.1595891638374995
+61 / 169 car-20180216T23h00m41s-sci-gtoc-vis.fits 2458166.47462 -154.9058983794214 1.5466608739044307
+62 / 169 car-20180217T23h03m58s-sci-gtoc-vis.fits 2458167.47407 -142.74726684166896 1.866375665064995
+63 / 169 car-20180220T01h51m51s-sci-gtoc-vis.fits 2458169.59236 -177.43678565867418 1.8718249502397004
+64 / 169 car-20180221T03h52m22s-sci-gtoc-vis.fits 2458170.67582 -153.64492838099673 2.252211462441877
+65 / 169 car-20180221T22h33m49s-sci-gtoc-vis.fits 2458171.45499 -119.31519059934921 4.067973148783963
+66 / 169 car-20180222T22h28m53s-sci-gtoc-vis.fits 2458172.45148 -118.67083968136738 2.7983157683105473
+67 / 169 car-20180224T22h26m31s-sci-gtoc-vis.fits 2458174.44459 -101.47108843164413 6.8011168665180435
+68 / 169 car-20180225T22h10m20s-sci-gtoc-vis.fits 2458175.43926 -112.2972344481207 1.9275780094222097
+69 / 169 car-20180304T22h08m41s-sci-gtoc-vis.fits 2458182.43647 -91.9597702499851 3.627909727335613
+70 / 169 car-20180309T01h28m35s-sci-gtoc-vis.fits 2458186.57773 -87.85529664912801 5.083665095545751
+71 / 169 car-20180321T20h48m36s-sci-gtoc-vis.fits 2458199.38029 -69.24923289573252 5.11551451199158
+72 / 169 car-20180322T20h44m36s-sci-gtoc-vis.fits 2458200.37692 -66.81946729503943 2.570107037869744
+73 / 169 car-20180327T20h36m42s-sci-gtoc-vis.fits 2458205.37061 -60.56576735691956 1.974176072738062
+74 / 169 car-20180328T20h31m32s-sci-gtoc-vis.fits 2458206.3676 -71.56483284206983 2.5854324625491354
+75 / 169 car-20180329T20h15m11s-sci-gtoc-vis.fits 2458207.3569 -62.769211900396236 2.470049429575513
+76 / 169 car-20180331T20h58m33s-sci-gtoc-vis.fits 2458209.38615 -52.26809878417812 1.9983935665382222
+77 / 169 car-20180402T21h06m54s-sci-gtoc-vis.fits 2458211.39118 -51.66364910910408 3.1198075690209097
+78 / 169 car-20180403T20h38m08s-sci-gtoc-vis.fits 2458212.37033 -52.16462134950993 3.1967227405975547
+79 / 169 car-20180404T21h09m10s-sci-gtoc-vis.fits 2458213.39355 -50.616739556073256 2.2873742814106333
+80 / 169 car-20180406T20h22m13s-sci-gtoc-vis.fits 2458215.361 -53.044489601563924 1.9690453898917075
+81 / 169 car-20180407T19h52m26s-sci-gtoc-vis.fits 2458216.34017 -43.252345586750124 5.443691843685793
+82 / 169 car-20180408T19h50m12s-sci-gtoc-vis.fits 2458217.33781 -46.295025705931145 5.860617321734511
+83 / 169 car-20180409T19h47m33s-sci-gtoc-vis.fits 2458218.33599 -47.86618425166019 6.4187570160686125
+84 / 169 car-20180416T21h01m50s-sci-gtoc-vis.fits 2458225.38799 -44.26206447520016 1.6985936496567973
+85 / 169 car-20180420T22h11m56s-sci-gtoc-vis.fits 2458229.43463 -40.760731085429924 2.91051186167078
+86 / 169 car-20180427T22h35m34s-sci-gtoc-vis.fits 2458236.45155 -33.44899409578103 1.7112756776594542
+opti warning: v not in [va,vb].
+ Setting  v=
+Negative scale value. Setting  e_v= nan
+too much rejected, skipping
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+Negative scale value. Setting  e_v= nan
+87 / 169 car-20180428T20h10m28s-sci-gtoc-vis.fits 2458237.35076 -27.225177487708027 5.316389159723976
+88 / 169 car-20180429T20h41m18s-sci-gtoc-vis.fits 2458238.37266 -3.799321482170862 11.324003177101455
+89 / 169 car-20180504T20h57m34s-sci-gtoc-vis.fits 2458243.37491 -1.006600421862026 7.256555802909766
+90 / 169 car-20180506T22h18m57s-sci-gtoc-vis.fits 2458245.43872 -16.324286791588133 2.153335075120661
+91 / 169 car-20180507T22h29m19s-sci-gtoc-vis.fits 2458246.44629 -21.607750159882723 1.3360673751498744
+92 / 169 car-20180510T23h36m39s-sci-gtoc-vis.fits 2458249.4916 -23.368657743701906 2.686381943846801
+93 / 169 car-20180512T20h36m01s-sci-gtoc-vis.fits 2458251.36808 -10.655163453109068 5.220714241908368
+94 / 169 car-20180521T21h33m48s-sci-gtoc-vis.fits 2458260.4067 -3.462637367484915 2.2900005273473414
+95 / 169 car-20180522T21h01m34s-sci-gtoc-vis.fits 2458261.38434 -1.6321085168272618 1.4531453401057848
+96 / 169 car-20180523T21h01m42s-sci-gtoc-vis.fits 2458262.38014 9.088537812141668 6.184051600857856
+97 / 169 car-20180524T21h45m22s-sci-gtoc-vis.fits 2458263.41435 -3.1659387864790594 3.941091647996701
+98 / 169 car-20180525T21h31m06s-sci-gtoc-vis.fits 2458264.40512 0.9534915348365468 2.0430381555937203
+99 / 169 car-20180526T21h56m52s-sci-gtoc-vis.fits 2458265.4225 5.800936312169237 2.0662115887976804
+100 / 169 car-20180527T21h33m56s-sci-gtoc-vis.fits 2458266.40621 5.5416551038944 2.7013499389160907
+101 / 169 car-20180531T20h36m40s-sci-gtoc-vis.fits 2458270.36666 4.5930100547233454 1.571699692455495
+102 / 169 car-20180601T21h08m36s-sci-gtoc-vis.fits 2458271.38935 4.560247773097384 1.994905234787862
+103 / 169 car-20180607T21h11m16s-sci-gtoc-vis.fits 2458277.39038 8.369120483085865 2.2850695393293052
+104 / 169 car-20180829T04h05m40s-sci-gtoc-vis.fits 2458359.67847 -92.038688335384 2.4739519844515434
+opti warning: v not in [va,vb].
+ Setting  v=
+105 / 169 car-20180830T04h19m16s-sci-gtoc-vis.fits 2458360.68884 -80.79502345076507 6.275294540144968
+106 / 169 car-20180831T03h56m48s-sci-gtoc-vis.fits 2458361.67255 -104.73533744236956 1.8850526446063667
+107 / 169 car-20180901T04h05m39s-sci-gtoc-vis.fits 2458362.67945 -106.08913194518874 1.937640331329805
+108 / 169 car-20180904T03h46m20s-sci-gtoc-vis.fits 2458365.66642 -112.2027926879434 3.5213408245311957
+109 / 169 car-20180905T04h17m49s-sci-gtoc-vis.fits 2458366.68771 -111.3408540130583 1.5729019088213074
+110 / 169 car-20180906T04h10m30s-sci-gtoc-vis.fits 2458367.68229 -126.82207225898485 1.579290859373068
+111 / 169 car-20180909T04h22m09s-sci-gtoc-vis.fits 2458370.69203 -130.81305818974502 2.0652458437866574
+112 / 169 car-20180910T04h34m58s-sci-gtoc-vis.fits 2458371.69954 -145.42493630552156 1.711004687798292
+113 / 169 car-20180914T04h37m33s-sci-gtoc-vis.fits 2458375.70165 -109.88119656937708 2.066083944905766
+114 / 169 car-20180918T04h25m53s-sci-gtoc-vis.fits 2458379.6939 -111.6901970624733 1.7913443597275664
+115 / 169 car-20180919T04h30m05s-sci-gtoc-vis.fits 2458380.69667 -106.84549754123394 1.602210946356319
+116 / 169 car-20180920T04h31m34s-sci-gtoc-vis.fits 2458381.69776 -87.17469363043988 1.5475770655636196
+117 / 169 car-20180921T04h13m05s-sci-gtoc-vis.fits 2458382.685 -91.46640400890591 1.3099234623727771
+118 / 169 car-20180924T04h28m22s-sci-gtoc-vis.fits 2458385.69581 -89.51669555339745 1.4451264328917393
+119 / 169 car-20180929T04h26m31s-sci-gtoc-vis.fits 2458390.69382 -79.0888381033489 1.8278153626245528
+120 / 169 car-20181002T03h34m04s-sci-gtoc-vis.fits 2458393.65881 -80.95544847704366 1.9325355240601567
+121 / 169 car-20181007T04h30m18s-sci-gtoc-vis.fits 2458398.69837 -79.15093139729413 1.9313517855051274
+122 / 169 car-20181014T03h53m40s-sci-gtoc-vis.fits 2458405.67252 -105.72909849387959 3.121534391525846
+123 / 169 car-20181022T04h01m44s-sci-gtoc-vis.fits 2458413.67975 -53.783331023304115 1.7456833119170234
+124 / 169 car-20181102T04h46m35s-sci-gtoc-vis.fits 2458424.71113 -31.47846053768206 2.544145841126647
+125 / 169 car-20181104T04h09m29s-sci-gtoc-vis.fits 2458426.68607 -9.20416397730306 1.5111532290514471
+126 / 169 car-20181107T04h15m46s-sci-gtoc-vis.fits 2458429.69051 3.3899039071708246 1.8705097409698066
+opti warning: v not in [va,vb].
+ Setting  v=
+127 / 169 car-20181109T05h12m54s-sci-gtoc-vis.fits 2458431.73049 -35.048936985689885 10.730659267005128
+128 / 169 car-20181111T04h58m31s-sci-gtoc-vis.fits 2458433.72023 -20.634952472739567 1.688784265792574
+129 / 169 car-20181127T03h07m17s-sci-gtoc-vis.fits 2458449.64374 -1.4837507790254179 2.674136172114091
+130 / 169 car-20181206T02h50m19s-sci-gtoc-vis.fits 2458458.63305 20.991699153769257 1.1961033658493787
+131 / 169 car-20181222T02h48m21s-sci-gtoc-vis.fits 2458474.63199 13.22308268366646 1.482283284444588
+132 / 169 car-20190102T02h13m13s-sci-gtoc-vis.fits 2458485.60806 27.787777882173312 1.8242327590644611
+133 / 169 car-20190109T01h21m25s-sci-gtoc-vis.fits 2458492.5723 16.482962963976487 1.8564110120791422
+134 / 169 car-20190116T01h20m13s-sci-gtoc-vis.fits 2458499.57137 15.122213171963901 2.2643667786964334
+135 / 169 car-20190127T03h07m35s-sci-gtoc-vis.fits 2458510.6466 32.51055129985863 2.2272358984945964
+136 / 169 car-20190204T02h28m52s-sci-gotc-vis.fits 2458518.61846 38.18790703112572 3.1850107839135755
+137 / 169 car-20190210T02h11m35s-sci-gtoc-vis.fits 2458524.60678 33.030952919516665 1.8970869730172184
+138 / 169 car-20190214T22h24m58s-sci-gtoc-vis.fits 2458529.4489 30.765286882665166 1.8264933558062637
+139 / 169 car-20190219T23h35m21s-sci-gtoc-vis.fits 2458534.49788 31.262921664465797 1.9382898478660673
+140 / 169 car-20190225T00h01m15s-sci-gtoc-vis.fits 2458539.51526 19.048192787172905 1.4656847549921659
+141 / 169 car-20190302T02h08m21s-sci-gtoc-vis.fits 2458544.60237 -1.4322329779445429 2.6043921549955837
+142 / 169 car-20190310T23h43m35s-sci-gtoc-vis.fits 2458553.50286 -33.25110129804983 1.8343446782023043
+143 / 169 car-20190315T20h35m31s-sci-gtoc-vis.fits 2458558.3715 -65.67344265580462 1.3078875457229875
+144 / 169 car-20190317T20h24m39s-sci-gtoc-vis.fits 2458560.36604 -79.00432997460753 3.4923535866276905
+145 / 169 car-20190322T01h32m40s-sci-gtoc-vis.fits 2458564.57768 -99.96828111872973 4.2257355070664095
+146 / 169 car-20190326T00h52m14s-sci-gtoc-vis.fits 2458568.54786 -101.25952636948173 3.917756747506807
+147 / 169 car-20190328T00h26m41s-sci-gtoc-vis.fits 2458570.53143 -91.02969784635933 3.6729858810874347
+148 / 169 car-20190403T01h51m24s-sci-gtoc-vis.fits 2458576.59001 -109.07812033433501 2.7193098006843153
+149 / 169 car-20190413T20h55m57s-sci-gtoc-vis.fits 2458587.38455 -87.26977336367112 2.1406769236697505
+150 / 169 car-20190512T21h47m39s-sci-gtoc-vis.fits 2458616.41732 -28.12115359291717 2.0873947045675383
+151 / 169 car-20190522T22h23m43s-sci-gtoc-vis.fits 2458626.44116 -20.839046126832578 2.484753444533962
+152 / 169 car-20190529T21h04m27s-sci-gtoc-vis.fits 2458633.38632 0.4463832722983778 2.131351882154725
+153 / 169 car-20190606T21h16m18s-sci-gtoc-vis.fits 2458641.39435 -0.11319162891673215 2.297728074653844
+154 / 169 car-20190614T20h46m24s-sci-gtoc-vis.fits 2458649.372 14.46951467531555 3.1552980702463795
+155 / 169 car-20190918T04h05m45s-sci-gtoc-vis.fits 2458744.67987 21.90426654093585 1.5342375460968942
+156 / 169 car-20190930T03h45m39s-sci-gtoc-vis.fits 2458756.66688 -29.994638940580515 1.5654099719286136
+157 / 169 car-20191007T04h03m40s-sci-gtoc-vis.fits 2458763.67965 -69.90738327129891 1.665007061658447
+158 / 169 car-20191015T04h02m25s-sci-gtoc-vis.fits 2458771.67936 -80.66882803047318 5.662379216772384
+159 / 169 car-20191026T03h17m09s-sci-gtoc-vis.fits 2458782.64873 -91.75830376596659 1.5292395567414725
+160 / 169 car-20191104T05h05m02s-sci-gtoc-vis.fits 2458791.72355 -54.981829273064754 3.3456901063030937
+
+169 spectra processed J08413+594/J08413+594.dat  (total 15m58.927s, compu 14m45.621s)
+
+J08413+594/J08413+594.rvc.dat
+total SNR: nan
+Statistic on dispersion in RV time series for J08413+594
+        mlrms [m/s]  std [m/s] wstd [m/s]  iqr [m/s] wiqr [m/s]
+RVmed:    50.8180
+RV:       50.8375    50.8171    51.5136    62.9279    57.7924
+RVp:      50.8271    50.8263    50.7317    62.9656    60.0969
+RVc:      48.1205    48.1031    48.0995    61.7249    55.9699
+RVpc:     48.0767    48.2276    48.2433    62.1363    56.8122
+median internal precision 2.0656648943462117
+Time span [d]:  1039.3204900003038
+mean ord std: 25.47580048657534 , median ord std: 13.620710068645032

@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J08402+314 autolis/J08402+314.lis -inst CARM_VIS -safemode 2 -targ LSPM_J0840+3127

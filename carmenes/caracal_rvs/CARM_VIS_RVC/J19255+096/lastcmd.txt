@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J19255+096 autolis/J19255+096.lis -inst CARM_VIS -safemode 2 -targ LSPM_J1925+0938 -snmin 1 -pspline 100. -oset 35:52 -coset 18:57 -rvwarn 10 -tplrv  -30 -ofacauto -vtfix

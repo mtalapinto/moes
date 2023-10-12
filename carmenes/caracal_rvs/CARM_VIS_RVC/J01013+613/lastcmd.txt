@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J01013+613 /dev/fd/63 -inst CARM_VIS -safemode 2 -targ gj47

@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J18189+661 autolis/J18189+661.lis -inst CARM_VIS -safemode 2 -targ gj4053 -pspline 0.0000001 -ofac 0.324675

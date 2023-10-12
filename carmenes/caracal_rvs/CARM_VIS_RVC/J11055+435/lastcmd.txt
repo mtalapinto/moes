@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J11055+435 autolis/J11055+435.lis -inst CARM_VIS -safemode 2 -targ gj412B -ofac 0.60241

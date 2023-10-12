@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J20451-313 autolis/J20451-313.lis -inst CARM_VIS -safemode 2 -targ AU_Mic

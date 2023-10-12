@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J04167-120 autolis/J04167-120.lis -inst CARM_VIS -safemode 2 -targ G160-62 -pspline 0.0000001

@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J17338+169 autolis/J17338+169.lis -inst CARM_VIS -safemode 2 -targ LSPM_J1733+1655 -ofac 0.120482

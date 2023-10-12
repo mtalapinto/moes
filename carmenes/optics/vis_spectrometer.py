@@ -301,6 +301,18 @@ def tracing(spectrum, params, fib, temps):
         ws.append([order[i], wave[i], H9[i][0], H9[i][1], H9[i][2], DC9[i][0], DC9[i][1], DC9[i][2], epx[i], epy[i]])
 
     ws = CCD_vis.mm2pix(np.asarray(ws))
+    out = pd.DataFrame()
+    out['order'] = ws[:, 0]
+    out['wave'] = ws[:, 1]
+    out['x'] = ws[:, 2]
+    out['y'] = ws[:, 3]
+    out['z'] = ws[:, 4]
+    out['dx'] = ws[:, 5]
+    out['dy'] = ws[:, 6]
+    out['dz'] = ws[:, 7]
+    out['epx'] = ws[:, 8]
+    out['epy'] = ws[:, 9]
 
-    return ws
+    return out
+
 

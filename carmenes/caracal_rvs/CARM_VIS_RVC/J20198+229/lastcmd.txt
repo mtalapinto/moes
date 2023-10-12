@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J20198+229 autolis/J20198+229.lis -inst CARM_VIS -safemode 2 -targ LP_395-008 -vrange 80 -rvwarn 99999

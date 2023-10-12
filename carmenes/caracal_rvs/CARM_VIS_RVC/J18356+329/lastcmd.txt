@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J18356+329 autolis/J18356+329.lis -inst CARM_VIS -safemode 2 -targ 2MUCD11792 -snmin 7 -oset 25:52 -ofac 0.102249

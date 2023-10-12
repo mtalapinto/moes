@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J20093-012 autolis/J20093-012.lis -inst CARM_VIS -safemode 2 -targ 2MASS_J20091824-0113377

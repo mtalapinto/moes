@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J07001-190 autolis/J07001-190.lis -inst CARM_VIS -safemode 2 -targ PM_J07001-1901 -vtfix

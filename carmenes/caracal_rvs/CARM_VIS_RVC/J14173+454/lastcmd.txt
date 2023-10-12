@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J14173+454 autolis/J14173+454.lis -inst CARM_VIS -safemode 2 -targ RX_J1417.3+4525 -rvwarn 5 -ofac 0.314465

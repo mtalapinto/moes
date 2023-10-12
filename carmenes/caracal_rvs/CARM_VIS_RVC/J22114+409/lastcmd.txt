@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J22114+409 autolis/J22114+409.lis -inst CARM_VIS -safemode 2 -targ PM_J22114+4059 -pspline 0.0000001

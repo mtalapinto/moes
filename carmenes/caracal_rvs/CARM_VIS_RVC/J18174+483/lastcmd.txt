@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J18174+483 autolis/J18174+483.lis -inst CARM_VIS -safemode 2 -targ 2MASS_J18172513+4822024
