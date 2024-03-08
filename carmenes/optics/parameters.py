@@ -144,3 +144,21 @@ def write_date(params, fib, date):
     )
     print('Parameters saved.')
     return 'Parameters saved.'
+
+
+
+def get_name(i, date):
+    #basedir = '/parameters/'
+    basedir = 'data/instrumental_parameters_timeseries/' + date + '/'
+    param_file = open(basedir+'init_params_siman_a.txt', 'r')
+    params_names = []
+    for line in param_file:
+        linea = line.split()
+        params_names.append(str(linea[0]))
+
+    for k in range(len(params_names)):
+
+        if k == i:
+            param_name = params_names[k]
+
+    return str(param_name)

@@ -341,9 +341,9 @@ def full_model_residuals(date, fib):
     axes[3].legend(markerscale=2)
     axes[3].set_ylim(-0.25, 0.3)
 
-    #plt.tight_layout()
-    plt.savefig('plots/post_fit_residuals_vis.png')
-    #plt.show()
+    plt.tight_layout()
+    #plt.savefig('plots/post_fit_residuals_vis.png')
+    plt.show()
     plt.clf()
     plt.close()
 
@@ -2433,9 +2433,11 @@ def tzp_per_obs_correction():
 
 
 if __name__ == '__main__':
-    #date = '2017-10-20'
-    #fib = 'A'
-    #full_model_residuals(date, fib)
+    date = '2017-10-20'
+    fib = 'A'
+    import optimization
+    #optimization.full_fit_date(date, 'hcl', fib)
+    full_model_residuals(date, fib)
     #echellogram_plot(date, fib)
     #make_dd_hcl_file()
 
@@ -2448,7 +2450,7 @@ if __name__ == '__main__':
     #tzp_vs_nzp_plot()
 
     #dd_rv_per_obs_correct()
-    tzp_per_obs_correction()
+    #tzp_per_obs_correction()
 
     #temps_plots()
     #temperature_plots()

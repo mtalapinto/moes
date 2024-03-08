@@ -468,15 +468,17 @@ def simulated_annealing_fit_date(date, fib):
     init_state[-1] = pressure
     model = vis_spectrometer.tracing(spec, init_state, fib, temps)
     residualsx = data['posm'].values - model['x'].values
+    residualsx_data = data['posm'].values - data['posc'].values
     residualsy = data['posmy'].values - model['y'].values
     rmsx = np.sqrt(np.sum(residualsx ** 2) / len(residualsx))
     rmsy = np.sqrt(np.sum(residualsy ** 2) / len(residualsy))
     print('Pre-fit residuals rms in x = ', rmsx, ', in y = ', rmsy)
 
     #plt.plot(data['posm'].values, residualsx, 'k.')
+    #plt.plot(data['posm'].values, residualsx_data, 'b.', alpha=0.5)
     #plt.show()
     #plt.clf()
-
+    #plt.close()
     print('MOES parameters loaded.\n')
     # wsa = vis_spectrometer.tracing(spec_a, init_state_a, 'A', temps)
     # wsb = vis_spectrometer.tracing(spec_b, init_state_b, 'B', temps)
@@ -732,7 +734,7 @@ def poly_fit_date(data, model, deg):
     residuals = data['posm'].values - model['x'].values
     rms = np.sqrt(np.sum(residuals ** 2) / len(residuals))
     #print('residuals WS moes post poly = ', rms)
-    return model#, rms
+    return model, rms
 
 
 def sinefunc_fit_date(data, model, P):
@@ -1370,25 +1372,28 @@ def prepare_lineset():
     out.to_csv('spectrum.csv', index=False)
 
 
+def full_fit_date(date, kin, fib):
+    #simulated_annealing_fit_date(date, fib)
+    fit_chromatic_aberrations_date(date, kin, fib)
+    fit_optical_aberrations_date(date, kin, fib)
+
+
+def fit_sa_many_times_per_date(date, fib):
+    for k in range(100):
+        simulated_annealing_fit_date(date, fib)
 
 if __name__ == '__main__':
     
-    fib = 'B'
-    date = '2017-10-21'
+    fib = 'A'
+    date = '2017-10-20'
     kin = 'hcl'
-    #fit_all_poly('A', 4)
-    #fit_all_poly('B', 4)
-    #fit_all_full(fib)
-    model = read_full_model(date, kin, fib)
-    print(model['wll'])
-    #prepare_lineset()
-    #plot_all_dates('B')
+    #model = read_full_model(date, kin, fib)
 
-    # date = '2017-10-20'
-    # kin = 'hcl'
+    #date = '2017-10-22'
+    #kin = 'hcl'
+    fit_sa_many_times_per_date(date, fib)
     #calculate_residuals(date, kin, fib)
-    #simulated_annealing_fit_date(date, fib)
-    #fit_chromatic_aberrations_date(date, kin, fib)
+
     #fit_all_chromatic(fib)
     #fit_all_optical(fib)
     #fit_joint_fit_date(date, kin, fib)

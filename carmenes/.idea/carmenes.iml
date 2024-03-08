@@ -5,6 +5,8 @@
       <excludeFolder url="file://$MODULE_DIR$/data" />
       <excludeFolder url="file://$MODULE_DIR$/env_data" />
       <excludeFolder url="file://$MODULE_DIR$/caracal_rvs" />
+      <excludeFolder url="file://$MODULE_DIR$/plots" />
+      <excludeFolder url="file://$MODULE_DIR$/optics" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
