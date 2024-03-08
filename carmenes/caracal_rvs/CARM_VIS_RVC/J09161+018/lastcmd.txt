@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J09161+018 autolis/J09161+018.lis -inst CARM_VIS -safemode 2 -targ RX_J0916.1+0153 -ofac 0.480769

@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J00162+198W autolis/J00162+198W.lis -inst CARM_VIS -safemode 2 -targ gj1006A -vrange 50 -rvwarn 99999

@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J13536+776 autolis/J13536+776.lis -inst CARM_VIS -safemode 2 -targ NLTT35712 -ofac 0.568182

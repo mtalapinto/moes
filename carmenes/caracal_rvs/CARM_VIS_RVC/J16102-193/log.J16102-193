@@ -1,0 +1,1399 @@
+
+SERVAL - SpEctrum Radial Velocity AnaLyser (2019-04-08)
+     by Mathias Zechmeister
+
+start time: 2019-04-18 01:21:16 Thu
+targ.py: restoring 'K2-33' from J16102-193/J16102-193.targ.cvs
+ using sa= 0.00215115955731 m/s/yr ra= (16.0, 10.0, 14.7378782154) de= (-19.0, 19.0, 9.407200797) pmra= -9.709 pmde= -23.986
+autolis/J16102-193.lis
+tpl=None pmin=300 nset=slice(None, None, None) omin=10 omax=51
+getting filenames from file ( autolis/J16102-193.lis ):
+1 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-06-29/car-20160629T23h58m03s-sci-gtoc-vis_A.fits
+2 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-06-30/car-20160630T21h23m10s-sci-gtoc-vis_A.fits
+3 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-01/car-20160701T21h46m24s-sci-gtoc-vis_A.fits
+4 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-02/car-20160702T22h04m44s-sci-gtoc-vis_A.fits
+5 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-03/car-20160703T21h33m05s-sci-gtoc-vis_A.fits
+6 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-03/car-20160703T21h37m58s-sci-gtoc-vis_A.fits
+7 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-04/car-20160704T21h24m32s-sci-gtoc-vis_A.fits
+8 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-05/car-20160705T22h03m46s-sci-gtoc-vis_A.fits
+9 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-14/car-20160714T21h21m23s-sci-gtoc-vis_A.fits
+10 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-15/car-20160715T21h21m14s-sci-gtoc-vis_A.fits
+11 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-16/car-20160716T20h52m56s-sci-gtoc-vis_A.fits
+12 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-18/car-20160718T21h08m17s-sci-gtoc-vis_A.fits
+13 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-21/car-20160721T20h43m18s-sci-gtoc-vis_A.fits
+14 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-22/car-20160722T21h05m59s-sci-gtoc-vis_A.fits
+15 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-23/car-20160723T21h38m03s-sci-gtoc-vis_A.fits
+16 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-24/car-20160724T20h40m41s-sci-gtoc-vis_A.fits
+17 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-25/car-20160725T20h19m23s-sci-gtoc-vis_A.fits
+18 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-26/car-20160726T20h17m31s-sci-gtoc-vis_A.fits
+19 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-07-27/car-20160727T21h23m38s-sci-gtoc-vis_A.fits
+20 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-03/car-20160803T20h18m45s-sci-gtoc-vis_A.fits
+21 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-04/car-20160804T20h07m47s-sci-gtoc-vis_A.fits
+22 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-05/car-20160805T20h05m29s-sci-gtoc-vis_A.fits
+23 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-06/car-20160806T20h04m28s-sci-gtoc-vis_A.fits
+24 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-07/car-20160807T20h05m05s-sci-gtoc-vis_A.fits
+25 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-08/car-20160808T20h01m00s-sci-gtoc-vis_A.fits
+26 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-11/car-20160811T19h48m45s-sci-gtoc-vis_A.fits
+27 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-13/car-20160813T20h09m34s-sci-gtoc-vis_A.fits
+28 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-14/car-20160814T19h53m26s-sci-gtoc-vis_A.fits
+29 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-16/car-20160816T19h55m38s-sci-gtoc-vis_A.fits
+30 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-17/car-20160817T19h46m55s-sci-gtoc-vis_A.fits
+31 /home/astro115/carmenes/data/CARM_VIS/v2.20/red/2016-08-18/car-20160818T19h59m07s-sci-gtoc-vis_A.fits
+maskfile /home/astro133/zechmeister/carmenes/serval/lib/telluric_mask_carm_short.dat
+using telluric mask:  /home/astro133/zechmeister/carmenes/serval/lib/telluric_mask_carm_short.dat
+    # inst_mode      timeid                                     OBJECT    BJD        SN  DRSBERV  DRSdrift flag calmode
+  1/31 scan CARM_VIS: car-20160629T23h58m03s-sci-gtoc-vis.fits J16102-193_K2-33 2457569.51195 10.662 -16.639092 nan 0 OBJ,SKY
+The IERS Bulletin download may take a few minutes.
+  2/31 scan CARM_VIS: car-20160630T21h23m10s-sci-gtoc-vis.fits J16102-193_K2-33 2457570.40593 18.787 -16.792408 nan 0 OBJ,SKY
+  3/31 scan CARM_VIS: car-20160701T21h46m24s-sci-gtoc-vis.fits J16102-193_K2-33 2457571.42215 13.643 -17.247127 nan 0 OBJ,SKY
+  4/31 scan CARM_VIS: car-20160702T22h04m44s-sci-gtoc-vis.fits J16102-193_K2-33 2457572.43491 7.9568 -17.687434 nan 0 OBJ,SKY
+  5/31 scan CARM_VIS: car-20160703T21h33m05s-sci-gtoc-vis.fits J16102-193_K2-33 2457573.40304 0.72343 -18.007217 nan 0 OBJ,SKY
+  6/31 scan CARM_VIS: car-20160703T21h37m58s-sci-gtoc-vis.fits J16102-193_K2-33 2457573.41658 9.025 -18.04234 nan 0 OBJ,SKY
+  7/31 scan CARM_VIS: car-20160704T21h24m32s-sci-gtoc-vis.fits J16102-193_K2-33 2457574.40642 11.262 -18.412795 nan 0 OBJ,SKY
+  8/31 scan CARM_VIS: car-20160705T22h03m46s-sci-gtoc-vis.fits J16102-193_K2-33 2457575.43357 16.864 -18.873381 nan 0 OBJ,SKY
+  9/31 scan CARM_VIS: car-20160714T21h21m23s-sci-gtoc-vis.fits J16102-193_K2-33 2457584.40461 19.892 -22.044295 nan 0 OBJ,SKY
+ 10/31 scan CARM_VIS: car-20160715T21h21m14s-sci-gtoc-vis.fits J16102-193_K2-33 2457585.40377 23.447 -22.371601 nan 0 OBJ,SKY
+ 11/31 scan CARM_VIS: car-20160716T20h52m56s-sci-gtoc-vis.fits J16102-193_K2-33 2457586.38431 19.207 -22.646174 nan 0 OBJ,SKY
+ 12/31 scan CARM_VIS: car-20160718T21h08m17s-sci-gtoc-vis.fits J16102-193_K2-33 2457588.39494 10.631 -23.300732 nan 0 OBJ,SKY
+ 13/31 scan CARM_VIS: car-20160721T20h43m18s-sci-gtoc-vis.fits J16102-193_K2-33 2457591.37726 13.278 -24.153345 nan 0 OBJ,SKY
+ 14/31 scan CARM_VIS: car-20160722T21h05m59s-sci-gtoc-vis.fits J16102-193_K2-33 2457592.39297 16.185 -24.47808 nan 0 OBJ,SKY
+ 15/31 scan CARM_VIS: car-20160723T21h38m03s-sci-gtoc-vis.fits J16102-193_K2-33 2457593.41514 18.647 -24.809978 nan 0 OBJ,SKY
+ 16/31 scan CARM_VIS: car-20160724T20h40m41s-sci-gtoc-vis.fits J16102-193_K2-33 2457594.37537 20.123 -24.990297 nan 0 OBJ,SKY
+ 17/31 scan CARM_VIS: car-20160725T20h19m23s-sci-gtoc-vis.fits J16102-193_K2-33 2457595.36017 15.601 -25.221504 nan 0 OBJ,SKY
+ 18/31 scan CARM_VIS: car-20160726T20h17m31s-sci-gtoc-vis.fits J11421+267 2457596.35939 8.566 -25.481339 nan 0 OBJ,SKY
+ 19/31 scan CARM_VIS: car-20160727T21h23m38s-sci-gtoc-vis.fits J16102-193_K2-33 2457597.40436 14.401 -25.84184 nan 0 OBJ,SKY
+ 20/31 scan CARM_VIS: car-20160803T20h18m45s-sci-gtoc-vis.fits J16102-193_K2-33 2457604.35869 11.02 -27.310582 nan 0 OBJ,SKY
+ 21/31 scan CARM_VIS: car-20160804T20h07m47s-sci-gtoc-vis.fits J16102-193_K2-33 2457605.34493 16.508 -6.16815 nan 0 OBJ,SKY
+ 22/31 scan CARM_VIS: car-20160805T20h05m29s-sci-gtoc-vis.fits J1602-193_K2-33 2457606.35045 19.824 -24.833675 nan 0 OBJ,SKY
+ 23/31 scan CARM_VIS: car-20160806T20h04m28s-sci-gtoc-vis.fits J16102-193_K2-33 2457607.35071 22.75 21.103177 nan 0 OBJ,SKY
+ 24/31 scan CARM_VIS: car-20160807T20h05m05s-sci-gtoc-vis.fits J16102-193_K2-33 2457608.3497 15.642 -25.311649 nan 0 OBJ,SKY
+ 25/31 scan CARM_VIS: car-20160808T20h01m00s-sci-gtoc-vis.fits J16102-193_K2-33 2457609.34843 10.721 20.389477 nan 0 OBJ,SKY
+ 26/31 scan CARM_VIS: car-20160811T19h48m45s-sci-gtoc-vis.fits J16102-193_K2-33 2457612.3406 17.272 -28.582108 nan 0 OBJ,SKY
+ 27/31 scan CARM_VIS: car-20160813T20h09m34s-sci-gtoc-vis.fits J16102-193_K2-33 2457614.35102 13.265 -28.851231 nan 0 OBJ,SKY
+ 28/31 scan CARM_VIS: car-20160814T19h53m26s-sci-gtoc-vis.fits J16102-193_K2-33 2457615.33958 13.621 -28.93767 nan 0 OBJ,SKY
+ 29/31 scan CARM_VIS: car-20160816T19h55m38s-sci-gtoc-vis.fits J16102-193 2457617.3418 15.602 -29.14135 nan 0 OBJ,SKY
+ 30/31 scan CARM_VIS: car-20160817T19h46m55s-sci-gtoc-vis.fits J16102-193_K2-33 2457618.33479 16.238 -29.214327 nan 0 OBJ,SKY
+ 31/31 scan CARM_VIS: car-20160818T19h59m07s-sci-gtoc-vis.fits J16102-193_K2-33 2457619.34371 18.523 -29.313257 nan 0 OBJ,SKY
+logging to J16102-193/log.J16102-193
+31 spectra read (0m16.529s)
+
+bad spectra: car-20160702T22h04m44s-sci-gtoc-vis.fits sn: 7.9568 flag: 64 ['lowSN']
+bad spectra: car-20160703T21h33m05s-sci-gtoc-vis.fits sn: 0.72343 flag: 64 ['lowSN']
+bad spectra: car-20160703T21h37m58s-sci-gtoc-vis.fits sn: 9.025 flag: 64 ['lowSN']
+bad spectra: car-20160726T20h17m31s-sci-gtoc-vis.fits sn: 8.566 flag: 64 ['lowSN']
+median SN: 16.185
+template: car-20160715T21h21m14s-sci-gtoc-vis.fits SN55 23.447 # 9  <e_rv>=26.34m/s, <Q>=22170.4372193371
+
+
+Iteration 1 / 1 (J16102-193)
+coadding method: post3
+coadding o 10: 0.84713 (14) 0.84318 (1) 0.84317 (0) K=10  S/N: 0.49902
+coadding o 11: 0.84739 (14) 0.84459 (0) 0.84459 (0) K=10  S/N: 0.63997
+coadding o 12: 0.85338 (10) 0.85270 (0) 0.85270 (0) K=26  S/N: 1.04325
+coadding o 13: 0.86353 (16) 0.86233 (0) 0.86233 (0) K=10  S/N: 1.62590
+coadding o 14: 0.86849 (17) 0.86588 (0) 0.86588 (0) K=37  S/N: 1.58189
+coadding o 15: 0.87577 (15) 0.87318 (0) 0.87318 (0) K=33  S/N: 1.88301
+coadding o 16: 0.88188 (15) 0.88030 (0) 0.88030 (0) K=11  S/N: 2.50194
+coadding o 17: 0.89190 (18) 0.89057 (0) 0.89057 (0) K=77  S/N: 3.49564
+coadding o 18: 0.90169 (20) 0.89728 (0) 0.89728 (0) K=181  S/N: 5.16939
+coadding o 19: 0.88792 (17) 0.88331 (0) 0.88331 (0) K=181  S/N: 6.27062
+coadding o 20: 0.88352 (10) 0.88323 (0) 0.88323 (0) K=230  S/N: 5.49875
+coadding o 21: 0.92348 (15) 0.92288 (1) 0.92288 (0) K=293  S/N: 6.06089
+coadding o 22: 0.90698 (11) 0.90329 (0) 0.90329 (0) K=373  S/N: 10.22984
+coadding o 23: 0.92055 (16) 0.91800 (0) 0.91800 (0) K=475  S/N: 13.78943
+coadding o 24: 0.95291 (20) 0.94726 (1) 0.94726 (0) K=421  S/N: 16.90920
+coadding o 25: 0.94589 (18) 0.94428 (0) 0.94428 (0) K=421  S/N: 19.19308
+coadding o 26: 0.92627 (16) 0.92569 (0) 0.92569 (0) K=475  S/N: 19.58691
+coadding o 27: 0.92252 (21) 0.92044 (3) 0.92013 (0) K=475  S/N: 19.16835
+coadding o 28: 0.92752 (17) 0.92611 (1) 0.92611 (0) K=536  S/N: 20.91539
+coadding o 29: 0.97322 (9) 0.97193 (0) 0.97193 (0) K=475  S/N: 17.90402
+coadding o 30: 1.01079 (12) 1.00788 (0) 1.00788 (0) K=536  S/N: 25.15176
+coadding o 31: 0.99934 (13) 0.99841 (0) 0.99841 (0) K=536  S/N: 35.25411
+coadding o 32: 0.97511 (10) 0.97472 (0) 0.97472 (0) K=605  S/N: 32.38330
+coadding o 33: 1.09780 (6) 1.09753 (0) 1.09753 (0) K=605  S/N: 21.98952
+coadding o 34: 1.48684 (6) 1.48684 (0) 1.48684 (0) K=536  S/N: 24.16257
+coadding o 35: 1.03329 (12) 1.03161 (0) 1.03161 (0) K=536  S/N: 42.00462
+coadding o 36: 0.97621 (13) 0.97473 (2) 0.97455 (0) K=536  S/N: 72.48360
+coadding o 37: 0.97721 (20) 0.97550 (4) 0.97548 (6) K=475  S/N: 60.77985
+coadding o 38: 1.41820 (16) 1.41152 (6) 1.40061 (2) K=475  S/N: 23.02987
+coadding o 39: 0.97959 (18) 0.97897 (8) 0.97887 (2) K=605  S/N: 44.58671
+coadding o 40: 0.99045 (24) 0.98771 (5) 0.98769 (5) K=605  S/N: 51.72539
+coadding o 41: 1.07123 (12) 1.06957 (9) 1.06943 (10) K=536  S/N: 44.74338
+coadding o 42: 1.04849 (18) 1.04681 (9) 1.04672 (9) K=421  S/N: 61.18996
+coadding o 43: 1.40807 (9) 1.40149 (8) 1.39225 (9) K=421  S/N: 30.28608
+coadding o 44: 1.22430 (13) 1.22181 (8) 1.22085 (12) K=475  S/N: 29.95300
+coadding o 45: 1.07919 (15) 1.07710 (11) 1.07630 (7) K=536  S/N: 33.13238
+coadding o 46: 1.01526 (21) 1.01368 (11) 1.01346 (8) K=536  S/N: 50.99029
+coadding o 47: 1.02731 (24) 1.02625 (11) 1.02605 (8) K=475  S/N: 75.02059
+coadding o 48: 1.00442 (20) 1.00342 (13) 1.00299 (6) K=536  S/N: 57.79205
+coadding o 49: 1.01027 (9) 1.00901 (0) 1.00901 (0) K=475  S/N: 31.72165
+coadding o 50: 1.39379 (4) 1.39343 (0) 1.39343 (0) K=421  S/N: 25.50900
+coadding o 51: 2.41089 (1) 2.41090 (0) 2.41090 (0) K=331  S/N: 22.23095
+
+template written to  J16102-193/template_post3.fits
+time: 0m30.097s
+
+setting tplrv to: -11.299 km/s
+Iteration 1 / 1 (J16102-193)
+RV method:  LEAST SQUARE
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+1 / 31 car-20160629T23h58m03s-sci-gtoc-vis.fits 2457569.51274 344.85939643470255 101.5242478140033
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+2 / 31 car-20160630T21h23m10s-sci-gtoc-vis.fits 2457570.40672 236.9602914104715 79.04373375948617
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: a[2]=-0.000029<=0.
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+3 / 31 car-20160701T21h46m24s-sci-gtoc-vis.fits 2457571.42294 329.0927897166607 88.20996486157169
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: a[2]=-0.000029<=0.
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+4 / 31 car-20160704T21h24m32s-sci-gtoc-vis.fits 2457574.40721 272.5498507287234 63.70047488481238
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+5 / 31 car-20160705T22h03m46s-sci-gtoc-vis.fits 2457575.43436 255.64295374810644 67.48429047860391
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+6 / 31 car-20160714T21h21m23s-sci-gtoc-vis.fits 2457584.40539 193.89447995042775 35.27523571408925
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+7 / 31 car-20160715T21h21m14s-sci-gtoc-vis.fits 2457585.40456 109.47938200792149 54.74060796133259
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+8 / 31 car-20160716T20h52m56s-sci-gtoc-vis.fits 2457586.38511 168.94758330797202 28.412419308783797
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+9 / 31 car-20160718T21h08m17s-sci-gtoc-vis.fits 2457588.39572 103.5144421419267 84.29101302362821
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+10 / 31 car-20160721T20h43m18s-sci-gtoc-vis.fits 2457591.37805 87.35263981963931 34.86770403851924
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+11 / 31 car-20160722T21h05m59s-sci-gtoc-vis.fits 2457592.39376 138.76248087541228 32.855732338465806
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+12 / 31 car-20160723T21h38m03s-sci-gtoc-vis.fits 2457593.41593 69.71139585843785 25.313054996094447
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+13 / 31 car-20160724T20h40m41s-sci-gtoc-vis.fits 2457594.37616 57.88330447729339 20.643744550767366
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+14 / 31 car-20160725T20h19m23s-sci-gtoc-vis.fits 2457595.36096 37.68024859302705 22.27433377013193
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: a[2]=-0.000019<=0.
+ Setting  v=
+opti warning: a[2]=-0.000022<=0.
+ Setting  v=
+opti warning: a[2]=-0.000022<=0.
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: a[2]=-0.000058<=0.
+ Setting  v=
+opti warning: a[2]=-0.000052<=0.
+ Setting  v=
+opti warning: a[2]=-0.000057<=0.
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+15 / 31 car-20160727T21h23m38s-sci-gtoc-vis.fits 2457597.40515 5.029430248734872 22.24422255885424
+opti warning: v not in [va,vb].
+opti warning: a[2]=-0.000022<=0.
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: a[2]=-0.000057<=0.
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+16 / 31 car-20160803T20h18m45s-sci-gtoc-vis.fits 2457604.35948 -256.45319461940693 29.83870406048536
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+17 / 31 car-20160804T20h07m47s-sci-gtoc-vis.fits 2457605.35165 -147.95297938307303 28.72908159942793
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+18 / 31 car-20160805T20h05m29s-sci-gtoc-vis.fits 2457606.35046 -231.6311104958702 41.660544377248726
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+19 / 31 car-20160806T20h04m28s-sci-gtoc-vis.fits 2457607.34931 -140.41351602479094 33.0210296089684
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+20 / 31 car-20160807T20h05m05s-sci-gtoc-vis.fits 2457608.3497 -102.88479335129094 38.04451360443559
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+21 / 31 car-20160808T20h01m00s-sci-gtoc-vis.fits 2457609.34671 -155.75597198384213 41.45168986325773
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+22 / 31 car-20160811T19h48m45s-sci-gtoc-vis.fits 2457612.34138 -439.8300326934294 72.25412568969499
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+23 / 31 car-20160813T20h09m34s-sci-gtoc-vis.fits 2457614.35181 -261.79518346924993 48.255175280685265
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+24 / 31 car-20160814T19h53m26s-sci-gtoc-vis.fits 2457615.34037 -223.96173827355756 58.690470037163884
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+25 / 31 car-20160816T19h55m38s-sci-gtoc-vis.fits 2457617.34258 -232.57178296431164 44.35061323492117
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+26 / 31 car-20160817T19h46m55s-sci-gtoc-vis.fits 2457618.33558 -313.0473285819786 57.33427358012869
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: a[2]=-0.000002<=0.
+ Setting  v=
+opti warning: a[2]=-0.000008<=0.
+ Setting  v=
+opti warning: a[2]=-0.000012<=0.
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+opti warning: v not in [va,vb].
+ Setting  v=
+27 / 31 car-20160818T19h59m07s-sci-gtoc-vis.fits 2457619.3445 -253.88023072224922 53.851624765561986
+opti warning: a[2]=-0.000012<=0.
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+opti warning: v not in [va,vb].
+
+31 spectra processed J16102-193/J16102-193.dat  (total 2m8.340s, compu 1m51.811s)
+
+J16102-193/J16102-193.rvc.dat
+total SNR: 464.54411831146996
+Statistic on dispersion in RV time series for J16102-193
+        mlrms [m/s]  std [m/s] wstd [m/s]  iqr [m/s] wiqr [m/s]
+RVmed:   253.2308
+RV:      213.7193   216.7481   158.9018   296.9449   174.4297
+RVp:     215.7538   218.8819   157.7880   296.7324   161.1766
+RVc:     213.7194   216.7482   158.9018   296.9450   174.4297
+RVpc:    215.7539   223.0516     6.1834   296.7325   161.1767
+median internal precision 39.57618014785745
+Time span [d]:  49.83175999997184
+mean ord std: 622.2788982147728 , median ord std: 210.00941172049514

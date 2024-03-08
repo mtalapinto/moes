@@ -18,8 +18,6 @@ def mm2pix(ws):
 
 
 def pix2mm_model(ws, coord):
-
-    ws_out = np.copy(ws)
     pix_size_arr = np.full(len(ws), 15.e-3)
     detector_size_x = 4250.
     detector_size_y = 4200.
@@ -30,13 +28,30 @@ def pix2mm_model(ws, coord):
     else:
         norm = detector_diagonal*pix_size_arr
 
-    ws_out[:, 3] = (ws[:, 3] - detector_size_x/2)*pix_size_arr/(norm/2)
-    ws_out[:, 2] = (ws[:, 2] - detector_size_y/2)*pix_size_arr/(norm/2)
+    ws['x_norm'] = (ws['x'].values - detector_size_x / 2) * pix_size_arr / (norm / 2)
+    ws['y_norm'] = (ws['y'].values - detector_size_y / 2) * pix_size_arr / (norm / 2)
 
-    return ws_out
+    return ws
 
 
 def pix2mm_data(ws, coord):
+    pix_size_arr = np.full(len(ws), 15.e-3)
+    detector_size_x = 4250.
+    detector_size_y = 4200.
+
+    detector_diagonal = np.sqrt(detector_size_x**2 + detector_size_y**2)
+    if coord == 'x':
+        norm = detector_diagonal*pix_size_arr
+    else:
+        norm = detector_diagonal*pix_size_arr
+
+    ws['x_norm'] = (ws['posm'].values - detector_size_x / 2) * pix_size_arr / (norm / 2)
+    ws['y_norm'] = (ws['posmy'].values - detector_size_y / 2) * pix_size_arr / (norm / 2)
+
+    return ws
+
+
+def pix2mm_data_old(ws, coord):
     ws_out = np.copy(ws)
     pix_size_arr = np.full(len(ws), 15.e-3)
     detector_size_x = 4250.
@@ -71,7 +86,7 @@ def mm2pix_custom(ws, det):
     return ws
 
 
-def pix2mm_data(ws, coord):
+def pix2mm_data_v2(ws, coord):
     ws_out = np.copy(ws)
     pix_size_arr = np.full(len(ws), 15.e-3)
     detector_size_x = 4250.

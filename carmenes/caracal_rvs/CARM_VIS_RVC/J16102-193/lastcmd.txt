@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J16102-193 autolis/J16102-193.lis -inst CARM_VIS -safemode 2 -targ K2-33 -ofacauto -vtfix

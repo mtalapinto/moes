@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J17364+683 autolis/J17364+683.lis -inst CARM_VIS -safemode 2 -targ gj687 -pspline 0.0001

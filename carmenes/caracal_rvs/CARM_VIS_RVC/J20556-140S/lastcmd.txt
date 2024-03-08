@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J20556-140S autolis/J20556-140S.lis -inst CARM_VIS -safemode 2 -targ gj810B -tplrv  -143.4 -snmin 9

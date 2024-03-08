@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J10182-204 autolis/J10182-204.lis -inst CARM_VIS -safemode 2 -targ NLTT23956 -vrange 50 -rvwarn 30000

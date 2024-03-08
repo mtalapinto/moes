@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J02070+496 autolis/J02070+496.lis -inst CARM_VIS -safemode 2 -targ G_173-037

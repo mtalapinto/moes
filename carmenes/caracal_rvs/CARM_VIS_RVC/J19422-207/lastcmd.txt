@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J19422-207 autolis/J19422-207.lis -inst CARM_VIS -safemode 2 -targ 2MASS_J19421282-2045477 -ofac 0.78125

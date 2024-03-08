@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J16028+205 autolis/J16028+205.lis -inst CARM_VIS -safemode 2 -targ gj609

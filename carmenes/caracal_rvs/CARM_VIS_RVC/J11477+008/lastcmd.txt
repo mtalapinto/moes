@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J11477+008 autolis/J11477+008.lis -inst CARM_VIS -safemode 2 -targ FI_Vir

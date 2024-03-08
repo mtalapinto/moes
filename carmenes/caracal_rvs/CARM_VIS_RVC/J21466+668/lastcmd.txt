@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J21466+668 autolis/J21466+668.lis -inst CARM_VIS -safemode 2 -targ NLTT52122

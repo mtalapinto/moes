@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J12388+116 autolis/J12388+116.lis -inst CARM_VIS -safemode 2 -targ Wolf_433

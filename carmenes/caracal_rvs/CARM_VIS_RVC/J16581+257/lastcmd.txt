@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J16581+257 autolis/J16581+257.lis -inst CARM_VIS -safemode 2 -targ gj649

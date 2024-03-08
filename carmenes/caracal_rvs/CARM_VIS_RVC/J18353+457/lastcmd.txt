@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J18353+457 autolis/J18353+457.lis -inst CARM_VIS -safemode 2 -targ gj720A

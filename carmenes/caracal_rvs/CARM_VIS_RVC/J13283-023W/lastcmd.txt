@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J13283-023W autolis/J13283-023W.lis -inst CARM_VIS -safemode 2 -targ gj512A

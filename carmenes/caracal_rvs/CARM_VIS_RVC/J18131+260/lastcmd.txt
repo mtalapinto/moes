@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J18131+260 autolis/J18131+260.lis -inst CARM_VIS -safemode 2 -targ gj4044 -ofac 0.925926 -vtfix

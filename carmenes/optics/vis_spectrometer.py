@@ -28,11 +28,10 @@ def tracing(spectrum, params, fib, temps):
 
     order = np.zeros(len(spectrum))
     wave = np.zeros(len(spectrum))
-    #print(spectrum)
-    order[:] = spectrum[:, 0]
-    #order[:] = spectrum['order'].values
-    #wave[:] = spectrum['wave'].values
-    wave[:] = spectrum[:, 1]
+    #order[:] = spectrum[:, 0]
+    order[:] = spectrum['order'].values
+    wave[:] = spectrum['wave'].values
+    #wave[:] = spectrum[:, 1]
     x = []
     y = []
     z = []
@@ -285,7 +284,7 @@ def tracing(spectrum, params, fib, temps):
     ccd_tilt_x = temp_scaling*cte.recalc(params[40], 'alum5083', t)
     ccd_tilt_y = temp_scaling*cte.recalc(params[41], 'alum5083', t)
     ccd_tilt_z = temp_scaling*cte.recalc(params[42], 'alum5083', t)
-    T_ccd = np.array([ccd_tilt_x*np.pi/180, ccd_tilt_y*np.pi/180, ccd_tilt_z*180/np.pi])
+    T_ccd = np.array([ccd_tilt_x * np.pi/180, ccd_tilt_y * np.pi/180, ccd_tilt_z * np.pi / 180])
     H9 = transform.transform(H9, -T_ccd)
 
     # Rotation to match with CARMENES frame geometry
@@ -301,6 +300,18 @@ def tracing(spectrum, params, fib, temps):
         ws.append([order[i], wave[i], H9[i][0], H9[i][1], H9[i][2], DC9[i][0], DC9[i][1], DC9[i][2], epx[i], epy[i]])
 
     ws = CCD_vis.mm2pix(np.asarray(ws))
+    out = pd.DataFrame()
+    out['order'] = ws[:, 0]
+    out['wave'] = ws[:, 1]
+    out['x'] = ws[:, 2]
+    out['y'] = ws[:, 3]
+    out['z'] = ws[:, 4]
+    out['dx'] = ws[:, 5]
+    out['dy'] = ws[:, 6]
+    out['dz'] = ws[:, 7]
+    out['epx'] = ws[:, 8]
+    out['epy'] = ws[:, 9]
 
-    return ws
+    return out
+
 

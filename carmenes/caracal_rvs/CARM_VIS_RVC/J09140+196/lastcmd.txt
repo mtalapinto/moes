@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J09140+196 autolis/J09140+196.lis -inst CARM_VIS -safemode 2 -targ LP427-016

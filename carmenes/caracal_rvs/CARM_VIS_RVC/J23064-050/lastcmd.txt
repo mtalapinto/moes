@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J23064-050 autolis/J23064-050.lis -inst CARM_VIS -safemode 2 -targ trappist-1 -vtfix -tplrv targ -snmin 1 -tset 10: -oset 35:52 -coset 20:52 -safemode 2 -pspline 0.0000001

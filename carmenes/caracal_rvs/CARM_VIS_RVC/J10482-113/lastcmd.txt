@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J10482-113 autolis/J10482-113.lis -inst CARM_VIS -safemode 2 -targ gj3622

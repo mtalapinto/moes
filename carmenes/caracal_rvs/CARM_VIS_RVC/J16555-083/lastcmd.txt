@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J16555-083 autolis/J16555-083.lis -inst CARM_VIS -safemode 2 -targ gj644C -snmin 7 -oset 35:52 -coset 15:55 -vtfix -pspline 0.0000001 -ofac 0.943396

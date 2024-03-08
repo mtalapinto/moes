@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J11306-080 autolis/J11306-080.lis -inst CARM_VIS -safemode 2 -targ LP672-042

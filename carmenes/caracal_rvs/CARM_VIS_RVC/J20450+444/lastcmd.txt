@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J20450+444 autolis/J20450+444.lis -inst CARM_VIS -safemode 2 -targ gj806

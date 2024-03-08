@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J20525-169 autolis/J20525-169.lis -inst CARM_VIS -safemode 2 -targ LP_816-060

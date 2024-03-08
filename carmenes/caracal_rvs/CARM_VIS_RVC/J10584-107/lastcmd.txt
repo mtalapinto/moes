@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J10584-107 autolis/J10584-107.lis -inst CARM_VIS -safemode 2 -targ LP731-076

@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J05084-210 autolis/J05084-210.lis -inst CARM_VIS -safemode 2 -targ 2MASS_J05082729-2101444 -ofac 0.198413

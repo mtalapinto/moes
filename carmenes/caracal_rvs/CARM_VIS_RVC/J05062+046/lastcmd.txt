@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J05062+046 autolis/J05062+046.lis -inst CARM_VIS -safemode 2 -targ PM_J05062+0439 -ofac 0.197628

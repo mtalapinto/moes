@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J23113+085 autolis/J23113+085.lis -inst CARM_VIS -safemode 2 -targ NLTT56083

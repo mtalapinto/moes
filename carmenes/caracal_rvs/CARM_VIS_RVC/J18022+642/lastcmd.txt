@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J18022+642 autolis/J18022+642.lis -inst CARM_VIS -safemode 2 -targ LP_071-082 -pspline 0.0000001 -ofac 0.442478

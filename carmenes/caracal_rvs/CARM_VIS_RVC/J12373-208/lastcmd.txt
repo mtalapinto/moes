@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J12373-208 autolis/J12373-208.lis -inst CARM_VIS -safemode 2 -targ LP795-038

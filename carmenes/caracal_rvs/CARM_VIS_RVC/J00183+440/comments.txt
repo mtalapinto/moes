@@ -1,0 +1,4 @@
+2016-01-26 no drift for:
+car-20160108T18h44m30s-sci-gtoc-vis.fits (FP lamp off, exposure immediately repeated)
+car-20160109T18h20m36s-sci-gtoc-vis.fits (FP, maybe no CARACAL DRIFT measurement; drift in exposure: -63.325955)
+

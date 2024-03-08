@@ -1,0 +1,381 @@
+import math
+
+import numpy as np
+import os
+import pandas as pd
+from scipy import interpolate
+import platospec_moes
+import echelle_orders
+import matplotlib.pyplot as plt
+
+
+def do_2D(rv, fcam):
+    #moesdir = '/media/eduspec/TOSHIBA EXT/platospec/data/f' + str(int(fcam)) + 'mm/moes/'+str(int(rv))+'/'
+    moesdir = '/home/eduspec/Documentos/moes/platospec/data/f' + str(int(fcam)) + 'mm/moes/' + str(int(rv)) + '/'
+    outdir = '/home/eduspec/Documentos/moes/platospec/data/f' + str(int(fcam)) + 'mm/2D/'+str(int(rv))+'/'
+    if not os.path.isdir(outdir):
+        os.mkdir(outdir)
+
+    print('Creating 2D spectra...')
+    omin = 73
+    omax = 114
+    print(rv)
+    while omin <= omax:
+        fileout = outdir + str(int(omin)) + '_2D.tsv'
+        print(fcam, rv, omin)
+        if not os.path.exists(fileout):
+            fileorder = open(fileout, 'w')
+            fileorder.write('ypix,xpix,wave,flux\n')
+            orddata = pd.read_csv(moesdir + str(int(omin)) + '.tsv', sep=',')
+
+            orddata = orddata.loc[orddata['x'] <= 2048]
+            orddata = orddata.loc[orddata['x'] >= 0]
+            orddata = orddata.loc[orddata['y'] <= 2048]
+            orddata = orddata.loc[orddata['y'] >= 0]
+            ymin = np.min(orddata['x'].values) + 1
+            ymax = np.max(orddata['x'].values) - 1
+            yini = int(ymin)
+            yend = int(ymax)
+
+            while yini <= yend:
+                data_per_ypix = orddata.loc[orddata['x'] > yini - 0.5]
+                data_per_ypix = data_per_ypix.loc[data_per_ypix['x'] <= yini + 0.5]
+                xline = np.mean(data_per_ypix['y'].values)
+                yline = yini
+                waveline = np.mean(data_per_ypix['wave'].values)
+                fluxline = np.mean(data_per_ypix['flux'].values)
+                fileorder.write('%f,%f,%f,%f\n' % (float(xline), float(yline), float(waveline), float(fluxline)))
+                yini += 1
+            fileorder.close()
+
+        else:
+            print('File already created...')
+        omin += 1
+
+
+def do_2D_per_order(rv, det, orddata, instr):
+    #moesdir = '/media/eduspec/TOSHIBA EXT/platospec/data/f' + str(int(fcam)) + 'mm/moes/'+str(int(rv))+'/'
+    #moesdir = '/home/eduspec/Documentos/moes/platospec/data/f' + str(int(fcam)) + 'mm/moes/' + str(int(rv)) + '/'
+    #outdir = '/home/eduspec/Documentos/moes/platospec/data/f' + str(int(fcam)) + 'mm/2D/'+str(int(rv))+'/'
+    detdir = "".join(['data/pix_exp/'])
+    outdir = "".join([detdir, 'ccd_', str(int(det[-1])), '/'])
+    if not os.path.exists(outdir):
+        os.mkdir(outdir)
+
+    rvdir = outdir + str(int(rv)) + '/'
+    if not os.path.exists(rvdir):
+        os.mkdir(rvdir)
+
+    x, y, waveout, flux = [], [], [], []
+    omin = orddata['order'].values[0]
+    waves = np.unique(orddata['wave'])
+
+    fileout = rvdir + str(int(omin)) + '_2D.tsv'
+    print('Detector número ', det[-1])
+    print('Pixel size = ', det[0], ', ', det[1], 'x', det[2], ' pixels, ', 'RV = ', rv, ', Order =  ', omin)
+    if not os.path.exists(fileout):
+        #orddata = orddata.loc[orddata['x'] <= 2048]
+        #orddata = orddata.loc[orddata['x'] >= 0]
+        #orddata = orddata.loc[orddata['y'] <= 2048]
+        #orddata = orddata.loc[orddata['y'] >= 0]
+        ymin = np.min(orddata['x'].values) + 1
+        ymax = np.max(orddata['x'].values) - 1
+        yini = int(ymin)
+        yend = int(ymax)
+
+        while yini <= yend:
+            data_per_ypix = orddata.loc[orddata['x'] > yini - 0.5]
+            data_per_ypix = data_per_ypix.loc[data_per_ypix['x'] <= yini + 0.5]
+            xline = np.mean(data_per_ypix['y'].values)
+            yline = yini
+            waveline = np.mean(data_per_ypix['wave'].values)
+            fluxline = np.mean(data_per_ypix['flux'].values)
+            x.append(xline)
+            y.append(yline)
+            waveout.append(waveline)
+            flux.append(fluxline)
+            yini += 1
+
+        datawrite = pd.DataFrame()
+        datawrite['x'] = x
+        datawrite['y'] = y
+        datawrite['wave'] = waveout
+        datawrite['flux'] = flux
+        datawrite.to_csv(fileout, index=False)
+
+    else:
+        print('File already created...')
+
+
+def create_2D_moes_spectrum(rv, det, instr, order):
+    # platospec omin = 73, omax = 114, fideos omin = 63, omax = 104
+    slitout = echelle_orders.init_stellar_doppler(rv, instr, order)
+    # Doing Moe's ray tracing
+    specout = platospec_moes.tracing_full_det(slitout, det)
+    print('Moes spectrum created...')
+    print('Creating 2D spectrum')
+    do_2D_per_order(rv, det, specout, instr)
+    print('order ', order, 'created')
+
+    #import matplotlib.pyplot as plt
+    #plt.plot(specout['x'], specout['y'], 'r.')
+    #plt.show()
+
+
+def create_2D_moes_simple_spec(rv, det, instr, order):
+    print('Creating spectrum for RV = ', rv, ', order = ', order, ', samp = ', det[0])
+    slitout = echelle_orders.init_stellar_doppler_simple(rv, instr, order)
+    #print(slitout)
+    print(det[-1])
+    outdir = 'data/pix_exp/ccd_'+str(det[-1])+'/'+str(int(rv))+'/'
+    outfile = outdir+str(order)+'_2D_moes.tsv'
+    if os.path.exists(outfile):
+        # Doing Moe's ray tracing
+        print('Ray tracing with moes... ', )
+        specout = platospec_moes.tracing_full_det(slitout, det)
+        print('done')
+        specout = specout.loc[specout['x'] >= 0]
+        specout = specout.loc[specout['x'] <= det[2]]
+        specout = specout.loc[specout['y'] >= 0]
+        specout = specout.loc[specout['y'] <= det[3]]
+        # plt.plot(specout['x'], specout['y'], 'k.')
+        # plt.show()
+        #print(specout)
+        wmin = min(specout['wave'].values) * 1e4
+        wmax = max(specout['wave'].values) * 1e4
+        pini = int(min(specout['x'].values))
+        pend = int(max(specout['x'].values))
+        waux = wmin
+        waveout, fluxout, pixout, sampout = [], [], [], []
+        while pini <= pend:
+            pixdata = specout.loc[specout['x'] >= pini]
+            pixdata = pixdata.loc[pixdata['x'] <= pini + 1]
+
+            if math.isnan(np.mean(pixdata['flux'].values)):
+                print(pini, pend)
+                print(pixdata)
+            waveout.append(np.mean(pixdata['wave']))
+            fluxout.append(np.mean(pixdata['flux']))
+            pixout.append(pini)
+            sampout.append(det[0])
+            pini += 1
+
+        dataout = pd.DataFrame()
+        dataout['wave'] = waveout
+        dataout['flux'] = fluxout
+        dataout['pix'] = pixout
+        dataout['samp'] = sampout
+        print('Saving .tsv file...', )
+        dataout.to_csv(outdir + str(order) + '_2D_moes.tsv', sep=',', index=False)
+        print('done')
+    #else:
+    #    print('Spectrum already created.')
+    #plt.plot(dataout['wave']*1e4, dataout['flux'], 'r-', alpha=0.5)
+    #tempdata = pd.read_csv('stellar_template/stellar_template.tsv', sep=',')
+    #plt.plot(tempdata['wave'], tempdata['flux'],'k-', alpha=0.5)
+    #plt.show()
+
+
+def create_spectra(instr, fcam):
+    wmin = 0.38
+    wmax = 0.68
+    if instr == 'fideos':
+        blaze_angle = 70. * np.pi / 180
+        G = 44.41 * 1e-3  # lines per um
+        d = 1 / G
+        fcol = 762
+        owmin = int(2 * np.sin(blaze_angle) / (G * wmin))
+        owmax = int(2 * np.sin(blaze_angle) / (G * wmax))
+        omax = owmin
+        omin = owmax
+
+    elif instr == 'platospec':
+        blaze_angle = 76. * np.pi / 180
+        G = 41.6 * 1e-3  # lines per um
+        d = 1 / G
+        fcol = 876
+        owmin = int(2 * np.sin(blaze_angle) / (G * wmin))
+        owmax = int(2 * np.sin(blaze_angle) / (G * wmax))
+        omax = owmin
+        omin = owmax
+
+    print('Creating MOES spectra for '+str(instr))
+    #rvarray = np.arange(-10000, 10001, 250)
+    rvarray = [-9500]
+    #rvarray = [0]
+    for rv in rvarray:
+        ominaux = omin
+        omaxaux = omax
+        while ominaux <= omaxaux:
+            create_2D_moes_spectrum(rv, fcam, instr, ominaux)
+            ominaux += 1
+
+
+def create_spectra_det(instr, det):
+    wmin = 0.38
+    wmax = 0.68
+    if instr == 'fideos':
+        blaze_angle = 70. * np.pi / 180
+        G = 44.41 * 1e-3  # lines per um
+        d = 1 / G
+        fcol = 762
+        owmin = int(2 * np.sin(blaze_angle) / (G * wmin))
+        owmax = int(2 * np.sin(blaze_angle) / (G * wmax))
+        omax = owmin
+        omin = owmax
+
+    elif instr == 'platospec':
+        blaze_angle = 76. * np.pi / 180
+        G = 41.6 * 1e-3  # lines per um
+        d = 1 / G
+        fcol = 876
+        owmin = int(2 * np.sin(blaze_angle) / (G * wmin))
+        owmax = int(2 * np.sin(blaze_angle) / (G * wmax))
+        omax = owmin
+        omin = owmax
+
+    print('Creating MOES spectra for '+str(instr))
+    if det[-1] == 0:
+        rvarray = np.arange(10000, 10001, 250)
+    elif det[-1] == 1:
+        rvarray = np.arange(10000, 10001, 250)
+    elif det[-1] == 2:
+        rvarray = np.arange(0, 10001, 250)
+    else:
+        rvarray = np.arange(-10000, 10001, 250)
+    #rvarray = [-9500]
+    #rvarray = [0]
+    for rv in rvarray:
+        ominaux = omin
+        omaxaux = omax
+        #omaxaux = omax
+        while ominaux <= omaxaux:
+            create_2D_moes_spectrum(rv, det, instr, ominaux)
+            ominaux += 1
+
+
+def create_spectra_rv(instr, det, rv):
+    wmin = 0.38
+    wmax = 0.68
+    if instr == 'fideos':
+        blaze_angle = 70. * np.pi / 180
+        G = 44.41 * 1e-3  # lines per um
+        d = 1 / G
+        fcol = 762
+        owmin = int(2 * np.sin(blaze_angle) / (G * wmin))
+        owmax = int(2 * np.sin(blaze_angle) / (G * wmax))
+        omax = owmin
+        omin = owmax
+
+    elif instr == 'platospec':
+        blaze_angle = 76. * np.pi / 180
+        G = 41.6 * 1e-3  # lines per um
+        d = 1 / G
+        fcol = 876
+        owmin = int(2 * np.sin(blaze_angle) / (G * wmin))
+        owmax = int(2 * np.sin(blaze_angle) / (G * wmax))
+        omax = owmin
+        omin = owmax
+
+    print('Creating MOES spectra for '+str(instr))
+    rvarray = [rv]
+    for rv in rvarray:
+        ominaux = omin
+        omaxaux = omax
+        #omaxaux = omax
+        while ominaux <= omaxaux:
+            create_2D_moes_spectrum(rv, det, instr, ominaux)
+            ominaux += 1
+
+
+def do_all_data():
+    x_um = 2048 * 13.5
+    y_um = 2048 * 13.5
+    pixarray = np.arange(7.5, 18, 1.5)
+    fcam = 240.
+    fcol = 876.
+    slit = 100
+    i = 0
+    detdir = "".join(['data/pix_exp/'])
+    if not os.path.exists(detdir):
+        os.mkdir(detdir)
+    logfile = open(detdir + 'pix_experiment_logfile.txt','w')
+    logfile.write('ccd,xpix,ypix,pixsize\n')
+    for pixsize in pixarray:
+        samp = fcam / fcol * slit / pixsize
+        x_pix = x_um / pixsize
+        y_pix = y_um / pixsize
+        #print(samp, x_pix, y_pix)
+        det = [samp, pixsize, x_pix, y_pix, i]
+        #logfile.write('%f,%f,%f,%f\n' %(i, x_pix, y_pix, pixsize))
+        print(det)
+        #if i == 6:
+            #create_spectra_det('platospec', det)
+        i += 1
+
+
+def do_single_dataset(rv, detno):
+    x_um = 2048 * 13.5
+    y_um = 2048 * 13.5
+    pixarray = np.arange(7.5, 18, 1.5)
+    fcam = 240.
+    fcol = 876.
+    slit = 100
+    i = 0
+    detdir = "".join(['data/pix_exp/'])
+    if not os.path.exists(detdir):
+        os.mkdir(detdir)
+
+    x_pix = x_um / pixarray[detno]
+    y_pix = y_um / pixarray[detno]
+    det = [pixarray[detno], x_pix, y_pix, detno]
+    create_spectra_rv('platospec', det, rv)
+
+
+def do_all_2D_moes_simple(detno):
+    x_um = 2048 * 13.5
+    y_um = 2048 * 13.5
+    pixarray = np.arange(7.5, 18, 1.5)
+    fcam = 240.
+    fcol = 876.
+    slit = 100
+
+    detdir = "".join(['data/pix_exp/'])
+    if not os.path.exists(detdir):
+        os.mkdir(detdir)
+    rvs = np.arange(-10000, 10000, 50)
+    #rvs = [-10000]
+    for rv in rvs:
+        for pixsize in pixarray:
+            samp = fcam / fcol * slit / pixsize
+            x_pix = x_um / pixsize
+            y_pix = y_um / pixsize
+            det = [samp, pixsize, x_pix, y_pix, detno]
+            if det[-1
+ <= 6:
+                omin = 68
+                omax = 122
+                while omin <= omax:
+                    create_2D_moes_simple_spec(rv, det, 'platospec', omin)
+                    omin += 1
+            
+
+
+if __name__ == '__main__':
+    #plottest(360)
+    #do_2D_all(230)
+    #do_2D(0, 360)
+    #fcam = 300
+    #do_single_dataset(-6750, 0)
+    #plt.show()
+    #do_all_data()
+    #create_spectra('platospec', 240)
+    #create_2D_moes_spectrum(0, 360, 'platospec')
+    #pixelize_2D(0, 360)
+    #do_2D_v2(0, 360)
+    do_all_2D_moes_simple(1)
+
+    #do_2D_order(-6750, 230, 95)
+    #import time
+
+    #time.sleep(10)

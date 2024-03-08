@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J01352-072 autolis/J01352-072.lis -inst CARM_VIS -safemode 2 -targ Barta_161_12 -ofac 0.0972763

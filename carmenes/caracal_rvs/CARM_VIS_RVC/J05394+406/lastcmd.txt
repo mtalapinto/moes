@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J05394+406 autolis/J05394+406.lis -inst CARM_VIS -safemode 2 -targ LSR_J0539+4038 -ofacauto -oset 25:52

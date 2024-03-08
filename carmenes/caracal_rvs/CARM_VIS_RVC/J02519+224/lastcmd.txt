@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J02519+224 autolis/J02519+224.lis -inst CARM_VIS -safemode 2 -targ rbs365 -ofac 0.182482

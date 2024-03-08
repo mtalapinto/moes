@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J11302+076 autolis/J11302+076.lis -inst CARM_VIS -safemode 2 -targ K2-18

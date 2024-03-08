@@ -1,0 +1,1084 @@
+from __future__ import division, print_function
+from __future__ import print_function, division
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import interpolate
+from scipy.optimize import curve_fit
+#import pymultinest
+import utils
+import dynesty
+from dynesty import plotting as dyplot
+import glob
+import sampling 
+
+# Python 3 compatability
+from six.moves import range
+
+# system functions that are always useful to have
+import time, sys, os
+from numpy import linalg
+import matplotlib
+#matplotlib.use('TKAgg')
+from mpl_toolkits.mplot3d import Axes3D
+import math
+
+
+# seed the random number generator
+np.random.seed(5647)
+from matplotlib import rcParams
+'''
+rcParams.update({'xtick.major.pad': '7.0'})
+rcParams.update({'xtick.major.size': '7.5'})
+rcParams.update({'xtick.major.width': '1.5'})
+rcParams.update({'xtick.minor.pad': '7.0'})
+rcParams.update({'xtick.minor.size': '3.5'})
+rcParams.update({'xtick.minor.width': '1.0'})
+rcParams.update({'ytick.major.pad': '7.0'})
+rcParams.update({'ytick.major.size': '7.5'})
+rcParams.update({'ytick.major.width': '1.5'})
+rcParams.update({'ytick.minor.pad': '7.0'})
+rcParams.update({'ytick.minor.size': '3.5'})
+rcParams.update({'ytick.minor.width': '1.0'})
+rcParams.update({'font.size': 30})
+'''
+
+
+def ccf(rv, detno, typ, sn):
+    print('Calculating CCF, RV = ', rv, 'm/s, Detector no ', detno, ', model = ', typ)
+    print('S/N = '+str(int(sn))+' %')
+    wmin = 0.38
+    wmax = 0.68
+
+    blaze_angle = 70. * np.pi / 180
+    G = 44.41 * 1e-3  # lines per um
+    d = 1 / G
+    fcol = 762.
+    owmin = int(2 * np.sin(blaze_angle) / (G * wmin))
+    owmax = int(2 * np.sin(blaze_angle) / (G * wmax))
+
+    # Defino rango de la CCF
+    rvmin = -15. + rv * 1e-3
+    rvmax = 15. + rv * 1e-3
+    drv = 0.2
+    ccf = []
+    rv_array = []
+    obsdir = '/data/matala/luthien/fideos/data/ns' + str(sn) + '/ccd_' + str(detno) + '/' + str(rv) + '/'
+    # obsdir = "".join(['data/pix_exp/ccd_', str(detno), '/', str(int(rv)), '/'])
+    # convdir = "".join(['data/pixelized/ccd_', str(detno), '/rv_', str(int(rv)), '/'])
+    # obsdir = "".join(['obs_spec/'])
+    stardir = 'stellar_template/'
+    # temp = pd.read_csv(stardir + 'stellar_template.tsv', sep=',')
+    # temp = temp.sort_values('wave')
+    # pixarr = np.arange(0, len(temp), 1)
+    # wave2pix = interpolate.interp1d(temp['wave'], pixarr)
+
+    # testorder = pd.read_csv(obsdir + str(omax-24) + '_2D.tsv', sep=',')
+    # testorder['wave'] = testorder['wave'] * 1e4
+    # testorder = testorder.sort_values('wave')
+    # plt.clf()
+    # plt.plot(temp['wave'], temp['flux'], 'k-', alpha=0.5)
+    # plt.plot(testorder['wave'], testorder['flux'], 'r-', alpha=0.5)
+    # plt.xlim(min(testorder['wave']), max(testorder['wave']))
+    # plt.show()
+    # plt.clf()
+
+    ccf = []
+    rv_array = []
+    ccf_i, ccf_alt = [], []
+    maskori = pd.read_csv(stardir + 'g2mask.tsv', delim_whitespace=True, names=['wini', 'wend', 'weight'])
+    maskori = maskori.sort_values('wini')
+
+    # print(mask)
+    # Shift in rv binary mask
+    # maskori['wend'] = maskori['wend'] * (1 + rv * 1e-3 / 3.e5)
+    # maskori['wini'] = maskori['wini'] * (1 + rv * 1e-3 / 3.e5)
+
+    while rvmin <= rvmax:
+        # mask = pd.read_csv('g2mask_new.tsv', sep=',')
+
+        # mask = mask.loc[mask['wend'] <= wmax * 1e4]
+        # mask = mask.loc[mask['wini'] >= wmin * 1e4]
+        mask = maskori.copy()
+        mask['wend_new'] = mask['wend'] * (1 + rvmin / 3.e5)
+        mask['wini_new'] = mask['wini'] * (1 + rvmin / 3.e5)
+        if typ == 'simple':
+            ominaux = 64
+            omax = 106
+        elif typ == 'full':
+            ominaux = 64
+            omax = 106
+        elif typ == 'conv':
+            ominaux = 64
+            omax = 106
+
+        ccf_aux = 0.
+        wmasksum = 0.
+        print(rv, rvmin)
+        ccf_ord, ccf_aux_2 = [], []
+        while ominaux <= omax:
+
+            # print(rvmin, ominaux)
+            if typ == 'simple':
+                obs = pd.read_csv(obsdir + str(ominaux) + '_2D_moes.tsv', sep=',')
+                #obs = obs.iloc[:-10, :]
+                #obs = obs.iloc[10:, :]
+                obs['wave'] = obs['wave'] * 1e4
+                #obs = obs.dropna(how='any')
+                ordwave2pix = interpolate.interp1d(obs['wave'], obs['pix'])
+
+            elif typ == 'full':
+                obs = pd.read_csv(obsdir + str(ominaux) + '_2D.tsv', sep=',')
+                obs['wave'] = obs['wave'] * 1e4
+                #obs = obs.dropna(how='any')
+                ordwave2pix = interpolate.interp1d(obs['wave'], obs['y'])
+
+            # elif typ == 'conv':
+            #    obs = pd.read_csv(convdir + str(ominaux) + '_2D_pix.tsv', sep=',')
+            #    obs = obs.dropna(how='any')
+            #    ordwave2pix = interpolate.interp1d(obs['wave'], obs['pix'])
+
+            # obs = obs.loc[obs['y'] >= 0]
+            # obs = obs.loc[obs['y'] <= 2048]
+
+            obswmin = min(obs['wave'])
+            obswmax = max(obs['wave'])
+            ordmask = mask.loc[mask['wend_new'] <= obswmax]
+            ordmask = ordmask.loc[ordmask['wini_new'] >= obswmin]
+
+            # print(len(ordmask))
+            # plt.clf()
+            # plt.plot(temp['wave'], temp['flux'], 'b--', alpha=0.5)
+            # plt.plot(obs['wave'], obs['flux'], 'k-', alpha=0.5)
+            # plt.plot(ordmask['wini_new'], np.full(len(ordmask), 1), 'ro')
+            # plt.plot(ordmask['wend_new'], np.full(len(ordmask), 1), 'ro')
+            # plt.xlim(min(obs['wave']), max(obs['wave']))
+            # plt.show()
+            # plt.clf()
+
+            ccfordaux = 0.
+            waux = 0.
+            if len(ordmask) > 0:
+                for i in range(len(ordmask)):
+                    weight = ordmask['weight'].values[i]
+                    maskwmin = ordmask['wini_new'].values[i]
+                    maskwmax = ordmask['wend_new'].values[i]
+                    linedata = obs.loc[obs['wave'] <= maskwmax]
+                    linedata = linedata.loc[linedata['wave'] >= maskwmin]
+                    if len(linedata) > 0:
+                        if typ == 'simple':
+                            minpixline = min(linedata['pix'])
+                            maxpixline = max(linedata['pix'])
+                            pixmin = obs.loc[obs['pix'] == minpixline - 1]['pix'].values[0]
+                            pixmax = obs.loc[obs['pix'] == maxpixline + 1]['pix'].values[0]
+                            pixmaskmin = ordwave2pix(maskwmin)
+                            pixmaskmax = ordwave2pix(maskwmax)
+                            dpixmin = 1 - np.abs(pixmaskmin - pixmin)
+                            dpixmax = 1 - np.abs(pixmaskmax - pixmax)
+                            fluxmin = obs.loc[obs['pix'] == minpixline - 1]['flux'].values[0]
+                            fluxmax = obs.loc[obs['pix'] == maxpixline + 1]['flux'].values[0]
+
+                        elif typ == 'full':
+                            minpixline = min(linedata['y'])
+                            maxpixline = max(linedata['y'])
+                            pixmin = obs.loc[obs['y'] == minpixline - 1]['y'].values[0]
+                            pixmax = obs.loc[obs['y'] == maxpixline + 1]['y'].values[0]
+
+                            pixmaskmin = ordwave2pix(maskwmin)
+                            pixmaskmax = ordwave2pix(maskwmax)
+                            dpixmin = 1 - np.abs(pixmaskmin - pixmin)
+                            dpixmax = 1 - np.abs(pixmaskmax - pixmax)
+                            fluxmin = obs.loc[obs['y'] == minpixline - 1]['flux'].values[0]
+                            fluxmax = obs.loc[obs['y'] == maxpixline + 1]['flux'].values[0]
+
+                        elif typ == 'conv':
+                            minpixline = min(linedata['pix'])
+                            maxpixline = max(linedata['pix'])
+                            pixmin = obs.loc[obs['pix'] == minpixline - 1]['pix'].values[0]
+                            pixmax = obs.loc[obs['pix'] == maxpixline + 1]['pix'].values[0]
+                            pixmaskmin = ordwave2pix(maskwmin)
+                            pixmaskmax = ordwave2pix(maskwmax)
+                            dpixmin = 1 - np.abs(pixmaskmin - pixmin)
+                            dpixmax = 1 - np.abs(pixmaskmax - pixmax)
+                            fluxmin = obs.loc[obs['pix'] == minpixline - 1]['flux'].values[0]
+                            fluxmax = obs.loc[obs['pix'] == maxpixline + 1]['flux'].values[0]
+
+                        # print(linedata)
+
+                        # we get pixel of the mask
+
+                        # print(pixmaskini, pixmaskend)
+                        # print(temppixmin, temppixmax)
+                        # print(dpixmin, dpixmax)
+                        #print(dpixmin, fluxmin, dpixmax, fluxmax, weight)
+                        ccf_borders = (dpixmin * fluxmin + dpixmax * fluxmax) * weight
+                        ccf_obs = linedata['flux'].values * weight
+                        wmasksum += weight
+                        ccf_aux += np.sum(ccf_obs) + ccf_borders
+                        ccfordaux += np.sum(ccf_obs) + ccf_borders
+                        waux = weight
+
+                wmasksum += 2 * waux
+                # ccf_ord.append(ccfordaux / np.sqrt(wmasksum))
+            ominaux += 1
+
+        ccf_i.append(ccf_aux)
+        ccf_alt.append(ccf_aux / wmasksum)
+        rv_array.append(float(rvmin))
+        print('CCF  = ', ccf_aux)
+        rvmin += drv
+
+    ccfdir = '/data/matala/luthien/fideos/data/ccf/'
+    snpath = ccfdir+'ns'+str(sn)+'/'
+
+    outdir = "".join([snpath, 'ccd_', str(detno), '/'])
+    if not os.path.exists(outdir):
+        os.mkdir(outdir)
+    fileout = "".join([outdir, 'ccf_' + str(int(rv)) + '_'+typ+'.tsv'])
+    ccf_data = pd.DataFrame()
+    ccf_data['rv'] = rv_array
+    ccf_data['ccf'] = ccf_i
+    ccf_data['ccf_norm'] = ccf_alt
+    ccf_data.to_csv(fileout, index=False)
+    #plt.clf()
+    #plt.plot(ccf_data['rv'], ccf_data['ccf'], 'k-')
+    #plt.xlabel('RV (km/s)')
+    #plt.ylabel('CCF')
+    # plt.show()
+    #plt.savefig(outdir + 'ccf_' + str(int(rv)) + '_'+typ+'.png')
+    #plt.close()
+    #plt.plot(rv_array, ccf_i, 'k-')
+    #plt.show()
+    return 0
+
+
+def gaus(x, height, x0, sigma, offset):
+    return height*np.exp(-(x - x0) ** 2 / (2 * sigma ** 2)) + offset
+
+
+def ccf_gauss_fit_sofal(rv, detno):
+    deltarray = np.arange(1.8, 7.5, 0.1)
+    rvdiff, pars = [], []
+    ccf = pd.read_csv('data/pix_exp/ccd_' + str(detno) + '/ccf/ccf_' + str(int(rv)) + '_obs.tsv', sep=',')
+
+    for delta in deltarray:
+        # delta = 6.98
+        ccfaux = ccf.loc[ccf['rv'] <= delta + rv * 1e-3]
+        ccfaux = ccfaux.loc[ccfaux['rv'] >= -delta + rv * 1e-3]
+
+        x = ccfaux['rv']
+        y = ccfaux['ccf_norm']
+
+        mean = rv * 1e-3
+        sigma = np.std(ccfaux['rv'].values)
+        height = min(ccfaux['ccf_norm'])
+        offset = 0.1
+        popt, pcov = curve_fit(gaus, x, y, p0=[height, mean, sigma, offset])
+        pars.append(popt)
+        rvdiff.append(rv - popt[1] * 1e3)
+        #print(delta, rv - popt[1] * 1e3)
+
+    rvs = pd.DataFrame()
+    indexmin = np.argmin(np.abs(rvdiff))
+    print(rvdiff[indexmin])
+    parsmin = pars[indexmin]
+    rvs['diff'] = rvdiff
+    minrv = min(np.abs(rvdiff))
+    rvout = rvs.loc[np.abs(rvs['diff']) == minrv].values[0]
+    rvarray = np.arange(min(ccf['rv']), max(ccf['rv']), 0.05)
+
+    plt.clf()
+    plt.figure(figsize=(8, 5))
+    plt.plot(ccf['rv'], ccf['ccf_norm'], 'k-', alpha=0.6)
+    plt.plot(rvarray, gaus(rvarray, *parsmin), 'b--', label='Fit RV mean = ' + str(np.round(parsmin[1] * 1e3, 2)) + ' m/s')
+    # print(popt[1])
+    plt.ylim(-0.1, 1.2)
+    plt.xlim(rv/1e3 - 16, rv/1e3 + 16)
+    plt.title('CCF for a nominal RV = ' + str(rv) + ' m/s')
+    plt.xlabel('RV (km/s)')
+    plt.ylabel('CCF')
+    plt.legend(loc=0)
+    outdir = "".join(['data/pix_exp/ccd_', str(detno), '/ccf/plots/'])
+    plt.savefig(outdir+'ccf_'+str(rv)+'_obs.png')
+    # plt.show()
+    plt.close()
+
+    return rvout[0]
+
+
+def ccf_gauss_fit(rv, detno, typ):
+    outdir = "".join(['/data/matala/luthien/fideos/data/ccf/ccd_', str(detno), '/plots/'])
+    if not os.path.exists(outdir):
+        os.mkdir(outdir)
+
+    if typ == 'simple':
+        ccf = pd.read_csv('/data/matala/luthien/fideos/data/pix_exp/ccd_' + str(detno) + '/ccf/ccf_' + str(int(rv)) + '_simple.tsv', sep=',')
+        ccf['ccf_n'] = (ccf['ccf'] - min(ccf['ccf'].values)) / (
+                max(ccf['ccf'].values) - min(ccf['ccf'].values))
+        outfile = outdir + 'ccf_' + str(rv) + '_simple.png'
+    elif typ == 'full':
+        ccf = pd.read_csv('data/pix_exp/ccd_' + str(detno) + '/ccf/ccf_' + str(int(rv)) + '_obs.tsv', sep=',')
+        ccf['ccf_n'] = (ccf['ccf'] - min(ccf['ccf'].values)) / (
+                max(ccf['ccf'].values) - min(ccf['ccf'].values))
+        outfile = outdir + 'ccf_' + str(rv) + '_obs.png'
+
+    elif typ == 'conv':
+        ccf = pd.read_csv('data/ccf/ccd_' + str(detno) + '/ccf_' + str(int(rv)) + '_conv.tsv', sep=',')
+        ccf['ccf_n'] = (ccf['ccf'] - min(ccf['ccf'].values)) / (
+                max(ccf['ccf'].values) - min(ccf['ccf'].values))
+        outfile = outdir + 'ccf_' + str(rv) + '_conv.png'
+
+    drv = 4.8
+    ccfaux = ccf.loc[ccf['rv'] <= drv + rv * 1e-3]
+    ccfaux = ccfaux.loc[ccfaux['rv'] >= -drv + rv * 1e-3]
+
+    x = ccfaux['rv']
+    y = ccfaux['ccf_n']
+
+    mean = rv * 1e-3
+    sigma = np.std(x)
+    height = min(y)
+    offset = np.mean(y)
+    popt, pcov = curve_fit(gaus, x, y, p0=[height, mean, sigma, offset])
+    pars = popt
+    rvdiff = rv - popt[1] * 1e3
+
+    rvarray = np.arange(-drv + rv * 1e-3, drv + rv * 1e-3, 0.2)
+    plt.clf()
+    plt.figure(figsize=(8, 5))
+    plt.plot(ccf['rv'], ccf['ccf_n'], 'k-', alpha=0.6)
+    plt.plot(rvarray, gaus(rvarray, *pars), 'b--',
+             label='Fit RV mean = ' + str(np.round(pars[1] * 1e3, 2)) + ' m/s')
+    plt.ylim(min(ccfaux['ccf_n']) - 0.1, max(ccfaux['ccf_n']) + 0.1)
+    plt.xlim(rv / 1e3 - 16, rv / 1e3 + 16)
+    plt.title('CCF for a nominal RV = ' + str(rv) + ' m/s')
+    plt.xlabel('RV (km/s)')
+    plt.ylabel('CCF')
+    plt.legend(loc=0)
+    # plt.show()
+    plt.savefig(outfile)
+    plt.close()
+    print(rvdiff, drv)
+    return rvdiff
+
+
+def ccf_gauss_fit_drv(rv, detno, typ, drv, sn):
+    datadir = '/data/matala/luthien/fideos/data/ccf/ns' + str(int(sn)) + '/'
+    if typ == 'simple':
+        ccf = pd.read_csv(datadir+'ccd_' + str(detno) + '/ccf_' + str(int(rv)) + '_simple.tsv', sep=',')
+        ccf['ccf_n'] = (ccf['ccf'] - min(ccf['ccf'].values)) / (
+                max(ccf['ccf'].values) - min(ccf['ccf'].values))
+    elif typ == 'full':
+        ccf = pd.read_csv('data/pix_exp/ccd_' + str(detno) + '/ccf/ccf_' + str(int(rv)) + '_obs.tsv', sep=',')
+        ccf['ccf_n'] = (ccf['ccf'] - min(ccf['ccf'].values)) / (
+                max(ccf['ccf'].values) - min(ccf['ccf'].values))
+    elif typ == 'conv':
+        ccf = pd.read_csv('data/ccf/ccd_' + str(detno) + '/ccf_' + str(int(rv)) + '_conv.tsv', sep=',')
+        ccf['ccf_n'] = (ccf['ccf'] - min(ccf['ccf'].values)) / (
+                max(ccf['ccf'].values) - min(ccf['ccf'].values))
+
+    ccfaux = ccf.loc[ccf['rv'] <= drv + rv * 1e-3]
+    ccfaux = ccfaux.loc[ccfaux['rv'] >= -drv + rv * 1e-3]
+
+    x = ccfaux['rv']
+    y = ccfaux['ccf']
+    mean = rv * 1e-3
+    sigma = np.std(x)
+    height = min(y)
+    offset = np.mean(y)
+    #print(x, y)
+    popt, pcov = curve_fit(gaus, x, y, p0=[height, mean, sigma, offset], maxfev=5000)
+    pars = popt
+    rvdiff = rv - popt[1] * 1e3
+
+    #rvarray = np.arange(-drv + rv * 1e-3, drv + rv * 1e-3, 0.2)
+    #plt.clf()
+    #plt.figure(figsize=(8, 5))
+    #plt.plot(ccf['rv'], ccf['ccf_n'], 'k-', alpha=0.6)
+    #plt.plot(rvarray, gaus(rvarray, *pars), 'b--',
+    #         label='Fit RV mean = ' + str(np.round(pars[1] * 1e3, 2)) + ' m/s')
+    #plt.ylim(min(ccfaux['ccf_n']) - 0.1, max(ccfaux['ccf_n']) + 0.1)
+    #plt.xlim(rv / 1e3 - 16, rv / 1e3 + 16)
+    #plt.title('CCF for a nominal RV = ' + str(rv) + ' m/s')
+    #plt.xlabel('RV (km/s)')
+    #plt.ylabel('CCF')
+    #plt.legend(loc=0)
+    # plt.show()
+    #plt.savefig(outfile)
+    #plt.close()
+    print(rvdiff, drv, rv, detno, sn)
+    return rvdiff
+
+
+def pymul_ccf_fit(rv, detno):
+    print('Multinest CCF fit for RV = ', rv, ', Detector = ', detno)
+    ccf = pd.read_csv('data/pix_exp/ccd_' + str(detno) + '/ccf/ccf_' + str(int(rv)) + '_obs.tsv', sep=',')
+    ccf['ccf_alt_norm'] = (ccf['ccf_alt'] - min(ccf['ccf_alt'].values)) / (
+            max(ccf['ccf_alt'].values) - min(ccf['ccf_alt'].values))
+
+    drv = 10.
+    ccfaux = ccf.loc[ccf['rv'] <= drv + rv * 1e-3]
+    ccfaux = ccfaux.loc[ccfaux['rv'] >= -drv + rv * 1e-3]
+    mean = rv * 1e-3
+    sigma = np.std(ccfaux['rv'].values)
+    height = min(ccfaux['ccf_alt_norm'])
+    offset = np.mean(ccfaux['ccf_alt_norm'])
+    x = ccfaux['rv']
+    y = ccfaux['ccf_alt_norm']
+    popt, pcov = curve_fit(gaus, x, y, p0=[height, mean, sigma, offset])
+    pars = popt
+
+    par_ini = [pars[0], pars[1], pars[2], pars[3]]
+
+    def prior(cube, ndim, nparams):
+        # Prior on RAMSES parameters, sorted by importance
+        delta0 = 1.e0
+        delta1 = 2.5e0
+        delta2 = 7.5
+        delta3 = 1.e1
+        cube[0] = utils.transform_uniform(cube[0], par_ini[0] - delta0, par_ini[0] + delta0)  # height
+        cube[1] = utils.transform_uniform(cube[1], par_ini[1] - delta1, par_ini[1] + delta1)  # mean
+        cube[2] = utils.transform_uniform(cube[2], 0., 20.)  # sigma
+        cube[3] = utils.transform_uniform(cube[3], par_ini[3] - delta3, par_ini[3] + delta3)  # offset
+
+    # Define the likelihood:
+
+    def loglike(cube, ndim, nparams):
+        # Load parameters
+        # Generate model:
+        model = gaus(x, cube[0], cube[1], cube[2], cube[3])
+
+        # Evaluate the log-likelihood:
+        sigma_fit_x = np.full(len(y), .01)
+
+        ndata = len(y)
+        loglikelihood = -0.5 * ndata * np.log(2. * np.pi * sigma_fit_x ** 2).sum() + (
+                    -0.5 * ((model - y) / sigma_fit_x) ** 2).sum()
+
+        return loglikelihood
+
+    n_params = 4
+
+    ccfpath = 'data/pix_exp/ccd_' + str(detno) + '/ccf/'+str(rv)+'/'
+    plotpath = 'data/pix_exp/ccd_' + str(detno) + '/ccf/plots/'
+    if not os.path.exists(ccfpath):
+        os.makedirs(ccfpath)
+    if not os.path.exists(plotpath):
+        os.makedirs(plotpath)
+
+    out_file = ccfpath+'pymul_ccf_'
+
+    # Run MultiNest:
+    pymultinest.run(loglike, prior, n_params, n_live_points=1500, outputfiles_basename=out_file, resume=True,
+                    verbose=False)
+
+    # Get output:
+    output = pymultinest.Analyzer(outputfiles_basename=out_file, n_params=n_params)
+    # Get out parameters: this matrix has (samples,n_params+1):
+    bestfit_params = output.get_best_fit()
+    bestfitmean = bestfit_params['parameters'][1]
+    maxlike_params = output.get_mode_stats()
+    meanpars = maxlike_params['modes'][0].get('mean')
+    sigmapars = maxlike_params['modes'][0].get('sigma')
+    mc_samples = output.get_equal_weighted_posterior()[:, :-1]
+    # print('Multicarlos optimization duration : %.3f hr' % (float(t2)))
+    import corner
+    # We do cornerplot of the nested sampling fit
+    posterior_names = ['Height', 'Mean (m/s)', r'$\sigma$', 'Offset']
+    corner.corner(mc_samples, labels=posterior_names)
+    plt.savefig(plotpath+'pymul_ccf_'+str(rv)+'.png')
+    #plt.show()
+    plt.clf()
+    plt.close()
+
+    # We do plot of the CCF with best fit
+    #plt.figure(figsize=(8, 5))
+    rvarray = np.arange(-drv + rv * 1e-3, drv + rv * 1e-3, 0.2)
+    plt.plot(ccf['rv'], ccf['ccf_alt_norm'], 'k-', alpha=0.6)
+    plt.plot(rvarray, gaus(rvarray, *meanpars), 'b--',
+             label='Fit RV mean = ' + str(np.round(meanpars[1] * 1e3, 2)) + ' m/s')
+    # print(popt[1])
+    plt.ylim(min(ccfaux['ccf_alt_norm']) - 0.1, max(ccfaux['ccf_alt_norm'])+0.1)
+    plt.xlim(rv / 1e3 - 20, rv / 1e3 + 20)
+    plt.title('CCF for a nominal RV = ' + str(rv) + ' m/s')
+    plt.xlabel('RV (km/s)')
+    plt.ylabel('CCF')
+    plt.legend(loc=0)
+    outdir = "".join(['data/pix_exp/ccd_', str(detno), '/ccf/plots/'])
+    #plt.show()
+    plt.savefig(outdir + 'ccf_' + str(rv) + '_obs.png')
+    plt.close()
+
+    rvdiff = rv - bestfitmean * 1e3
+    print(rvdiff)
+    return rvdiff
+
+
+def dynesty_ccf_fit(rv, detno):
+    print('Dynesty CCF fit for RV = ', rv, ', Detector = ', detno)
+    ccf = pd.read_csv('data/pix_exp/ccd_' + str(detno) + '/ccf/ccf_' + str(int(rv)) + '_obs.tsv', sep=',')
+    ccf['ccf_alt_norm'] = (ccf['ccf_alt'] - min(ccf['ccf_alt'].values)) / (
+            max(ccf['ccf_alt'].values) - min(ccf['ccf_alt'].values))
+
+    drv = 10.
+    ccfaux = ccf.loc[ccf['rv'] <= drv + rv * 1e-3]
+    ccfaux = ccfaux.loc[ccfaux['rv'] >= -drv + rv * 1e-3]
+    mean = rv * 1e-3
+    sigma = np.std(ccfaux['rv'].values)
+    height = min(ccfaux['ccf_alt_norm'])
+    offset = np.mean(ccfaux['ccf_alt_norm'])
+    x = ccfaux['rv'].values
+    y = ccfaux['ccf_alt_norm'].values
+    popt, pcov = curve_fit(gaus, x, y, p0=[height, mean, sigma, offset])
+    pars = popt
+
+    par_ini = [pars[0], pars[1], pars[2], pars[3]]
+
+    def prior(cube):
+        # Prior on RAMSES parameters, sorted by importance
+        delta0 = 1.e0
+        delta1 = 2.5e0
+        delta2 = 7.5
+        delta3 = 1.e1
+        cube[0] = utils.transform_uniform(cube[0], par_ini[0] - delta0, par_ini[0] + delta0)  # height
+        cube[1] = utils.transform_uniform(cube[1], par_ini[1] - delta1, par_ini[1] + delta1)  # mean
+        cube[2] = utils.transform_uniform(cube[2], 0., 20.)  # sigma
+        cube[3] = utils.transform_uniform(cube[3], par_ini[3] - delta3, par_ini[3] + delta3)  # offset
+
+        return cube
+    # Define the likelihood:
+
+    def loglike(cube):
+        # Load parameters
+        # Generate model:
+
+        model = gaus(x, cube[0], cube[1], cube[2], cube[3])
+
+        # Evaluate the log-likelihood:
+        sigma_fit_x = np.full(len(y), .01)
+
+        ndata = len(y)
+        loglikelihood = -0.5 * ndata * np.log(2. * np.pi * sigma_fit_x ** 2).sum() + (
+                -0.5 * ((model - y) / sigma_fit_x) ** 2).sum()
+
+        return loglikelihood
+
+    ndim = 4
+
+    ccfpath = 'data/pix_exp/ccd_' + str(detno) + '/ccf/' + str(rv) + '/'
+    plotpath = 'data/pix_exp/ccd_' + str(detno) + '/ccf/plots/'
+    #if not os.path.exists(ccfpath):
+    #    os.makedirs(ccfpath)
+    #if not os.path.exists(plotpath):
+    #    os.makedirs(plotpath)
+
+    out_file = ccfpath + 'dynesty_ccf_'
+
+    # Run MultiNest:
+    dsampler = dynesty.DynamicNestedSampler(
+        loglike,
+        prior,
+        ndim=ndim,
+        nparam=ndim)
+    dsampler.run_nested(nlive_init=100, nlive_batch=100)
+    results = dsampler.results
+    #print(results)
+    print('Keys:', results.keys(), '\n')
+    samples = results['samples']
+    print(samples)
+    # analytic evidence solution
+    lnz_truth = ndim * -np.log(2 * 10.)  # log(volume) of prior; log(like) is normalized
+
+    # plot extended run
+    # plot extended run (right)
+    #dyplot.cornerpoints(results, cmap='viridis', truths=[0., 0., 0.],kde=False)
+    #plt.show()
+
+    #pymultinest.run(loglike, prior, n_params, n_live_points=1500, outputfiles_basename=out_file, resume=True,
+    #                verbose=False)
+
+    # Get output:
+    #output = pymultinest.Analyzer(outputfiles_basename=out_file, n_params=n_params)
+    # Get out parameters: this matrix has (samples,n_params+1):
+    #bestfit_params = output.get_best_fit()
+    #bestfitmean = bestfit_params['parameters'][1]
+    #maxlike_params = output.get_mode_stats()
+    #meanpars = maxlike_params['modes'][0].get('mean')
+    #sigmapars = maxlike_params['modes'][0].get('sigma')
+    #mc_samples = output.get_equal_weighted_posterior()[:, :-1]
+    # print('Multicarlos optimization duration : %.3f hr' % (float(t2)))
+    #import corner
+    # We do cornerplot of the nested sampling fit
+    #posterior_names = ['Height', 'Mean (m/s)', r'$\sigma$', 'Offset']
+    #corner.corner(mc_samples, labels=posterior_names)
+    #plt.savefig(plotpath + 'pymul_ccf_' + str(rv) + '.png')
+    # plt.show()
+    #plt.clf()
+    #plt.close()
+
+    # We do plot of the CCF with best fit
+    # plt.figure(figsize=(8, 5))
+    #rvarray = np.arange(-drv + rv * 1e-3, drv + rv * 1e-3, 0.2)
+    #plt.plot(ccf['rv'], ccf['ccf_alt_norm'], 'k-', alpha=0.6)
+    #plt.plot(rvarray, gaus(rvarray, *meanpars), 'b--',
+    #         label='Fit RV mean = ' + str(np.round(meanpars[1] * 1e3, 2)) + ' m/s')
+    # print(popt[1])
+    #plt.ylim(min(ccfaux['ccf_alt_norm']) - 0.1, max(ccfaux['ccf_alt_norm']) + 0.1)
+    #plt.xlim(rv / 1e3 - 20, rv / 1e3 + 20)
+    ##plt.title('CCF for a nominal RV = ' + str(rv) + ' m/s')
+    #plt.xlabel('RV (km/s)')
+    #plt.ylabel('CCF')
+    #plt.legend(loc=0)
+    #outdir = "".join(['data/pix_exp/ccd_', str(detno), '/ccf/plots/'])
+    # plt.show()
+    #plt.savefig(outdir + 'ccf_' + str(rv) + '_obs.png')
+    #plt.close()
+
+    #rvdiff = rv - bestfitmean * 1e3
+    #print(rvdiff)
+    #return rvdiff
+
+
+def plotspec(rv, order):
+    ccfAdir = "".join(['/media/eduspec/TOSHIBA EXT/fideos_moes/data/f', str(int(300)), 'mm/ccf/'])
+    ccfBdir = "".join(['/media/eduspec/TOSHIBA EXT/fideos_moes/data/f', str(int(230)), 'mm/ccf/'])
+    twoddirA = "".join(['/media/eduspec/TOSHIBA EXT/fideos_moes/data/f', str(int(300)), 'mm/2D/'])
+    twoddirB = "".join(['/media/eduspec/TOSHIBA EXT/fideos_moes/data/f', str(int(230)), 'mm/2D/'])
+
+    dataA = pd.read_csv(twoddirA+str(rv)+'/'+str(order)+'_2D.tsv', sep=',')
+    dataB = pd.read_csv(twoddirB+str(rv)+'/'+str(order)+'_2D.tsv', sep=',')
+    dataA = dataA.sort_values('wave')
+    dataB = dataB.sort_values('wave')
+    plt.plot(dataA['wave'], dataA['flux'], 'r-',label=str(300))
+    plt.plot(dataB['wave'], dataB['flux'], 'b-',label=str(230))
+    plt.legend()
+    plt.show()
+    plt.clf()
+    plt.close()
+    ccfAdata = pd.read_csv(ccfAdir+'ccf_'+str(rv)+'.tsv', sep=',')
+    ccfBdata = pd.read_csv(ccfBdir + 'ccf_' + str(rv) + '.tsv', sep=',')
+
+    plt.plot(ccfAdata['rv'], ccfAdata['ccf'], 'k-')
+    plt.plot(ccfBdata['rv'], ccfBdata['ccf'], 'r-')
+    plt.show()
+
+
+def do_all_ccf(typ, det):
+    rvarray = np.arange(-10000, 10001, 100)
+    ccfpath = '/data/matala/luthien/fideos/data/ccf/'
+    if not os.path.exists(ccfpath):
+        os.mkdir(ccfpath)
+
+    sn = int((0.1 * 100))  # 10 %
+    snpath = ccfpath+'ns'+str(sn)+'/'
+    if not os.path.exists(snpath):
+        os.mkdir(snpath)
+    detdir = snpath + 'ccd_' + str(int(det)) + '/'
+    if not os.path.exists(detdir):
+        os.mkdir(detdir)
+
+    #datapath = '/melian/moes/platospec/data/pix_exp/sn_'+str(sn)+'/ccd_'+str(det)+'/'
+    #datapath2 = '/melian/moes/platospec/data/pix_exp/ccd_' + str(det) + '/'
+    #datest0 = pd.read_csv(datapath2+'-10000/75_2D_moes.tsv', sep=',')
+    #datest1 = pd.read_csv(datapath + '-10000/75_2D_moes_ns.tsv', sep=',')
+    #plt.plot(datest0['wave'], datest0['flux'], 'k-', alpha=0.5)
+    #plt.plot(datest1['wave'], datest1['flux'], 'r-', alpha=0.5)
+    #plt.show()
+
+    #rvarray = [-9500]
+    for rv in rvarray:
+        print(rv)
+        if typ == 'simple':
+            ccffile = detdir + 'ccf_' + str(rv) + '_simple.tsv'
+        elif typ == 'full':
+            ccffile = detdir + 'ccf_' + str(rv) + '_full.tsv'
+        elif typ == 'conv':
+            ccffile = detdir + 'ccf_' + str(rv) + '_conv.tsv'
+        #print(os.path.isfile(ccffile))
+        ccf(rv, det, typ, sn)
+        #if not os.path.isfile(ccffile):
+        #    ccf(rv, det, typ, sn)
+        #else:
+        #x    print('RV CCF already calculated.')
+
+
+def histo_diff():
+    rvs = np.arange(-10000, 10001, 50)
+    rvdiff0, rvdiff1, rvdiff2, rvdiff3, rvdiff4, rvdiff5, rvdiff6 = [], [], [], [], [], [], []
+    #rvdiff0, rvdiff1 = [], []
+    for rv in rvs:
+        #rvdiff0.append(pymul_ccf_fit(rv, 0))
+        #rvdiff1.append(pymul_ccf_fit(rv, 1))
+        #rvdiff2.append(pymul_ccf_fit(rv, 2))
+        #rvdiff3.append(pymul_ccf_fit(rv, 3))
+        #rvdiff4.append(pymul_ccf_fit(rv, 4))
+        #rvdiff4.append(pymul_ccf_fit(rv, 4))
+        #rvdiff5.append(pymul_ccf_fit(rv, 5))
+        #rvdiff6.append(pymul_ccf_fit(rv, 6))
+        rvdiff0.append(ccf_gauss_fit(rv, 0))
+        rvdiff1.append(ccf_gauss_fit(rv, 1))
+        rvdiff2.append(ccf_gauss_fit(rv, 2))
+        rvdiff3.append(ccf_gauss_fit(rv, 3))
+        rvdiff4.append(ccf_gauss_fit(rv, 4))
+        rvdiff5.append(ccf_gauss_fit(rv, 5))
+        rvdiff6.append(ccf_gauss_fit(rv, 6))
+        print(rv)
+        #rvdiff1.append(ccf_gauss_fit(rv, 1))
+        #rvdiff2.append(ccf_gauss_fit(rv, 2))
+        #rvdiff3.append(ccf_gauss_fit(rv, 3))
+        #rvdiff4.append(ccf_gauss_fit(rv, 4))
+        #rvdiff5.append(ccf_gauss_fit(rv, 5))
+        #rvdiff5.append(ccf_gauss_fit(rv, 6))
+
+    plt.clf()
+    #plt.hist(rvdiff6 - np.mean(rvdiff6),color='r', alpha=0.5)
+    #plt.hist(rvdiff0 - np.mean(rvdiff0), color='b', alpha=0.5)
+    #plt.show()
+    rvdiff0mean = np.mean(rvdiff0)
+    rvdiff1mean = np.mean(rvdiff1)
+    rvdiff1mean = np.mean(rvdiff1)
+    rvdiff2mean = np.mean(rvdiff2)
+    rvdiff3mean = np.mean(rvdiff3)
+    rvdiff4mean = np.mean(rvdiff4)
+    rvdiff5mean = np.mean(rvdiff5)
+    rvdiff6mean = np.mean(rvdiff6)
+    #bins = np.arange(-10, 10, 1.5)
+    #plt.hist(rvdiff3 - rvdiff3mean, bins = bins, color='b',alpha=0.4, edgecolor = 'black')
+    #plt.hist(rvdiff1 - rvdiff1mean, bins = bins, color='r', alpha=0.4, edgecolor = 'black')
+    #plt.hist(rvdiff2 - rvdiff2mean, bins = bins, color='g', alpha=0.4, edgecolor = 'black')
+    #plt.hist(rvdiff4 - rvdiff4mean, bins=bins, color='m', alpha=0.4, edgecolor = 'black')
+    #plt.hist(rvdiff5 - rvdiff5mean, bins=bins, color='y', alpha=0.4, edgecolor='black')
+    #plt.hist(rvdiff6 - rvdiff6mean, bins=bins, color='g', alpha=0.4, edgecolor='black')
+    #plt.hist(rvdiff1 - rvdiff1mean, bins=bins, color='g', alpha=0.4, edgecolor='black')
+    #plt.hist(rvdiff0 - rvdiff0mean, bins=bins, color='r', alpha=0.4, edgecolor='black')
+    #plt.savefig('test_0.png', 'ro')
+    #plt.show()
+    #plt.clf()
+    dataout = pd.DataFrame()
+    dataout['det_0'] = rvdiff0
+    dataout['det_1'] = rvdiff1
+    dataout['det_2'] = rvdiff2
+    dataout['det_3'] = rvdiff3
+    dataout['det_4'] = rvdiff4
+    dataout['det_5'] = rvdiff5
+    dataout['det_6'] = rvdiff6
+    dataout.to_csv('rvdiffs.tsv', sep=',', index=False)
+
+
+def histo_diff_plot():
+    data0 = pd.read_csv('results/rvdiff_ccd_0_simple.tsv')
+    data1 = pd.read_csv('results/rvdiff_ccd_1_simple.tsv')
+    data2 = pd.read_csv('results/rvdiff_ccd_2_simple.tsv')
+    data3 = pd.read_csv('results/rvdiff_ccd_3_simple.tsv')
+    data4 = pd.read_csv('results/rvdiff_ccd_4_simple.tsv')
+    data5 = pd.read_csv('results/rvdiff_ccd_5_simple.tsv')
+    data6 = pd.read_csv('results/rvdiff_ccd_6_simple.tsv')
+    data7 = pd.read_csv('results/rvdiff_ccd_7_simple.tsv')  # sampling = 3.4
+    data8 = pd.read_csv('results/rvdiff_ccd_8_simple.tsv')  # sampling = 2.56
+    data9 = pd.read_csv('results/rvdiff_ccd_9_simple.tsv')  # sampling = 2.8
+    data10 = pd.read_csv('results/rvdiff_ccd_10_simple.tsv')  # sampling = 3.08
+    data11 = pd.read_csv('results/rvdiff_ccd_11_simple.tsv')  # sampling = 2.37
+
+    bins = np.arange(-7.5, 7.5, 0.75)
+    std0 = np.std(data0['0'] - np.mean(data0['0']))
+    std1 = np.std(data1['0'] - np.mean(data1['0']))
+    std2 = np.std(data2['0'] - np.mean(data2['0']))
+    std3 = np.std(data3['0'] - np.mean(data3['0']))
+    std4 = np.std(data4['0'] - np.mean(data4['0']))
+    std5 = np.std(data5['0'] - np.mean(data5['0']))
+    std6 = np.std(data6['0'] - np.mean(data6['0']))
+    std7 = np.std(data7['0'] - np.mean(data7['0']))
+    std8 = np.std(data8['0'] - np.mean(data8['0']))
+    std9 = np.std(data9['0'] - np.mean(data9['0']))
+    std10 = np.std(data10['0'] - np.mean(data10['0']))
+    std11 = np.std(data11['0'] - np.mean(data11['0']))
+    std = [std0, std1, std2, std3, std4, std5, std6, std7, std8, std9, std10, std11]
+    import plots
+    samp = [plots.get_det_samp(0),
+            plots.get_det_samp(1),
+            plots.get_det_samp(2),
+            plots.get_det_samp(3),
+            plots.get_det_samp(4),
+            plots.get_det_samp(5),
+            plots.get_det_samp(6),
+            plots.get_det_samp(7),
+            plots.get_det_samp(8),
+            plots.get_det_samp(9),
+            plots.get_det_samp(10),
+            plots.get_det_samp(11)]
+    print(samp)
+    #print(std0, std1, std2, std3, std4, std5)
+
+    fig, (ax1, ax2, ax3) = plt.subplots(3, sharex=True)
+    ax1.hist(data0['0'] - np.mean(data0['0']), bins=bins, color='white', alpha=1.0, edgecolor='black',
+             label='s = '+str(np.round(plots.get_det_samp(0), 2)))
+    ax1.hist(data4['0'] - np.mean(data4['0']), bins=bins, color='gold', alpha=0.7, edgecolor='black',
+             label='s = ' + str(np.round(plots.get_det_samp(4), 2)))
+
+    ax1.legend(loc='best')
+    ax2.hist(data0['0'] - np.mean(data0['0']), bins=bins, color='white', alpha=1.0, edgecolor='black', label='s = '+str(np.round(plots.get_det_samp(0), 2)))
+    ax2.hist(data6['0'] - np.mean(data6['0']), bins=bins, color='purple', alpha=0.5, edgecolor='black', label='s = '+str(np.round(plots.get_det_samp(6), 2)))
+    ax2.legend(loc='best')
+    ax3.hist(data4['0'] - np.mean(data4['0']), bins=bins, color='gold', alpha=0.7, edgecolor='black', label='s = '+str(np.round(plots.get_det_samp(4), 2)))
+    ax3.hist(data6['0'] - np.mean(data6['0']), bins=bins, color='purple', alpha=0.5, edgecolor='black',
+             label='s = '+str(np.round(plots.get_det_samp(6), 2)))
+    ax3.legend(loc='best')
+    #plt.hist(data7['0'] - np.mean(data7['0']), bins=bins, color='red', alpha=0.4, edgecolor = 'black', label='s = 3.42')
+    #plt.hist(data8['0'] - np.mean(data8['0']), bins=bins, color='red', alpha=0.4, label='s = 2.56')
+    #plt.hist(data0['0'] - np.mean(data0['0']), bins=bins, color='green', alpha=0.4, edgecolor = 'black', label='s = '+str(np.round(get_sampling(0), 2)))
+    #plt.hist(data1['0'] - np.mean(data1['0']), bins=bins, color='greenyellow', alpha=0.4, edgecolor='black', label='s = '+str(np.round(get_sampling(1), 2)))
+    #plt.hist(data2['0'] - np.mean(data2['0']), bins=bins, color='darkgreen', alpha=0.4, edgecolor='black', label='s = '+str(np.round(get_sampling(2), 2)))
+    #plt.hist(data3['0'] - np.mean(data3['0']), bins=bins, color='darkcyan', alpha=0.4, edgecolor='black', label='s = '+str(np.round(get_sampling(3), 2)))
+    #plt.hist(data4['0'] - np.mean(data4['0']), bins=bins, color='deepskyblue', alpha=0.4, edgecolor='black', label='s = '+str(np.round(get_sampling(4), 2)))
+    #plt.hist(data5['0'] - np.mean(data5['0']), bins=bins, color='gold', alpha=0.4, edgecolor='black', label='s = '+str(np.round(get_sampling(5), 2)))
+    #plt.hist(data6['0'] - np.mean(data6['0']), bins=bins, color='purple', alpha=0.4, edgecolor='black',
+    #         label='s = ' + str(np.round(get_sampling(6), 2)))
+    #plt.hist(data['det_1'] - np.mean(data['det_1']), bins=bins, color='yellow', alpha=0.4, edgecolor='black')
+    #plt.hist(data['det_2'] - np.mean(data['det_2']), bins=bins, color='lime', alpha=0.4, edgecolor='black')
+    #plt.hist(data['det_3'] - np.mean(data['det_3']), bins=bins, color='blue', alpha=0.4, edgecolor='black')
+    #plt.hist(data['det_4'] - np.mean(data['det_4']), bins=bins, color='darkorange', alpha=0.4, edgecolor='black')
+    #plt.hist(data['det_5'] - np.mean(data['det_5']), bins=bins, color='brown', alpha=0.4, edgecolor='black')
+    #plt.hist(data['det_6'] - np.mean(data['det_6']), bins=bins, color='purple', alpha=0.4, edgecolor='black')
+    ax2.set_ylabel('Number of observations')
+    ax3.set_xlabel(r'$\Delta$RV (m/s)')
+    #plt.legend(loc='best')
+    plt.tight_layout()
+    plt.savefig('sampling_vs_accuracy.png')
+    #plt.show()
+    plt.clf()
+    plt.close()
+
+    fitpars = np.polyfit(np.log10(samp), std, 1)
+    xarray = np.arange(min(samp), max(samp), 0.1)
+
+    #def func(x, a, b, c, d, e):
+    #    return a * x ** 4 + b * x ** 3 + c * x ** 2 + d * x + e
+    def func(x, a, b):
+        return a * 10 ** (-x) + b
+
+    #def func(x, a, b):
+    #    return a * 10 ** (-x) + b
+
+    #func = fitpars[0]*np.log10(xarray) + fitpars[1]
+    popt, pcov = curve_fit(func, samp, std)
+    xarray = np.arange(min(samp)-0.1, max(samp)+0.3, 0.1)
+
+    plt.scatter(samp, std, color='gold', edgecolors='black')
+    plt.plot(xarray, func(xarray, *popt), 'k--', zorder = 0, alpha=0.8, label=r'$\sigma_{\Delta RV}$ = '+str(np.round(popt[0], 3))+'$\cdot$10$^{-s}$+'+str(np.round(popt[1], 3)))
+    plt.xlabel('s (pix)')
+    plt.ylabel(r'$\sigma_{\Delta RV}$(m/s)')
+    plt.legend(loc='best')
+    #plt.show()
+    plt.savefig('sampling_vs_rvdiff.png')
+
+    # Latex table
+    fileout = open('latex_table.txt', 'w')
+    slitsize = 100
+    slitccd = slitsize*240/876
+    ccdx = 2048 * 13.5
+    for i in range(len(std)):
+        pixsize = slitccd /  samp[i]
+        npix = ccdx / pixsize
+
+        print(i, pixsize, samp[i], std[i])
+
+        linea = str(int(i))+' & '+str(np.round(pixsize, 1)) + ' & ' + str(np.round(npix,0)) +r'$\times$' + str(np.round(npix, 0)) + ' & ' + str(np.round(samp[i], 2)) + ' & '+str(np.round(std[i], 3)) + '\\\\ \n'
+        fileout.write(linea)
+
+
+    #plt.show()
+    #print(np.std(data['det_0']),
+    #      np.std(data['det_1']),
+    #      np.std(data['det_2']),
+    #      np.std(data['det_3']),
+    #      np.std(data['det_4']),
+    #      np.std(data['det_5']),
+    #      np.std(data['det_6']))
+
+
+def do_histo_drv(sn):
+    datadir = '/data/matala/luthien/fideos/data/ccf/ns' + str(int(sn)) + '/'
+    ndets = len(glob.glob(datadir + '*'))
+    outdir = '/data/matala/moes/fideos/results/ns' + str(sn) + '/'
+    import plots
+    if not os.path.exists(outdir):
+        os.mkdir(outdir)
+
+    for i in range(ndets):
+        print(i)
+        rvs = np.arange(-10000, 10001, 100)
+        rvdiff, samp = [], []
+        fileout = outdir + 'drv_ccd_' + str(int(i))+'_simple.tsv'
+        if os.path.isfile(fileout):
+            for rv in rvs:
+                drvs = np.arange(3.0, 12.25, 0.25)
+                drvout = []
+                for drv in drvs:
+                    drvout.append(ccf_gauss_fit_drv(rv, i, 'simple', drv, sn))
+                rvdiff.append(min(drvout))
+                samp.append(get_det_samp(i, sn))
+
+            rvdiffout = pd.DataFrame()
+            rvdiffout['drv'] = rvdiff
+            rvdiffout['samp'] = samp
+            rvdiffout.to_csv(outdir + 'drv_ccd_' + str(i) + '_simple' + '.tsv', index=False, sep=',')
+
+
+    '''
+
+
+    ccf = pd.read_csv('/home/eduspec/Documentos/moes/platospec/data/pix_exp/ccd_0/ccf/ccf_0_simple.tsv', sep=',')
+    ccf['ccf_n'] = (ccf['ccf'] - min(ccf['ccf'].values)) / (
+            max(ccf['ccf'].values) - min(ccf['ccf'].values))
+    ccf['ccf_norm_n'] = (ccf['ccf_norm'] - min(ccf['ccf_norm'].values)) / (
+            max(ccf['ccf_norm'].values) - min(ccf['ccf_norm'].values))
+    plt.plot(ccf['rv'], ccf['ccf_n'], 'k-',alpha=0.5)
+    plt.plot(ccf['rv'], ccf['ccf_norm_n'], 'r-', alpha=0.5)
+    plt.show()
+    '''
+
+
+def get_det_samp(i, sn):
+    if sn == 0:
+        datadir = '/data/matala/luthien/fideos/data/ns'+str(int(sn))+'/ccd_'+str(i)+'/0/'
+        orand = 90
+        data = pd.read_csv(datadir + str(int(orand)) + '_2D_moes.tsv', sep=',')
+
+    elif sn == 1 or sn == 5 or sn == 10:
+        datadir = '/data/matala/luthien/fideos/data/ns'+str(int(sn))+'/ccd_' + str(i) + '/0/'
+        orand = 90
+        if i < 10:
+            data = pd.read_csv(datadir + str(int(orand)) + '_2D_moes_ns.tsv', sep=',')
+        elif i >= 10:
+            data = pd.read_csv(datadir + str(int(orand)) + '_2D_moes.tsv', sep=',')
+    #print(data)
+    npix = len(data)
+    ccdx = 2048 * 15  # um
+    pixsize = ccdx / npix
+
+    fcam = 300
+    fcol = 762
+    slit = 100
+    samp = slit*fcam/fcol/pixsize
+    return samp
+
+
+def do_histo_drv_plot():
+    import plots
+    n0 = 10
+    std0 = []
+    samp0 = []
+    for k in range(n0):
+        print(k)
+        drv = pd.read_csv('results/ns0/drv_ccd_'+str(k)+'_simple.tsv', sep=',')
+        std0.append(np.std(drv['drv'] - np.mean(drv['drv'])))
+        samp0.append(np.mean(drv['samp']))
+
+
+    n1 = 10
+    std1 = []
+    samp1 = []
+    for i in range(n1):
+        #print(i)
+        drv = pd.read_csv('results/ns1/drv_ccd_' + str(i) + '_simple.tsv', sep=',')
+        std1.append(np.std(drv['drv'] - np.mean(drv['drv'])))
+        samp1.append(np.mean(drv['samp']))
+
+
+    n2 = 10
+    std2 = []
+    samp2 = []
+    for i in range(n2):
+        #print(i)
+        drv = pd.read_csv('results/ns5/drv_ccd_' + str(i) + '_simple.tsv', sep=',')
+        std2.append(np.std(drv['drv'] - np.mean(drv['drv'])))
+        samp2.append(np.mean(drv['samp']))
+
+    n3 = 10
+    std3 = []
+    samp3 = []
+    for i in range(n3):
+        # print(i)
+        drv = pd.read_csv('results/ns10/drv_ccd_' + str(i) + '_simple.tsv', sep=',')
+        std3.append(np.std(drv['drv'] - np.mean(drv['drv'])))
+        samp3.append(np.mean(drv['samp']))
+
+    plt.plot(samp0, std0, 'ro', label='Noise percent = 0 %')
+    plt.plot(samp1, std1, 'go', label='Noise percent = 1 %')
+    plt.plot(samp2, std2, 'bo', label='Noise percent = 5 %')
+    plt.plot(samp3, std3, 'ko', label='Noise percent = 10 %')
+    #plt.plot(samp2, std2, 'bo', label='Noise percent = 5 %')
+    #plt.legend()
+    plt.xlabel('Spectral sampling (pix)')
+    plt.ylabel(r'$\sigma_{RV}$ (m/s)')
+    plt.savefig('results/samp_rv_fideos.png')
+    plt.show()
+
+
+
+def histo_diff_single(detno, type):
+    rvs = np.arange(-10000, 9951, 50)
+    rvdiff = []
+    for rv in rvs:
+        drvs = np.arange(2.5, 12.5, 0.25)
+        drvout = []
+        for drv in drvs:
+            drvout.append(ccf_gauss_fit_drv(rv, detno, type, drv, 1))
+
+        rvdiff.append(min(drvout))
+
+    meandiff = np.mean(rvdiff)
+    rvdiffout = pd.DataFrame(rvdiff)
+    rvdiffout.to_csv('rvdiff_ccd_'+str(detno)+'_'+type+'.tsv', index=False)
+   # bins = np.arange(-20, 20, 1.)
+   # print(np.std(rvdiff))
+    #plt.hist(rvdiff - meandiff, bins=bins)
+    #plt.savefig('rvdiff_ccd_'+str(detno)+'_'+type+'.png')
+    #plt.show()
+
+
+def plot_histo_rvdiff(detno, type):
+    rvdiff = pd.read_csv('rvdiff_ccd_' + str(detno) + '_' + type + '.tsv')
+    print(rvdiff['0'])
+    rvdiff['0'] = rvdiff['0'] - np.mean(rvdiff['0'])
+    bins = np.arange(-10, 10, 1.)
+    plt.hist(rvdiff['0'], bins=bins)
+    plt.show()
+
+
+def get_sampling(detno):
+
+    x_um = 2048 * 13.5
+    y_um = 2048 * 13.5
+    #print(x_um)
+    pixarray = np.arange(7.5, 18, 1.5)
+    fcam = 135.
+    fcol = 876.
+    slit = 100
+    slit_ccd = slit*fcam/fcol
+
+    i = 0
+    detdir = "".join(['data/pix_exp/'])
+    if not os.path.exists(detdir):
+        os.mkdir(detdir)
+
+    x_pix = x_um / pixarray[detno]
+    y_pix = y_um / pixarray[detno]
+    det = [pixarray[detno], x_pix, y_pix, detno]
+    samp = slit_ccd / pixarray[detno]
+    return samp
+
+
+if __name__ == '__main__':
+    #histo_diff_single(9, 'simple')
+    #histo_diff()
+    #do_all_ccf('simple', int(sys.argv[-1]))
+    #do_histo_drv_plot()
+    #ccf(0, 0, 'simple', 0)
+    do_histo_drv(10)
+    do_histo_drv(0)
+    do_histo_drv(1)
+    do_histo_drv(5)
+    #do_histo_drv(10)
+    #do_all_ccf('simple', int(sys.argv[-1]))
+

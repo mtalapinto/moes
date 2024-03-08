@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/bin/serval J01339-176 autolis/J01339-176.lis -inst CARM_VIS -safemode 2 -targ LP_768-113

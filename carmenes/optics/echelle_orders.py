@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def init():
-    wav_N = 50  # 1575
+    wav_N = 1000  # 1575
     wav_lo = 0.55  # in microns
     wav_hi = 1.05
     blaze_angle = 75.76 * np.pi / 180
@@ -49,6 +49,39 @@ def init():
     print('Loading spectrum... Done\n')
     # print(spectrum)
     return slitout
+
+
+def initialize():
+    wav_N = 1000  # 1575
+    wav_lo = 0.55  # in microns
+    wav_hi = 1.05
+    blaze_angle = 75.76 * np.pi / 180
+    G = 31.6 * 1e-3  # lines per um
+    d = 1 / G
+    ord_blu = int(2 * d * np.sin(blaze_angle) / wav_lo) + 1
+    ord_red = int(2 * d * np.sin(blaze_angle) / wav_hi)
+    #print('Creating echelle orders...')
+    spectrum = []
+    order = []
+    wave = []
+    while ord_red < ord_blu + 1:
+        wav_blz = 2 * np.sin(blaze_angle) / (G * ord_red)
+        wav_min = wav_blz - wav_blz / (2 * ord_red) - 0.005
+        wav_max = wav_blz + wav_blz / (2 * ord_red) + 0.005
+        dwav = (wav_max - wav_min) / wav_N
+        k = 0
+        while k <= wav_N:
+            order.append(ord_red)
+            wave.append(float(f'{float(wav_min):.5f}'))
+            single_element = (ord_red, wav_min)
+            spectrum.append(single_element)
+            wav_min += dwav
+            k += 1
+        ord_red += 1
+
+    #print('Loading spectrum... Done\n')
+    # print(spectrum)
+    return np.array(spectrum)
 
 
 def init2():

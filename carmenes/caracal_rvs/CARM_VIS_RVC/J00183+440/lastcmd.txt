@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J00183+440 autolis/J00183+440.lis -inst CARM_VIS -safemode 2 -targ GX_And

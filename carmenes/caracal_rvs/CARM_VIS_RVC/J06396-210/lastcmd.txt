@@ -1,0 +1,1 @@
+/home/raid0/zechmeister/.local/bin/serval J06396-210 autolis/J06396-210.lis -inst CARM_VIS -safemode 2 -targ LP780-032 -ofac 0.8
